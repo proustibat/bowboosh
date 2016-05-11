@@ -24,7 +24,7 @@
     "bootstrap-sass": {
       "main": [
         "./assets/javascripts/bootstrap.js",
-        "./assets/javascripts/**/*.js"
+        "./assets/javascripts/bootstrap/**/*.js"
       ]
     }
   },
