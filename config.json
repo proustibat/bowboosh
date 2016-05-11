@@ -4,5 +4,5 @@
   "bowerDir": "./bower_components",
   "fontsDir": "fonts",
   "cssDir": "css",
-  "bootstrapTheme": "readable"
+  "bootstrapTheme": "slate"
 }
