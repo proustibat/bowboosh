@@ -1,34 +1,42 @@
 {
-  "name": "kalel.cat-gram",
+  "name": "bowboosh",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "bowboosh.js",
+  "description": "Simple boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes",
   "scripts": {
+    "postinstall": "bower install --allow-root",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/proustibat/kalel.cat-gram.git"
+    "url": "https://github.com/proustibat/bowboosh.git"
   },
   "keywords": [
-    "instagram",
-    "cats"
+    "Gulp",
+    "Bower",
+    "Bootstrap",
+    "SASS",
+    "scss",
+    "bootswatch",
+    "font-awesome"
   ],
-  "author": "http://twitter.com/proustibat",
-  "license": "ISC",
+  "author": "Jennifer Proust <jennifer.proust@gmail.com> (http://www.twitter.com/@proustibat)",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/proustibat/kalel.cat-gram/issues"
+    "url": "https://github.com/proustibat/bowboosh/issues"
   },
-  "homepage": "https://github.com/proustibat/kalel.cat-gram",
+  "homepage": "https://github.com/proustibat/bowboosh",
   "devDependencies": {
-    "bower": "^1.7.9",
-    "gulp": "^3.9.1",
     "gulp-bower": "0.0.13",
-    "gulp-concat": "^2.6.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-ruby-sass": "^2.0.6",
-    "gulp-sass": "^2.3.1",
-    "gulp-uglify": "^1.5.3",
-    "main-bower-files": "^2.13.0"
+    "gulp-concat": "2.6.0",
+    "gulp-notify": "2.2.0",
+    "gulp-sass": "2.3.1",
+    "gulp-uglify": "1.5.3",
+    "main-bower-files": "2.13.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bower": "1.7.9",
+    "gulp": "3.9.1"
+  },
+  "private": true
 }

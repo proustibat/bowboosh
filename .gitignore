@@ -12,3 +12,5 @@ kalel.cat-gram.iml
 .idea/*
 /.idea
 /bower_components
+/kalel.cat-gram.iml
+/src/css/theme
