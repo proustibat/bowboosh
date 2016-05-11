@@ -44,8 +44,18 @@ gulp.task( 'fonts', function () {
     }
 );
 
+
+/**
+ * Copy sass files for theme
+ */
+gulp.task( 'bootswatch-theme', function () {
+        return gulp.src( config.bowerDir + '/bootswatch/'+ config.bootstrapTheme +'/*.scss' )
+            .pipe( gulp.dest( config.srcPath + '/' + config.cssDir + '/theme' ) );
+    }
+);
+
 // compile scss
-gulp.task( 'sass', [ 'fonts', 'icons' ], function () {
+gulp.task( 'sass', [ 'bootswatch-theme', 'fonts', 'icons' ], function () {
         return gulp.src( config.srcPath + '/css/main.scss' )
             .pipe( sass( {
                     outputStyle: 'nested',
@@ -75,5 +85,5 @@ gulp.task( 'vendorjs', function () {
 gulp.task( 'default', [ 'sass', 'vendorjs' ], function () {
         gulp.watch( config.srcPath + '/' + config.cssDir + '/**/*.scss', [ 'sass' ] );
         gulp.watch( config.bowerDir + '/**/*.js', [ 'vendorjs' ] );
-    }
+ }
 );

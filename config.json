@@ -3,5 +3,6 @@
   "srcPath": "./src",
   "bowerDir": "./bower_components",
   "fontsDir": "fonts",
-  "cssDir": "css"
+  "cssDir": "css",
+  "bootstrapTheme": "readable"
 }
