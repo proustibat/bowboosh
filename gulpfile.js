@@ -28,7 +28,7 @@ gulp.task( 'bower', function () {
  */
 gulp.task( 'icons', function () {
         return gulp.src( config.bowerDir + '/font-awesome/fonts/**.*' )
-            .pipe( gulp.dest( config.publicPath + '/' + config.fontsDir + '/font-awesome' ) );
+            .pipe( gulp.dest( config.publicPath + '/' + config.fontsDir ) );
     }
 );
 
@@ -51,7 +51,10 @@ gulp.task( 'sass', [ 'fonts', 'icons' ], function () {
                     outputStyle: 'nested',
                     precison: 3,
                     errLogToConsole: true,
-                    includePaths: [ config.bowerDir + '/bootstrap-sass/' + 'assets/stylesheets' ]
+                    includePaths: [
+                        config.bowerDir + '/bootstrap-sass/' + 'assets/stylesheets',
+                        config.bowerDir + '/font-awesome/scss'
+                    ]
                 })
             )
             .pipe( gulp.dest( config.publicPath + '/css/' ) );
@@ -60,7 +63,7 @@ gulp.task( 'sass', [ 'fonts', 'icons' ], function () {
 
 // compile bower javascript files
 gulp.task( 'vendorjs', function () {
-        return gulp.src( mainBowerFiles(), { base: config.bowerDir } )
+        return gulp.src( mainBowerFiles('**/*.js'), { base: config.bowerDir } )
             .pipe( concat( 'libs.js' ) )
             .pipe( uglify() )
             .pipe( gulp.dest( config.publicPath + '/js/vendor' ) );
@@ -72,7 +75,5 @@ gulp.task( 'vendorjs', function () {
 gulp.task( 'default', [ 'sass', 'vendorjs' ], function () {
         gulp.watch( config.srcPath + '/' + config.cssDir + '/**/*.scss', [ 'sass' ] );
         gulp.watch( config.bowerDir + '/**/*.js', [ 'vendorjs' ] );
-
-    //TODO : watcher for fonts and icons
     }
 );
