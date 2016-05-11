@@ -1,0 +1,22 @@
+{
+  "name": "kalel.cat-gram",
+  "version": "1.0.0",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6"
+  },
+  "overrides": {},
+  "authors": [],
+  "keywords": [],
+  "license": "MIT"
+}
