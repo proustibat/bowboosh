@@ -8,9 +8,8 @@ npm-debug.log*
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
 
-kalel.cat-gram.iml
 .idea/*
 /.idea
 /bower_components
-/kalel.cat-gram.iml
+/*.iml
 /src/css/theme
