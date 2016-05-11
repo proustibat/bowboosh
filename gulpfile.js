@@ -5,7 +5,8 @@ var config = require( './config.json' );
 var gulp = require( 'gulp' ),
     sass = require( 'gulp-sass' ),
     notify = require( "gulp-notify" ),
-    bower = require( 'gulp-bower' );
+    bower = require( 'gulp-bower' ),
+    mainBowerFiles = require( 'main-bower-files' );
 
 /**
  * Runs bower install including in the gulpfile,
@@ -20,7 +21,6 @@ gulp.task( 'bower', function () {
 );
 
 
-
 /**
  * Copy fonts from fontawesome to public directory
  */
@@ -32,28 +32,42 @@ gulp.task( 'icons', function () {
 );
 
 // copy bootstrap required fonts to dest
-gulp.task('fonts', ['icons'],  function () {
-    return gulp
-        .src([
-            config.srcPath + '/'+ config.fontsDir +'/*.*',
-            config.bowerDir + '/bootstrap-sass/' + 'assets/fonts/**/*'
-        ])
-        .pipe(gulp.dest(config.publicPath + '/' + config.fontsDir));
-});
+gulp.task( 'fonts', [ 'icons' ], function () {
+        return gulp
+            .src( [
+                    config.srcPath + '/' + config.fontsDir + '/*.*',
+                    config.bowerDir + '/bootstrap-sass/' + 'assets/fonts/**/*'
+                ]
+            )
+            .pipe( gulp.dest( config.publicPath + '/' + config.fontsDir ) );
+    }
+);
 
 // compile scss
-gulp.task('sass', ['fonts'], function () {
-    return gulp.src(config.srcPath + '/css/main.scss')
-        .pipe(sass({
-            outputStyle: 'nested',
-            precison: 3,
-            errLogToConsole: true,
-            includePaths: [config.bowerDir + '/bootstrap-sass/' + 'assets/stylesheets']
-        }))
-        .pipe(gulp.dest(config.publicPath + '/css/'));
-});
+gulp.task( 'sass', [ 'fonts' ], function () {
+        return gulp.src( config.srcPath + '/css/main.scss' )
+            .pipe( sass( {
+                    outputStyle: 'nested',
+                    precison: 3,
+                    errLogToConsole: true,
+                    includePaths: [ config.bowerDir + '/bootstrap-sass/' + 'assets/stylesheets' ]
+                }
+                )
+            )
+            .pipe( gulp.dest( config.publicPath + '/css/' ) );
+    }
+);
+
+
+gulp.task( 'vendorjs', function () {
+        return gulp.src( mainBowerFiles(), { base: config.bowerDir } )
+            .pipe( gulp.dest(config.publicPath + '/js/vendor') );
+    }
+);
+
 
 // default task
-gulp.task('default', ['sass'], function () {
-    gulp.watch(config.srcPath + '/css/**/*', ['sass']);
-});
+gulp.task( 'default', [ 'sass' ], function () {
+        gulp.watch( config.srcPath + '/css/**/*', [ 'sass' ] );
+    }
+);
