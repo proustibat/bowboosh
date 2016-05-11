@@ -20,10 +20,7 @@
   },
   "homepage": "https://github.com/proustibat/kalel.cat-gram",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-bower": "0.0.13",
-    "gulp-notify": "^2.2.0",
-    "gulp-ruby-sass": "^2.0.6"
+    "bower": "^1.7.9"
   },
   "dependencies": {}
 }
