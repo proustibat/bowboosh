@@ -6,7 +6,9 @@ var gulp = require( 'gulp' ),
     sass = require( 'gulp-sass' ),
     notify = require( "gulp-notify" ),
     bower = require( 'gulp-bower' ),
-    mainBowerFiles = require( 'main-bower-files' );
+    mainBowerFiles = require( 'main-bower-files' ),
+    uglify = require( 'gulp-uglify' ),
+    concat = require( 'gulp-concat' );
 
 /**
  * Runs bower install including in the gulpfile,
@@ -61,7 +63,9 @@ gulp.task( 'sass', [ 'fonts' ], function () {
 
 gulp.task( 'vendorjs', function () {
         return gulp.src( mainBowerFiles(), { base: config.bowerDir } )
-            .pipe( gulp.dest(config.publicPath + '/js/vendor') );
+            .pipe( concat( 'libs.js' ) )
+            .pipe( uglify() )
+            .pipe( gulp.dest( config.publicPath + '/js/vendor' ) );
     }
 );
 
