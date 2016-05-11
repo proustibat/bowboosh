@@ -4,7 +4,8 @@
   "main": "bowboosh.js",
   "description": "Simple boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes",
   "scripts": {
-    "postinstall": "bower install --allow-root",
+    "postinstall": "bower install --allow-root && gulp help",
+    "help": "gulp help",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +30,7 @@
   "devDependencies": {
     "gulp-bower": "0.0.13",
     "gulp-concat": "2.6.0",
+    "gulp-help": "^1.6.1",
     "gulp-notify": "2.2.0",
     "gulp-sass": "2.3.1",
     "gulp-uglify": "1.5.3",
