@@ -1,0 +1,7 @@
+{
+  "publicPath": "./dest",
+  "srcPath": "./src",
+  "bowerDir": "./bower_components",
+  "fontsDir": "fonts",
+  "cssDir": "css"
+}

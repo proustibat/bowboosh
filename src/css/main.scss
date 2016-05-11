@@ -1,0 +1,14 @@
+/* main.scss */
+
+
+// Override and customize bootstrap files
+@import "variables";
+
+
+// Import bootstrap
+@import "bootstrap";
+@import "bootstrap/theme";
+
+
+// Import project files
+@import "test";
