@@ -32,7 +32,7 @@ gulp.task( 'icons', function () {
     }
 );
 
-// copy bootstrap required fonts to dest
+// copy bootstrap required fonts to destination
 gulp.task( 'fonts', function () {
         return gulp
             .src( [

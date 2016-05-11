@@ -1,8 +1,8 @@
 {
-  "publicPath": "./dest",
+  "publicPath": "./dist",
   "srcPath": "./src",
   "bowerDir": "./bower_components",
   "fontsDir": "fonts",
   "cssDir": "css",
-  "bootstrapTheme": "slate"
+  "bootstrapTheme": "simplex"
 }
