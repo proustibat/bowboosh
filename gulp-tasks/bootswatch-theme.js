@@ -11,5 +11,5 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
         }, {
             aliases: [ 'bw-theme' ]
         }
-    );
+    )
 };

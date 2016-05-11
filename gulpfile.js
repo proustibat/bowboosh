@@ -18,19 +18,18 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
         }
     }
     ),
-    plugins  = require('gulp-load-plugins')({
-        scope: ['devDependencies'],
-        pattern: '*',
-        rename: {
-            'main-bower-files': 'mainBowerFiles'
-        },
-        lazy: true
-    });
-
+    plugins = require( 'gulp-load-plugins' )( {
+            scope: [ 'devDependencies' ],
+            pattern: '*',
+            rename: {
+                'main-bower-files': 'mainBowerFiles'
+            },
+            lazy: true
+        }
+    );
 
 // Require all tasks
 plugins.loadSubtasks( './gulp-tasks/**/*.js', plugins, config, pkg, bwr );
-
 
 /**
  * Default task when running 'gulp' command mine
