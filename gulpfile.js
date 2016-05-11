@@ -27,14 +27,13 @@ gulp.task( 'bower', function () {
  * Copy fonts from fontawesome to public directory
  */
 gulp.task( 'icons', function () {
-        console.log( config.publicPath + '/' + config.fontsDir );
         return gulp.src( config.bowerDir + '/font-awesome/fonts/**.*' )
             .pipe( gulp.dest( config.publicPath + '/' + config.fontsDir + '/font-awesome' ) );
     }
 );
 
 // copy bootstrap required fonts to dest
-gulp.task( 'fonts', [ 'icons' ], function () {
+gulp.task( 'fonts', function () {
         return gulp
             .src( [
                     config.srcPath + '/' + config.fontsDir + '/*.*',
@@ -46,21 +45,20 @@ gulp.task( 'fonts', [ 'icons' ], function () {
 );
 
 // compile scss
-gulp.task( 'sass', [ 'fonts' ], function () {
+gulp.task( 'sass', [ 'fonts', 'icons' ], function () {
         return gulp.src( config.srcPath + '/css/main.scss' )
             .pipe( sass( {
                     outputStyle: 'nested',
                     precison: 3,
                     errLogToConsole: true,
                     includePaths: [ config.bowerDir + '/bootstrap-sass/' + 'assets/stylesheets' ]
-                }
-                )
+                })
             )
             .pipe( gulp.dest( config.publicPath + '/css/' ) );
     }
 );
 
-
+// compile bower javascript files
 gulp.task( 'vendorjs', function () {
         return gulp.src( mainBowerFiles(), { base: config.bowerDir } )
             .pipe( concat( 'libs.js' ) )
@@ -71,7 +69,10 @@ gulp.task( 'vendorjs', function () {
 
 
 // default task
-gulp.task( 'default', [ 'sass' ], function () {
-        gulp.watch( config.srcPath + '/css/**/*', [ 'sass' ] );
+gulp.task( 'default', [ 'sass', 'vendorjs' ], function () {
+        gulp.watch( config.srcPath + '/' + config.cssDir + '/**/*.scss', [ 'sass' ] );
+        gulp.watch( config.bowerDir + '/**/*.js', [ 'vendorjs' ] );
+
+    //TODO : watcher for fonts and icons
     }
 );
