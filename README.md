@@ -37,4 +37,8 @@ npm test
 
 ## License
 
-[GPL](http://www.gnu.org/licenses/gpl.txt)
+[MIT](./LICENSE)
+
+
+
+
