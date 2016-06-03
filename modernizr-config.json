@@ -1,0 +1,37 @@
+{
+  "classPrefix": "has-",
+  "options": [
+    "addTest",
+    "atRule",
+    "domPrefixes",
+    "hasEvent",
+    "html5shiv",
+    "html5printshiv",
+    "load",
+    "mq",
+    "prefixed",
+    "prefixes",
+    "prefixedCSS",
+    "setClasses",
+    "testAllProps",
+    "testProp",
+    "testStyles"
+  ],
+  "feature-detects": [
+    "canvas",
+    "css/all",
+    "ie8compat",
+    "postmessage",
+    "svg",
+    "touchevents",
+    "video",
+    "audio",
+    "webanimations",
+    "webgl",
+    "storage/localstorage",
+    "storage/sessionstorage",
+    "pointerevents",
+    "notification",
+    "eventlistener"
+  ]
+}

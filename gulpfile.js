@@ -7,6 +7,8 @@ var config = require( './config.json' ),
     pkg = require( './package.json' ),
     bwr = require( './bower.json' );
 
+var modernizrOptions = require( './modernizr-config.json' );
+config.modernizrOptions = modernizrOptions;
 /**
  * Main Plugins
  */
@@ -23,7 +25,12 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
             pattern: '*',
             rename: {
                 'main-bower-files': 'mainBowerFiles',
-                'argv': 'yargs'
+                'argv': 'yargs',
+                'through2': 'through',
+                'vinyl-source-stream': 'source',
+                'vinyl-buffer': 'vinylBuffer',
+                'event-stream': 'es'
+
             },
             lazy: true
         }
@@ -40,16 +47,36 @@ gulp.task( 'default', [ 'watch' ] );
 /**
  * Run watchers on scss, vendors and config files
  */
-gulp.task( 'watch', [ 'clean-base', 'cp-base', 'sass', 'vendorjs' ], function () {
+gulp.task( 'watch', function () {
+
+        plugins.runSequence(
+            [
+                'clean-base',
+                'clean-vendor',
+                'clean-modernizr',
+                'clean-theme-css',
+                'clean-css'
+            ],
+            [
+                'cp-base',
+                'sass',
+                'vendorjs',
+                'build-modernizr'
+            ]
+        );
+
         gulp.watch( config.srcPath + '/' + config.cssDir + '/**/*.scss', [ 'sass' ] );
         gulp.watch( config.bowerDir + '/**/*.js', [ 'vendorjs' ] );
-        gulp.watch( './config.json', [ 'reload-config', 'sass', 'vendorjs' ] );
+
+        gulp.watch( './config.json', [ 'reload-config' ] );
 
         var baseFiles = [];
         for ( var i = 0, l = config.basesiteList.length; i < l; i++ ) {
             baseFiles.push( config.srcPath + '/' + config.basesiteList[ i ] );
         }
         gulp.watch( baseFiles, [ 'clean-base', 'cp-base' ] );
+
+        gulp.watch( './modernizr-config.json', [ 'reload-modernizr-options' ] );
     }, {
         aliases: [ 'dev' ]
     }
@@ -61,16 +88,35 @@ gulp.task( 'watch', [ 'clean-base', 'cp-base', 'sass', 'vendorjs' ], function ()
 gulp.task( 'reload-config', 'Require new config after changes on config.json', function () {
         delete require.cache[ require.resolve( './config.json' ) ];
         config = require( './config.json' );
+        config.modernizrOptions = modernizrOptions;
         console.log( config.bootstrapTheme );
-        gulp.start( [ 'clean-base', 'cp-base', 'sass', 'vendorjs' ] );
+        // gulp.start( [ 'clean-base', 'reload-modernizr-options', 'cp-base', 'sass', 'vendorjs' ] );
+        plugins.runSequence(
+            [
+                'clean-base',
+                'clean-vendor',
+                'clean-theme-css',
+                'clean-css'
+            ],
+            [
+                'cp-base',
+                'sass',
+                'vendorjs'
+            ],
+            [
+                'reload-modernizr-options'
+            ]
+        );
     }
 );
 
-gulp.task( 'modernizr', function () {
-        gulp.src( './js/*.js' )
-            .pipe( plugins.modernizr() )
-            .pipe( gulp.dest( "build/" ) )
+/**
+ * Re-load modernizr options file
+ */
+gulp.task( 'reload-modernizr-options', 'Require new modernizr options after changes on modernizr.config.json', function () {
+        delete require.cache[ require.resolve( './modernizr-config.json' ) ];
+        modernizrOptions = require( './modernizr-config.json' );
+        config.modernizrOptions = modernizrOptions;
+        plugins.runSequence( 'clean-modernizr', 'build-modernizr' );
     }
 );
-
-
