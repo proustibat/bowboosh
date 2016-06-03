@@ -9,6 +9,25 @@ npm install
 npm help
 ```
 
+## Customization
+Edit ./config.json
+
+Bootstrap theme could be one of bootswatch theme :
+- cerulean
+- cosmo
+- cyborg
+- darkly
+- flatly
+- journal
+- lumen
+- paper
+- readable
+- sandstone
+- simplex
+- superhero
+- united
+- yeti
+
 ## Tests
 
 ```sh

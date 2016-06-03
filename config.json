@@ -4,5 +4,15 @@
   "bowerDir": "./bower_components",
   "fontsDir": "fonts",
   "cssDir": "css",
-  "bootstrapTheme": "simplex"
+  "bootstrapTheme": "lumen",
+  "basesiteList": [
+    ".htaccess",
+    "apple-touch-icon.png",
+    "crossdomain.xml",
+    "favicon.ico",
+    "index.html",
+    "robots.txt",
+    "tile.png",
+    "tile-wide.png"
+  ]
 }
