@@ -40,7 +40,7 @@ gulp.task( 'default', [ 'watch' ] );
 /**
  * Run watchers on scss, vendors and config files
  */
-gulp.task( 'watch', [ 'cp-base', 'sass', 'vendorjs' ], function () {
+gulp.task( 'watch', [ 'clean-base', 'cp-base', 'sass', 'vendorjs' ], function () {
         gulp.watch( config.srcPath + '/' + config.cssDir + '/**/*.scss', [ 'sass' ] );
         gulp.watch( config.bowerDir + '/**/*.js', [ 'vendorjs' ] );
         gulp.watch( './config.json', [ 'reload-config', 'sass', 'vendorjs' ] );
@@ -49,7 +49,7 @@ gulp.task( 'watch', [ 'cp-base', 'sass', 'vendorjs' ], function () {
         for ( var i = 0, l = config.basesiteList.length; i < l; i++ ) {
             baseFiles.push( config.srcPath + '/' + config.basesiteList[ i ] );
         }
-        gulp.watch( baseFiles, [ 'cp-base' ] );
+        gulp.watch( baseFiles, [ 'clean-base', 'cp-base' ] );
     }, {
         aliases: [ 'dev' ]
     }
@@ -62,7 +62,7 @@ gulp.task( 'reload-config', 'Require new config after changes on config.json', f
         delete require.cache[ require.resolve( './config.json' ) ];
         config = require( './config.json' );
         console.log( config.bootstrapTheme );
-        gulp.start( [ 'cp-base', 'sass', 'vendorjs' ] );
+        gulp.start( [ 'clean-base', 'cp-base', 'sass', 'vendorjs' ] );
     }
 );
 
