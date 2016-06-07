@@ -1,4 +1,4 @@
-
+'use strict';
 /*--------------------------------------------------------------------------
  * Main app module
  ---------------------------------------------------------------------------*/
@@ -11,7 +11,6 @@
  * @constructor
  */
 var MyApp = window.MyApp || (function ( document, window ) {
-        'use strict';
 
         /**
          * The __private variable encapsulate all PRIVATE functions

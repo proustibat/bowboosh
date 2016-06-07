@@ -1,10 +1,10 @@
+'use strict';
 /*--------------------------------------------------------------------------
  *
  * MODULE EXAMPLE
  *
  ---------------------------------------------------------------------------*/
 var MODULE = window.MODULE || (function ( document, window, undefined ) {
-        'use strict';
 
         // Public
         return {
