@@ -36,6 +36,7 @@
     "gulp-filter": "^4.0.0",
     "gulp-help": "^1.6.1",
     "gulp-imagemin": "^3.0.1",
+    "gulp-jsdoc3": "^0.3.0",
     "gulp-load-plugins": "1.2.0",
     "gulp-load-subtasks": "^1.1.2",
     "gulp-notify": "2.2.0",

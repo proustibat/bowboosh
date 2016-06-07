@@ -26,7 +26,8 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
             pattern: '*',
             rename: {
                 'main-bower-files': 'mainBowerFiles',
-                'argv': 'yargs'
+                'argv': 'yargs',
+                'gulp-jsdoc3': 'jsdoc'
 
             },
             lazy: true
