@@ -19,7 +19,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     //"exclude": [ './src/path/to/a/file.js' ]
                 },
                 "opts": {
-                    "destination": "./docs/jsdoc",
+                    "destination": "./" + config.docDir + "/jsdoc",
                     "readme": "./README.md",
                     //"package": "./package.json",
                     "recurse": true,
@@ -84,7 +84,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
     gulp.task( 'del-jsdoc', 'Delete javascript documentation', function () {
             plugins.del( [
-                    './docs/jsdoc'
+                    './' + config.docDir + '/jsdoc'
                 ], {
                     force: true
                 }
