@@ -46,7 +46,7 @@
     "bootswatch",
     "font-awesome"
   ],
-  "license": "GPL-3.0",
+  "license": "MIT",
   "homepage": "https://github.com/proustibat/bowboosh",
   "private": true
 }

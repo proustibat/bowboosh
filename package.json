@@ -22,7 +22,7 @@
     "font-awesome"
   ],
   "author": "Jennifer Proust <jennifer.proust@gmail.com> (http://www.twitter.com/@proustibat)",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/proustibat/bowboosh/issues"
   },
