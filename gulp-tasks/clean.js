@@ -1,5 +1,15 @@
 "use strict";
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
+
+    gulp.task( 'clean-all', 'Run all clean tasks', [
+        'clean-base',
+        'clean-vendor',
+        'clean-modernizr',
+        'clean-theme-css',
+        'clean-css',
+        'clean-imagemin'
+    ] );
+
     gulp.task( 'clean-base', 'Delete exported basic boilerplate files ', function () {
             var baseFiles = [];
             for ( var i = 0, l = config.basesiteList.length; i < l; i++ ) {

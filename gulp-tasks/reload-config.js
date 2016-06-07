@@ -15,12 +15,14 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     'clean-base',
                     'clean-vendor',
                     'clean-theme-css',
-                    'clean-css'
+                    'clean-css',
+                    'clean-imagemin'
                 ],
                 [
                     'cp-base',
                     'sass',
-                    'vendorjs'
+                    'vendorjs',
+                    'imagemin'
                 ],
                 [
                     'reload-modernizr-options'

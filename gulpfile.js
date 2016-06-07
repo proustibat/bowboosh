@@ -26,11 +26,7 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
             pattern: '*',
             rename: {
                 'main-bower-files': 'mainBowerFiles',
-                'argv': 'yargs',
-                'through2': 'through',
-                'vinyl-source-stream': 'source',
-                'vinyl-buffer': 'vinylBuffer',
-                'event-stream': 'es'
+                'argv': 'yargs'
 
             },
             lazy: true
@@ -52,12 +48,7 @@ gulp.task( 'watch', function () {
 
         plugins.runSequence(
             [
-                'clean-base',
-                'clean-vendor',
-                'clean-modernizr',
-                'clean-theme-css',
-                'clean-css',
-                'clean-imagemin'
+                'clean-all'
             ],
             [
                 'cp-base',
@@ -82,12 +73,5 @@ gulp.task( 'watch', function () {
         gulp.watch( './modernizr-config.json', [ 'reload-modernizr-options' ] );
     }, {
         aliases: [ 'dev' ]
-    }
-);
-
-gulp.task( 'imagemin', "Optimize images", function () {
-        return gulp.src( config.srcPath + '/' + config.imgDir + '/*' )
-            .pipe( plugins.imagemin() )
-            .pipe( gulp.dest( config.publicPath + '/' + config.imgDir ) );
     }
 );
