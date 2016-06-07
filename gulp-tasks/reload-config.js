@@ -8,8 +8,9 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             delete require.cache[ require.resolve( '../config.json' ) ];
             config = require( '../config.json' );
             config.modernizrOptions = modernizrOptions;
-            console.log( config.bootstrapTheme );
-            // gulp.start( [ 'clean-base', 'reload-modernizr-options', 'cp-base', 'sass', 'vendorjs' ] );
+            plugins.util.log( plugins.util.colors.inverse.bold( 'Theme changed: ' + config.bootstrapTheme ) );
+
+        // gulp.start( [ 'clean-base', 'reload-modernizr-options', 'cp-base', 'sass', 'vendorjs' ] );
             plugins.runSequence(
                 [
                     'clean-base',
