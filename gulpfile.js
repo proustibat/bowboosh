@@ -9,6 +9,7 @@ var config = require( './config.json' ),
 
 var modernizrOptions = require( './modernizr-config.json' );
 config.modernizrOptions = modernizrOptions;
+
 /**
  * Main Plugins
  */
@@ -79,44 +80,5 @@ gulp.task( 'watch', function () {
         gulp.watch( './modernizr-config.json', [ 'reload-modernizr-options' ] );
     }, {
         aliases: [ 'dev' ]
-    }
-);
-
-/**
- * Re-load config file
- */
-gulp.task( 'reload-config', 'Require new config after changes on config.json', function () {
-        delete require.cache[ require.resolve( './config.json' ) ];
-        config = require( './config.json' );
-        config.modernizrOptions = modernizrOptions;
-        console.log( config.bootstrapTheme );
-        // gulp.start( [ 'clean-base', 'reload-modernizr-options', 'cp-base', 'sass', 'vendorjs' ] );
-        plugins.runSequence(
-            [
-                'clean-base',
-                'clean-vendor',
-                'clean-theme-css',
-                'clean-css'
-            ],
-            [
-                'cp-base',
-                'sass',
-                'vendorjs'
-            ],
-            [
-                'reload-modernizr-options'
-            ]
-        );
-    }
-);
-
-/**
- * Re-load modernizr options file
- */
-gulp.task( 'reload-modernizr-options', 'Require new modernizr options after changes on modernizr.config.json', function () {
-        delete require.cache[ require.resolve( './modernizr-config.json' ) ];
-        modernizrOptions = require( './modernizr-config.json' );
-        config.modernizrOptions = modernizrOptions;
-        plugins.runSequence( 'clean-modernizr', 'build-modernizr' );
     }
 );
