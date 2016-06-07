@@ -5,6 +5,7 @@
   "fontsDir": "fonts",
   "cssDir": "css",
   "jsDir": "js",
+  "jsName": "main",
   "imgDir": "img",
   "vendorDir": "vendor",
   "vendorName" : "libs.js",

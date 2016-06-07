@@ -55,12 +55,16 @@ gulp.task( 'watch', function () {
                 'sass',
                 'vendorjs',
                 'build-modernizr',
-                'imagemin'
+                'imagemin',
+                'javascript'
             ]
         );
 
         gulp.watch( config.srcPath + '/' + config.cssDir + '/**/*.scss', [ 'sass' ] );
+
         gulp.watch( config.bowerDir + '/**/*.js', [ 'vendorjs' ] );
+
+        gulp.watch( config.srcPath + '/' + config.jsDir + '/**/*.js', [ 'javascript' ] );
 
         gulp.watch( './config.json', [ 'reload-config' ] );
 
@@ -75,3 +79,4 @@ gulp.task( 'watch', function () {
         aliases: [ 'dev' ]
     }
 );
+
