@@ -56,13 +56,15 @@ gulp.task( 'watch', function () {
                 'clean-vendor',
                 'clean-modernizr',
                 'clean-theme-css',
-                'clean-css'
+                'clean-css',
+                'clean-imagemin'
             ],
             [
                 'cp-base',
                 'sass',
                 'vendorjs',
-                'build-modernizr'
+                'build-modernizr',
+                'imagemin'
             ]
         );
 
@@ -80,5 +82,12 @@ gulp.task( 'watch', function () {
         gulp.watch( './modernizr-config.json', [ 'reload-modernizr-options' ] );
     }, {
         aliases: [ 'dev' ]
+    }
+);
+
+gulp.task( 'imagemin', "Optimize images", function () {
+        return gulp.src( config.srcPath + '/' + config.imgDir + '/*' )
+            .pipe( plugins.imagemin() )
+            .pipe( gulp.dest( config.publicPath + '/' + config.imgDir ) );
     }
 );

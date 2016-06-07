@@ -5,6 +5,7 @@
   "fontsDir": "fonts",
   "cssDir": "css",
   "jsDir": "js",
+  "imgDir": "img",
   "vendorDir": "vendor",
   "vendorName" : "libs.js",
   "modernizrName": "custom-modernizr.js",

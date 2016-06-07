@@ -36,4 +36,11 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             );
         }
     );
+
+    gulp.task( 'clean-imagemin', 'Delete optimized image in public directory', function () {
+            return plugins.del( config.publicPath + '/' + config.imgDir + '/*',
+                { force: true }
+            );
+        }
+    );
 };
