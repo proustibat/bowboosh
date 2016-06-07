@@ -10,6 +10,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
      */
     gulp.task( 'sass', 'Compile all scss files of the project into the public directory', [ 'bootswatch-theme', 'fonts', 'icons' ], function () {
             return gulp.src( config.srcPath + '/css/main.scss' )
+                .pipe( plugins.sourcemaps.init() )
                 .pipe( plugins.sass( {
                         outputStyle: 'nested',
                         precison: 3,
@@ -21,6 +22,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     }
                     )
                 )
+                .pipe( plugins.sourcemaps.write() )
                 .pipe( gulp.dest( config.publicPath + '/css/' ) );
         }
     );
