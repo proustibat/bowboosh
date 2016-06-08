@@ -11,6 +11,50 @@ npm start       // start watchers
 
 ## :open_file_folder: Tree files
 
+```
+./
+|   .gitignore
+|   .jshintrc
+|   bower.json
+|   config.json                 // Main app configuration file
+|   credentials.json            // Private configuration file
+|   gulpfile.js                 // Main Gulp file configuration
+|   LICENSE
+|   modernizr-config.json       // Modernizr configuration to build custom library
+|   package.json                // Main NPM file configuration
+|   README.md
+|
++---dist                        // Public directory
+|
++---docs                        // Generated documentations
+|   +---jsdoc                   // Documentation for javascript sources
+|   |
+|   \---plato                   // Complexity report with plato
+|
++---gulp-tasks                  // Gulp developer tasks loaded in Gulpfile.js
+|
+\---src                         // Sources files
+    |   .htaccess
+    |   apple-touch-icon.png
+    |   crossdomain.xml
+    |   favicon.ico
+    |   index.html
+    |   robots.txt
+    |   tile-wide.png
+    |   tile.png
+    |
+    +---css                     // Sass sources
+    |   |   general.scss
+    |   |   main.scss           // Main scss file that imports others
+    |   |
+    |   \---theme               // Bootswatch theme scss files (copied with a gulp task)
+    |
+    +---img                     // Images assets
+    |
+    \---js                      // Javascript source files
+
+```
+
 ## :customs: Customization
 ### ./config.json: Application default configuration file
 
