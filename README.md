@@ -1,6 +1,10 @@
 # bowboosh
 
-Simple boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes
+Simple HTML5 boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes, deployment tool, documentation tools and code analysis.
+
+
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 
 ## :beginner: Quick usage
