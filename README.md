@@ -5,8 +5,6 @@ HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatc
 
 ## Demo
 - Master: [http://demo.proustib.at/bowboosh/](http://demo.proustib.at/bowboosh/)
-- UMD branch: [http://demo.proustib.at/bowboosh/](http://demo.proustib.at/bowboosh/umd)
-- Simple module pattern branch: [http://demo.proustib.at/bowboosh/smp](http://demo.proustib.at/bowboosh/smp)
 
 _____
 
