@@ -3,8 +3,41 @@
 Simple HTML5 boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes, deployment tool, documentation tools and code analysis.
 
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+_____
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [:beginner: Quick usage](#beginner-quick-usage)
+- [:open_file_folder: Tree files](#open_file_folder-tree-files)
+- [:customs: Customization](#customs-customization)
+  - [./config.json: Application default configuration file](#configjson-application-default-configuration-file)
+  - [./modernizr-config.json: Modernizr default configuration file](#modernizr-configjson-modernizr-default-configuration-file)
+  - [.jshintrc: JSHint default configuration file](#jshintrc-jshint-default-configuration-file)
+  - [./credentials.json: Private data file](#credentialsjson-private-data-file)
+- [:grey_question: Help](#grey_question-help)
+- [Main features](#main-features)
+  - [Watchers for development and build for production](#watchers-for-development-and-build-for-production)
+  - [Deploy on server](#deploy-on-server)
+  - [Analyses and documentation](#analyses-and-documentation)
+    - [Complexity](#complexity)
+    - [Copy paste detector](#copy-paste-detector)
+    - [JShint](#jshint)
+    - [JSDoc](#jsdoc)
+    - [Sass Doc](#sass-doc)
+    - [Plato reporting](#plato-reporting)
+- [Npm Packages](#npm-packages)
+  - [Dependencies](#dependencies)
+  - [Dev Dependencies](#dev-dependencies)
+- [Bower packages](#bower-packages)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- Run doctoc README.md --github  -->
+<!-- Informations: https://github.com/thlorenz/doctoc -->
+
+_____
 
 
 ## :beginner: Quick usage
