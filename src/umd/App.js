@@ -1,7 +1,7 @@
 'use strict';
 function App() {
     console.log("Hello Module App");
-    
+
     this.uid = null;
 
     this.init = function() {
@@ -33,9 +33,6 @@ myApp2.init();
 myApp1.sayHello();
 myApp2.sayHello();
 myApp1.sayHello();
-
-
-
 
 
 

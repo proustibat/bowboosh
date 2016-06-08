@@ -11,7 +11,6 @@
 function App() {
     console.log("Hello Module App");
 
-
     this.uid = null;
 
     this.init = function() {
@@ -25,13 +24,13 @@ function App() {
 
     this.guid = function () {
         return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4();
-    }
+    };
 
     this.s4 = function () {
         return Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
             .substring(1);
-    }
+    };
 }
 
 var myApp1 = new App();
@@ -43,9 +42,6 @@ myApp2.init();
 myApp1.sayHello();
 myApp2.sayHello();
 myApp1.sayHello();
-
-
-
 
 
 
