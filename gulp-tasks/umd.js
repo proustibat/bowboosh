@@ -33,7 +33,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
 
-    gulp.task( 'watch-umd', 'Watch UMD modules javascript files', function () {
+    gulp.task( 'watch-umd', 'Watch UMD modules javascript files', ['umd'], function () {
             gulp.watch( config.srcPath + '/' + '/umd/**/*.js', [ 'umd' ] );
         }
     );

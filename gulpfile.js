@@ -59,7 +59,8 @@ gulp.task( 'watch', function () {
                 'vendorjs',
                 'build-modernizr',
                 'imagemin',
-                'javascript'
+                'javascript',
+                'watch-umd'
             ]
         );
 
