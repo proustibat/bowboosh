@@ -1,7 +1,9 @@
 # bowboosh
 
-Simple HTML5 boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes, deployment tool, documentation tools and code analysis.
+HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatch themes, deployment tasks, documentation and code analysis tasks.
 
+- Master demo: [http://demo.proustib.at/bowboosh/](http://demo.proustib.at/bowboosh/)
+- UMD branch demo: [http://demo.proustib.at/bowboosh/](http://demo.proustib.at/bowboosh/umd)
 
 _____
 
