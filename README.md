@@ -272,11 +272,7 @@ It looks like:
 ```
 
 ## :grey_question: Help
-All available gulp tasks are visible, run `gulp h` or
-
-```sh
-npm run help
-```
+All available gulp tasks are visible, run `gulp h` or ` npm run help`
 
 Result:
 
