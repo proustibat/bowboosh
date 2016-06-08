@@ -30,6 +30,11 @@ Could be one of bootswatch themes:
 - united
 - yeti
 
+## Deployment
+Task `deploy` requires installed rsync on your local workspace.
+For Windows users: https://sourceforge.net/projects/mingw/files/Installer/
+then follow theses instructions to install rsync : https://alanbarber.com/2015/08/11/installing-rsync-on-windows/
+Just add path to your system.
 
 ## Dependencies
 

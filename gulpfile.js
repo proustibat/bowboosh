@@ -28,7 +28,8 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
                 'main-bower-files': 'mainBowerFiles',
                 'argv': 'yargs',
                 'gulp-jsdoc3': 'jsdoc',
-                'gulp-jshint': 'gulpJSHint'
+                'gulp-jshint': 'gulpJSHint',
+                'vinyl-ftp': 'ftp'
 
             },
             lazy: true
@@ -82,3 +83,18 @@ gulp.task( 'watch', function () {
     }
 );
 
+
+function throwError( taskName, msg ) {
+
+    plugins.util.beep();
+    //plugins.util.log( plugins.util.colors.bgRed.inverse.bold( taskName.toString() + ' : ' + msg.toString() ) );
+
+    throw new plugins.util.PluginError( {
+            plugin: taskName.toString(),
+            message: msg.toString()
+        }
+    );
+
+    gulp.emit( 'end' );
+}
+plugins.throwError = throwError;
