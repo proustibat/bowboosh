@@ -99,10 +99,3 @@ function throwError( taskName, msg ) {
 }
 plugins.throwError = throwError;
 
-
-gulp.task( 'umd', function () {
-        return gulp.src( './src/umd/**/*.js' )
-            .pipe( plugins.umd() )
-            .pipe( gulp.dest( './dist/js/umd' ) );
-    }
-);

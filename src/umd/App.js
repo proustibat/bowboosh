@@ -1,38 +1,54 @@
 'use strict';
+/*--------------------------------------------------------------------------
+ *
+ * MODULE EXAMPLE
+ *
+ ---------------------------------------------------------------------------*/
 function App() {
-    console.log("Hello Module App");
 
-    this.uid = null;
+    var App = {
 
-    this.init = function() {
-        console.log("App.init");
-        this.uid = this.guid();
+        uid: null,
+        container: null,
+
+        init: function () {
+            this.uid = this.guid();
+            console.log( 'Hello App [' + this.uid + ']' );
+            this.container = document.body.getElementsByClassName( 'js-jumbotron-container' )[ 0 ];
+            this.container.innerHTML = '<p>' + this.container.innerHTML + 'Hello UMD APP [' + this.uid + '] </p>';
+
+        },
+
+        sayHello: function () {
+            console.log( 'App.sayHello [' + this.uid + ']' );
+            this.container.innerHTML = '<p>' + this.container.innerHTML + 'App.sayHello</p>';
+        },
+
+        createModules: function () {
+            console.log( 'App.createModules' );
+            this.container.innerHTML = '<p>' + this.container.innerHTML + 'App.createModule</p>';
+
+            var module1 = new window.MyModule();
+            module1.init();
+
+            var module2 = new window.MyModule();
+            module2.init();
+
+            module1.sayHello();
+            module2.sayHello();
+        },
+
+        guid: function () {
+            return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4();
+        },
+
+        s4: function () {
+            return Math.floor( (1 + Math.random()) * 0x10000 )
+                .toString( 16 )
+                .substring( 1 );
+        }
     };
-
-    this.sayHello = function() {
-        console.log("App.sayHello : ", this.uid);
-    };
-
-    this.guid = function () {
-        return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4();
-    };
-
-    this.s4 = function () {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-    };
-}
-
-var myApp1 = new App();
-myApp1.init();
-
-var myApp2 = new App();
-myApp2.init();
-
-myApp1.sayHello();
-myApp2.sayHello();
-myApp1.sayHello();
-
-
+    App.init();
+    return App;
+};
 
