@@ -258,15 +258,16 @@ See [JSHint documentation](http://jshint.com/docs) for more details
 
 ### ./credentials.json: Private data file
 :warning: Don't commit it!
+
 It contains secret keys, api keys, hosts name and passwords, etc.
 It looks like:
 
 ```
 {
-  "host": "164.132.49.212",
-  "user": "demo",
-  "password": "unpeurenardunpeuloup",
-  "remoteBase": "/home/demo/www-nginx"
+    "host": "164.129.01.86",
+    "user": "username",
+    "password": "password-of-the-user",
+    "remoteBase": "/var/www/html"
 }
 ```
 
