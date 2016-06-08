@@ -16,7 +16,7 @@ config.modernizrOptions = modernizrOptions;
 var gulp = require( 'gulp-help' )( require( 'gulp' ), {
         aliases: [ 'h', '?' ],
         hideEmpty: false,
-        hideDepsMessage: false,
+        hideDepsMessage: true,
         afterPrintCallback: function () {
         }
     }
@@ -82,6 +82,7 @@ gulp.task( 'watch', function () {
         aliases: [ 'dev' ]
     }
 );
+
 
 
 function throwError( taskName, msg ) {

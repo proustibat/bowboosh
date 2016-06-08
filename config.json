@@ -7,7 +7,7 @@
   "jsDir": "js",
   "jsName": "main",
   "imgDir": "img",
-  "docDir": "docs",
+  "docPath": "./docs",
   "vendorDir": "vendor",
   "vendorName" : "libs.js",
   "modernizrName": "custom-modernizr.js",

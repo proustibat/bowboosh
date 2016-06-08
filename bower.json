@@ -37,15 +37,7 @@
       "url": "http://www.twitter.com/@proustibat"
     }
   ],
-  "keywords": [
-    "Gulp",
-    "Bower",
-    "Bootstrap",
-    "SASS",
-    "scss",
-    "bootswatch",
-    "font-awesome"
-  ],
+  "keywords": [],
   "license": "MIT",
   "homepage": "https://github.com/proustibat/bowboosh",
   "private": true

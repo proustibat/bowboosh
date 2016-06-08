@@ -5,6 +5,9 @@
   "description": "Simple boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes",
   "scripts": {
     "postinstall": "bower install --allow-root && gulp help",
+    "start": "gulp watch",
+    "deploy": "gulp deploySFTP",
+    "doc": "gulp doc",
     "help": "gulp help",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,15 +15,7 @@
     "type": "git",
     "url": "https://github.com/proustibat/bowboosh.git"
   },
-  "keywords": [
-    "Gulp",
-    "Bower",
-    "Bootstrap",
-    "SASS",
-    "scss",
-    "bootswatch",
-    "font-awesome"
-  ],
+  "keywords": [],
   "author": "Jennifer Proust <jennifer.proust@gmail.com> (http://www.twitter.com/@proustibat)",
   "license": "MIT",
   "bugs": {
