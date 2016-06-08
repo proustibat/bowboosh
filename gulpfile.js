@@ -84,7 +84,6 @@ gulp.task( 'watch', function () {
 );
 
 
-
 function throwError( taskName, msg ) {
 
     plugins.util.beep();
@@ -99,3 +98,4 @@ function throwError( taskName, msg ) {
     gulp.emit( 'end' );
 }
 plugins.throwError = throwError;
+
