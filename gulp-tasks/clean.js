@@ -41,6 +41,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
     gulp.task( 'clean-theme-css', 'Delete scss bootswatch theme file', function () {
+            delete require.cache[ config.srcPath + '/' + config.cssDir + '/theme/*.scss' ];
             return plugins.del( config.srcPath + '/' + config.cssDir + '/theme/*.scss',
                 { force: true }
             );

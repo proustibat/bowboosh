@@ -5,9 +5,9 @@
 
 
 // Import bootstrap and theme ( available themes: bower_components/bootswatch )
-@import 'theme/variables';
-@import 'bootstrap';
-@import 'theme/bootswatch';
+@import "theme/variables";
+@import "bootstrap";
+@import "theme/bootswatch";
 
 // Import project files
 @import 'general';

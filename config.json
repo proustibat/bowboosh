@@ -11,7 +11,7 @@
   "vendorDir": "vendor",
   "vendorName" : "libs.js",
   "modernizrName": "custom-modernizr.js",
-  "bootstrapTheme": "lumen",
+  "bootstrapTheme": "yeti",
   "basesiteList": [
     ".htaccess",
     "apple-touch-icon.png",

@@ -30,7 +30,6 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
                 'gulp-jsdoc3': 'jsdoc',
                 'gulp-jshint': 'gulpJSHint',
                 'vinyl-ftp': 'ftp'
-
             },
             lazy: true
         }
@@ -43,6 +42,7 @@ plugins.loadSubtasks( './gulp-tasks/**/*.js', plugins, config, pkg, bwr );
  * Default task when running 'gulp' command line
  */
 gulp.task( 'default', [ 'watch' ] );
+
 
 /**
  * Run watchers on scss, vendors and config files
@@ -84,7 +84,11 @@ gulp.task( 'watch', function () {
     }
 );
 
-
+/**
+ * Error Handling
+ * @param taskName
+ * @param msg
+ */
 function throwError( taskName, msg ) {
 
     plugins.util.beep();
@@ -99,4 +103,21 @@ function throwError( taskName, msg ) {
     gulp.emit( 'end' );
 }
 plugins.throwError = throwError;
+
+
+/**
+ * Write a file
+ * @param filename
+ * @param string
+ * @returns {*}
+ */
+function stringSrc( filename, string ) {
+    var src = require( 'stream' ).Readable( { objectMode: true } )
+    src._read = function () {
+        this.push( new plugins.util.File( { cwd: "", base: "", path: filename, contents: new Buffer( string ) } ) )
+        this.push( null )
+    }
+    return src
+};
+plugins.stringSrc = stringSrc;
 
