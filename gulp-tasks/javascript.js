@@ -1,6 +1,10 @@
 'use strict';
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
-    
+
+
+    // TODO: use gulp rename to build minified and non minified version at the same time
+
+    // TODO : use gulp-filesize
     gulp.task( 'build-javascript', 'Build javascript file from simple javascript modules sources', function () {
             return gulp.src( config.srcPath + '/js/'+ config.javascript.subdir.smp +'/**/*.js' )
                 .pipe( plugins.sourcemaps.init() )

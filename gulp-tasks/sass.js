@@ -10,6 +10,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
      */
     gulp.task( 'build-sass', 'Compile all scss files of the project into the public directory', [ 'build-bootswatch-theme', 'build-fonts' ], function () {
             return gulp.src( config.srcPath + '/css/main.scss' )
+            // TODO: use gulp-changed
                 .pipe( plugins.sourcemaps.init() )
                 .pipe( plugins.sass( {
                         outputStyle: 'nested',

@@ -12,6 +12,9 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     //     ]
     // );
 
+
+    // TODO: use gulp-clean
+
     gulp.task( 'clean-all', 'Delete public directory', function () {
             return plugins.del( config.publicPath + '/**/*',
                 { force: true }

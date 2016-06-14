@@ -72,6 +72,9 @@ gulp.task( 'watch', function () {
     }
 );
 
+
+// TODO : implement throwError function everywhere it's needed
+
 /**
  * Error Handling
  * @param taskName

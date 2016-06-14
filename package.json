@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/proustibat/bowboosh",
   "devDependencies": {
+    "chokidar": "^1.5.2",
     "del": "^2.2.0",
     "gulp-bower": "0.0.13",
     "gulp-complexity": "^0.3.2",
