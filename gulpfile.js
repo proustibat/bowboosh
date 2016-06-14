@@ -63,9 +63,8 @@ gulp.task( 'watch', function () {
                 'watch-umd'
             ]
         );
-    
+
         gulp.watch( './config.json', [ 'reload-config' ] );
-        
 
     }, {
         aliases: [ 'dev' ]
@@ -107,8 +106,25 @@ function stringSrc( filename, string ) {
     src._read = function () {
         this.push( new plugins.util.File( { cwd: "", base: "", path: filename, contents: new Buffer( string ) } ) )
         this.push( null )
-    }
-    return src
-};
+    };
+    return src;
+}
 plugins.stringSrc = stringSrc;
+
+
+/**
+ * Watch function with chokidar plugin
+ * @param {Array} files
+ * @param {Array} tasks
+ */
+function spy( files, tasks, callback) {
+    plugins.chokidar.watch( files ).on( 'all', function ( event, path ) {
+            // console.log( event, path );
+            gulp.start( tasks );
+        }
+    );
+}
+plugins.spy = spy;
+
+
 

@@ -9,11 +9,20 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
     gulp.task( 'watch-imagemin', 'Watch images sources to reload imagemin task', [ 'build-imagemin' ], function () {
-            plugins.chokidar.watch( [ config.srcPath + '/' + config.imgDir + '/**/*' ] ).on( 'all', function ( event, path ) {
-                    // console.log( event, path );
-                    gulp.start('build-imagemin');
-                }
-            );
+            // gulp.watch( [ config.srcPath + '/' + config.imgDir + '/**/*' ], [ 'build-imagemin' ]
+            // ).on( 'change', function ( event ) {
+            //         console.log( "CHANGE : ", event.type )
+            //     }
+            // );
+
+        
+            // plugins.chokidar.watch( [ config.srcPath + '/' + config.imgDir + '/**/*' ] ).on( 'all', function ( event, path ) {
+            //         // console.log( event, path );
+            //         gulp.start('build-imagemin');
+            //     }
+            // );
+
+            plugins.spy( [ config.srcPath + '/' + config.imgDir + '/**/*' ], [ 'build-imagemin' ] );
 
         }
     );
