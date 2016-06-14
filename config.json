@@ -4,14 +4,23 @@
   "bowerDir": "./bower_components",
   "fontsDir": "fonts",
   "cssDir": "css",
-  "jsDir": "js",
-  "jsName": "main",
+  "javascript": {
+    "dir": "js",
+    "outputFile": "main",
+    "subdir": {
+      "smp": "simple-module-pattern",
+      "umd": "universal-module-definition",
+      "common": "common-js",
+      "amd": "amd-js",
+      "requirejs": "require-js"
+    }
+  },
   "imgDir": "img",
   "docPath": "./docs",
   "vendorDir": "vendor",
-  "vendorName" : "libs.js",
+  "vendorName": "libs.js",
   "modernizrName": "custom-modernizr.js",
-  "bootstrapTheme": "yeti",
+  "bootstrapTheme": "lumen",
   "basesiteList": [
     ".htaccess",
     "apple-touch-icon.png",

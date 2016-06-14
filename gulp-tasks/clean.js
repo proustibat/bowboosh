@@ -1,16 +1,25 @@
 "use strict";
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
-    gulp.task( 'clean-all', 'Run all clean tasks', [
-        'clean-base',
-        'clean-vendor',
-        'clean-modernizr',
-        'clean-theme-css',
-        'clean-css',
-        'clean-imagemin'
-    ] );
+    // gulp.task( 'clean-all', 'Run all clean tasks', [
+    //         'clean-base',
+    //         'clean-modernizr',
+    //         'clean-theme-css',
+    //         'clean-css',
+    //         'clean-imagemin',
+    //         'clean-fonts',
+    //         'clean-all-js'
+    //     ]
+    // );
 
-    gulp.task( 'clean-base', 'Delete exported basic boilerplate files ', function () {
+    gulp.task( 'clean-all', 'Delete public directory', function () {
+            return plugins.del( config.publicPath + '/**/*',
+                { force: true }
+            );
+        }
+    );
+
+    gulp.task( 'clean-base', 'Delete exported basic boilerplate files', function () {
             var baseFiles = [];
             for ( var i = 0, l = config.basesiteList.length; i < l; i++ ) {
                 baseFiles.push( config.publicPath + '/' + config.basesiteList[ i ] );
@@ -20,14 +29,14 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
     gulp.task( 'clean-vendor', 'Delete compiled vendor file', function () {
-            return plugins.del( config.publicPath + '/' + config.jsDir + '/' + config.vendorDir + '/' + config.vendorName,
+            return plugins.del( config.publicPath + '/' + config.javascript.dir + '/' + config.vendorDir + '/' + config.vendorName,
                 { force: true }
             );
         }
     );
 
     gulp.task( 'clean-modernizr', 'Delete compiled custom modernizr file', function () {
-            return plugins.del( config.publicPath + '/' + config.jsDir + '/' + config.vendorDir + '/' + config.modernizrName,
+            return plugins.del( config.publicPath + '/' + config.javascript.dir + '/' + config.vendorDir + '/' + config.modernizrName,
                 { force: true }
             );
         }
@@ -54,4 +63,19 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             );
         }
     );
+
+    gulp.task( 'clean-fonts', 'Delete fonts directory in public directory', function () {
+            return plugins.del( config.publicPath + '/' + config.fontsDir + '/*',
+                { force: true }
+            );
+        }
+    );
+
+    gulp.task( 'clean-all-js', 'Delete fonts directory in public directory', function () {
+            return plugins.del( config.publicPath + '/' + config.javascript.dir + '/*',
+                { force: true }
+            );
+        }
+    );
+
 };

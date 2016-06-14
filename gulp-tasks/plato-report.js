@@ -1,7 +1,7 @@
 "use strict";
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     gulp.task( 'plato-report', 'Run Plato: javaScript source analysis and visualizer', function () {
-            var files = [ config.srcPath + '/' + config.jsDir + '/**/*.js' ];
+            var files = [ config.srcPath + '/' + config.javascript.dir + '/**/*.js' ];
             var outputDir = config.docPath + '/plato';
             var options = {
                 title: 'Plato report: Bowboosh'

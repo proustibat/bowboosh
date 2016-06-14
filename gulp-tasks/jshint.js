@@ -2,9 +2,9 @@
 module.exports = function ( gulp, plugins, config, errorHandler ) {
     gulp.task( 'jshint', 'Run JSHINT: tool that helps to detect errors and potential problems in code', function () {
             return gulp.src( [
-                    config.srcPath + '/' + config.jsDir + '/**/*.js'
+                    config.srcPath + '/' + config.javascript.dir + '/**/*.js'
                     // exclude files
-                    // '!' + config.srcPath + '/' + config.jsDir + '/path/to/file.js'
+                    // '!' + config.srcPath + '/' + config.javascript.dir + '/path/to/file.js'
                 ]
             )
                 .pipe( plugins.gulpJSHint(  ) )

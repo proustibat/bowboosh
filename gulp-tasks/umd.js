@@ -1,8 +1,8 @@
 'use strict';
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
-    gulp.task( 'umd', 'Build javascript file from UMD javascript modules sources',  function () {
-            return gulp.src( config.srcPath + '/' + '/umd/**/*.js' )
+    gulp.task( 'build-umd', 'Build javascript file from UMD javascript modules sources',  function () {
+            return gulp.src( config.srcPath + '/js/'+ config.javascript.subdir.umd +'/**/*.js' )
                 .pipe( plugins.sourcemaps.init() )
                 .pipe( plugins.umd( {
                         dependencies: function ( file ) {
@@ -26,15 +26,15 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     )
                 )
                 .pipe( plugins.uglify() )
-                .pipe( plugins.concat( config.jsName + '.min.js' ) )
+                .pipe( plugins.concat( config.javascript.outputFile + '.min.js' ) )
                 .pipe( plugins.sourcemaps.write() )
-                .pipe( gulp.dest( config.publicPath + '/' + config.jsDir + '/umd' ) );
+                .pipe( gulp.dest( config.publicPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd ) );
         }
     );
 
 
-    gulp.task( 'watch-umd', 'Watch UMD modules javascript files', ['umd'], function () {
-            gulp.watch( config.srcPath + '/' + '/umd/**/*.js', [ 'umd' ] );
+    gulp.task( 'watch-umd', 'Watch UMD modules javascript files', ['build-umd'], function () {
+            gulp.watch( config.srcPath + '/js/'+ config.javascript.subdir.umd +'/**/*.js', [ 'build-umd' ] );
         }
     );
 };

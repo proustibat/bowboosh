@@ -8,7 +8,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
      *  If bower components are added in the project and needs
      *  css files, add path in includePaths, then import in main.scss
      */
-    gulp.task( 'sass', 'Compile all scss files of the project into the public directory', [ 'bootswatch-theme', 'fonts', 'icons' ], function () {
+    gulp.task( 'build-sass', 'Compile all scss files of the project into the public directory', [ 'build-bootswatch-theme', 'build-fonts' ], function () {
             return gulp.src( config.srcPath + '/css/main.scss' )
                 .pipe( plugins.sourcemaps.init() )
                 .pipe( plugins.sass( {
@@ -24,6 +24,12 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                 )
                 .pipe( plugins.sourcemaps.write() )
                 .pipe( gulp.dest( config.publicPath + '/css/' ) );
+        }
+    );
+
+
+    gulp.task( 'watch-sass', 'Watch scss files sources', ['build-sass',  /* todo : 'watch-bootswatch-theme', */'watch-fonts' ], function () {
+            gulp.watch( config.srcPath + '/' + config.cssDir + '/**/*.scss', [ 'build-sass' ] );
         }
     );
 };

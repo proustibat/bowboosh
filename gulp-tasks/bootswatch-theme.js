@@ -5,7 +5,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
      * Theme name is defined in config file.
      * All themes are downloaded with bower with bootswatch
      */
-    gulp.task( 'bootswatch-theme', 'Copy sass files from theme choosen in config', function () {
+    gulp.task( 'build-bootswatch-theme', 'Copy sass files from theme choosen in config', function () {
             var destination = config.srcPath + '/' + config.cssDir + '/theme';
 
             plugins.util.log( plugins.util.colors.inverse.bold( 'Theme to build: ' + config.bootstrapTheme ) );

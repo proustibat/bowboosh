@@ -93,7 +93,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
     gulp.task( 'dev-doc', 'Watch javascript files to regenerate documentation', [ 'doc' ], function ( cb ) {
-            gulp.watch( config.srcPath + '/' + config.jsDir + '/**/*.js*', [ 'doc' ] );
+            gulp.watch( config.srcPath + '/' + config.javascript.dir + '/**/*.js*', [ 'doc' ] );
         }
     );
 

@@ -23,10 +23,10 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     'clean-imagemin'
                 ],
                 [
-                    'cp-base',
-                    'sass',
-                    'vendorjs',
-                    'imagemin'
+                    'copy-base',
+                    'build-sass',
+                    'build-vendors',
+                    'build-imagemin'
                 ],
                 [
                     'reload-modernizr-options'
