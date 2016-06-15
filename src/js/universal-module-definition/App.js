@@ -1,15 +1,22 @@
 'use strict';
-/*--------------------------------------------------------------------------
- *
- * MODULE EXAMPLE
- *
- ---------------------------------------------------------------------------*/
+/**
+ * App
+ * @returns {{uid: null, container: null, init: App.init, sayHello: App.sayHello, createModules: App.createModules, guid: App.guid, s4: App.s4}}
+ * @constructor
+ */
 function App() {
 
+    /**
+     *
+     * @type {{uid: null, container: null, init: App.init, sayHello: App.sayHello, createModules: App.createModules, guid: App.guid, s4: App.s4}}
+     */
     var App = {
 
         uid: null,
         container: null,
+        /**
+         * Init
+         */
         init: function () {
             this.uid = this.guid();
             console.log( 'Hello App [' + this.uid + ']' );
@@ -17,10 +24,16 @@ function App() {
             this.container.innerHTML = '<p>' + this.container.innerHTML + 'Hello UMD APP [' + this.uid + '] </p>';
 
         },
+        /**
+         * sayHello
+         */
         sayHello: function () {
             console.log( 'App.sayHello [' + this.uid + ']' );
             this.container.innerHTML = '<p>' + this.container.innerHTML + 'App.sayHello</p>';
         },
+        /**
+         * createModule
+         */
         createModules: function () {
             console.log( 'App.createModules' );
             this.container.innerHTML = '<p>' + this.container.innerHTML + 'App.createModule</p>';
@@ -34,15 +47,24 @@ function App() {
             module1.sayHello();
             module2.sayHello();
         },
+        /**
+         * guid
+         * @returns {string}
+         */
         guid: function () {
             return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4();
         },
+        /**
+         * s4
+         * @returns {string}
+         */
         s4: function () {
             return Math.floor( (1 + Math.random()) * 0x10000 )
                 .toString( 16 )
                 .substring( 1 );
         }
     };
+    
     App.init();
     return App;
 };

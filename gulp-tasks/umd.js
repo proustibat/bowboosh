@@ -2,7 +2,7 @@
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
     gulp.task( 'build-umd', 'Build javascript file from UMD javascript modules sources', function () {
-            return gulp.src( config.srcPath + '/js/' + config.javascript.subdir.umd + '/**/*.js' )
+            return gulp.src( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js' )
                 .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
                 .pipe( plugins.sourcemaps.init() )
                 .pipe( plugins.umd( {
@@ -36,7 +36,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
 
     gulp.task( 'watch-umd', 'Watch UMD modules javascript files', [ 'build-umd' ], function () {
-            plugins.spy( config.srcPath + '/js/' + config.javascript.subdir.umd + '/**/*.js', [ 'build-umd' ] );
+            plugins.spy( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js', [ 'build-umd' ] );
         }
     );
 };

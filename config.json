@@ -16,7 +16,14 @@
     }
   },
   "imgDir": "img",
-  "docPath": "./docs",
+  "documentation": {
+    "rootPath": "./dist",
+    "dir": "docs",
+    "jsdir": "javascript",
+    "style": "sass",
+    "plato": "plato-report"
+
+  },
   "vendorDir": "vendor",
   "vendorName": "libs.js",
   "modernizrName": "custom-modernizr.js",

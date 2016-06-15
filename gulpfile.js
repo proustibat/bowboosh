@@ -29,7 +29,8 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
                 'argv': 'yargs',
                 'gulp-jsdoc3': 'jsdoc',
                 'gulp-jshint': 'gulpJSHint',
-                'vinyl-ftp': 'ftp'
+                'vinyl-ftp': 'ftp',
+                'merge-stream': 'merge'
             },
             lazy: true
         }
@@ -51,7 +52,7 @@ gulp.task( 'watch', function () {
 
         plugins.runSequence(
             [
-                'clean-all'
+                'clean-app'
             ],
             [
                 'watch-base',
@@ -70,9 +71,6 @@ gulp.task( 'watch', function () {
         aliases: [ 'dev' ]
     }
 );
-
-
-// TODO : implement throwError function everywhere it's needed
 
 /**
  * Error Handling

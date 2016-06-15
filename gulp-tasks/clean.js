@@ -1,22 +1,20 @@
 "use strict";
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
-
-    // gulp.task( 'clean-all', 'Run all clean tasks', [
-    //         'clean-base',
-    //         'clean-modernizr',
-    //         'clean-theme-css',
-    //         'clean-css',
-    //         'clean-imagemin',
-    //         'clean-fonts',
-    //         'clean-all-js'
-    //     ]
-    // );
-
-
+    
     // TODO: use gulp-clean
 
-    gulp.task( 'clean-all', 'Delete public directory', ['clean-base'], function () {
-            return plugins.del( config.publicPath + '/**/*',
+    gulp.task( 'clean-app', 'Delete public directory', [ 'clean-base' ], function () {
+            return plugins.del( [
+                    config.publicPath + '/**/*',
+                    '!' + config.documentation.rootPath,
+                    '!' + config.documentation.rootPath + '/' + config.documentation.dir,
+                    '!' + config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir,
+                    '!' + config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/**/*',
+                    '!' + config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.style,
+                    '!' + config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.style + '/**/*',
+                    '!' + config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.plato,
+                    '!' + config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.plato + '/**/*',
+                ],
                 { force: true }
             );
         }
@@ -77,6 +75,17 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     gulp.task( 'clean-all-js', 'Delete fonts directory in public directory', function () {
             return plugins.del( config.publicPath + '/' + config.javascript.dir + '/*',
                 { force: true }
+            );
+        }
+    );
+
+
+    gulp.task( 'clean-jsdoc', 'Delete javascript documentation', function () {
+            plugins.del( [
+                    config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir
+                ], {
+                    force: true
+                }
             );
         }
     );

@@ -5,7 +5,6 @@
  *
  ---------------------------------------------------------------------------*/
 var MODULE = window.MODULE || (function ( document, window, undefined ) {
-
         // Public
         return {
             init: function () {
@@ -29,6 +28,7 @@ var MODULE = window.MODULE || (function ( document, window, undefined ) {
         }
 
     })( document, window );
+
 
 MODULE.init();
 MODULE.publicMethod();

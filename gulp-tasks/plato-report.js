@@ -2,7 +2,7 @@
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     gulp.task( 'plato-report', 'Run Plato: javaScript source analysis and visualizer', function () {
             var files = [ config.srcPath + '/' + config.javascript.dir + '/**/*.js' ];
-            var outputDir = config.docPath + '/plato';
+            var outputDir = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.plato
             var options = {
                 title: 'Plato report: Bowboosh'
             };

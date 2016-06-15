@@ -1,8 +1,8 @@
 "use strict";
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
-    gulp.task( 'doc', 'Generate javascript documentation', [ 'del-jsdoc' ], function ( cb ) {
-            var configJSDOC = {
+    gulp.task( 'build-jsdoc', 'Generate javascript documentation', [ 'clean-jsdoc' ], function ( cb ) {
+            plugins.configJSDoc = {
                 "source": {
                     // An optional array of paths that JSDoc should generate documentation for.
                     // The paths given to JSDoc on the command line are combined with these to form the set
@@ -19,7 +19,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     //"exclude": [ './src/path/to/a/file.js' ]
                 },
                 "opts": {
-                    "destination": config.docPath + "/jsdoc",
+                    // "destination": config.docPath + "/jsdoc",
                     "readme": "./README.md",
                     //"package": "./package.json",
                     "recurse": true,
@@ -76,25 +76,36 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                 }
             };
 
-            gulp.src( [ './src/js/**/*.js' ], { read: true } )
-                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
-                .pipe( plugins.jsdoc( configJSDOC, cb ) );
 
-        }
-    );
-
-    gulp.task( 'del-jsdoc', 'Delete javascript documentation', function () {
-            plugins.del( [
-                    config.docPath + '/jsdoc'
-                ], {
-                    force: true
+            gulp.task( 'build-doc-smp', 'Generate document fo simple javascript module pattern', [], function ( cb ) {
+                    console.log( 'build-doc-smp' );
+                    plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.smp;
+                    return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js' ], { read: true } )
+                        .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                        .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
                 }
             );
+
+            gulp.task( 'build-doc-umd', 'Generate documentation for umd javascript', [], function ( cb ) {
+                    console.log( 'build-doc-umd' );
+                    plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.umd;
+                    return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js' ], { read: true } )
+                        .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                        .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
+                }
+            );
+
+            plugins.runSequence( [ 'build-doc-umd' ], [ 'build-doc-smp' ], cb );
         }
     );
 
-    gulp.task( 'dev-doc', 'Watch javascript files to regenerate documentation', [ 'doc' ], function ( cb ) {
-            plugins.spy( config.srcPath + '/' + config.javascript.dir + '/**/*.js*', [ 'doc' ] );
+
+    gulp.task( 'watch-jsdoc', 'Watch javascript files to regenerate documentation', [ 'build-jsdoc' ], function ( cb ) {
+            var allJs = [
+                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js',
+                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js'
+            ];
+            plugins.spy( allJs, [ 'build-jsdoc' ] );
         }
     );
 
