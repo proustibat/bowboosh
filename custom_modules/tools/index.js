@@ -1,8 +1,7 @@
 'use strict';
 
 var chokidar = require( 'chokidar' );
-
-// var gutil = require('../node_modules/gulp-util');
+var gutil = require( 'gulp-util' );
 
 module.exports = {
 
@@ -31,6 +30,11 @@ module.exports = {
         this.bwr = config || {};
     },
 
+    /**
+     * Watch function with chokidar plugin
+     * @param {Array} files
+     * @param {Array} tasks
+     */
     spy: function ( files, tasks, callback ) {
         console.log( "Tools.spy" );
         chokidar.watch( files, {
@@ -41,36 +45,27 @@ module.exports = {
         ).on( 'all', function ( event, path ) {
                 // console.log( event, path );
                 this.gulp.start( tasks );
-            }.bind(this)
+            }.bind( this )
         ).on( 'error', function ( error ) {
                 // plugins.throwError( 'plugins.spy', error.message, true );
                 console.log( "error" );
-            }.bind(this)
+            }.bind( this )
         );
+    },
+
+    /**
+     * Write a file
+     * @param filename
+     * @param string
+     * @returns {*}
+     */
+    stringSrc: function ( filename, string ) {
+        var src = require( 'stream' ).Readable( { objectMode: true } );
+        src._read = function () {
+            this.push( new gutil.File( { cwd: "", base: "", path: filename, contents: new Buffer( string ) } ) )
+            this.push( null )
+        };
+        return src;
     }
-
-    //
-    // ,
-    //
-    // errorHandler: function ( err ) {
-    //     gutil.log( plugins.util.colors.bgRed.inverse.bold( '| ERROR-HANDLER |' + err.message ) );
-    //     this.emit( 'end' );
-    // }
-
-    // spy: function ( files, tasks, callback ) {
-    //     plugins.chokidar.watch( files, {
-    //             ignoreInitial: true,
-    //             // awaitWriteFinish: true,
-    //             ignorePermissionErrors: true
-    //         }
-    //     ).on( 'all', function ( event, path ) {
-    //             // console.log( event, path );
-    //             gulp.start( tasks );
-    //         }
-    //     ).on( 'error', function ( error ) {
-    //             plugins.throwError( 'plugins.spy', error.message, true );
-    //         }
-    //     );
-    // }
 
 };

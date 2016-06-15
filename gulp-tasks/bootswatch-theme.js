@@ -12,9 +12,9 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             // If no theme setted
             if ( !config.bootstrapTheme ) {
                 plugins.util.log( plugins.util.colors.inverse.bold( "No Bootswatch theme" ) );
-                plugins.stringSrc( "_variables.scss", "// empty file because no theme setted" )
+                plugins.tools.stringSrc( "_variables.scss", "// empty file because no theme setted" )
                     .pipe( gulp.dest( destination ) );
-                plugins.stringSrc( "_bootswatch.scss", "// empty file because no theme setted" )
+                plugins.tools.stringSrc( "_bootswatch.scss", "// empty file because no theme setted" )
                     .pipe( gulp.dest( destination ) );
             }
             else {

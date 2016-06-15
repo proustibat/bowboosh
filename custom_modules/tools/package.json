@@ -10,6 +10,7 @@
   "license": "ISC",
   "private": true,
   "devDependencies": {
-    "chokidar": "^1.5.2"
+    "chokidar": "^1.5.2",
+    "gulp-util": "^3.0.7"
   }
 }
