@@ -105,7 +105,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                 config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js',
                 config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js'
             ];
-            plugins.spy( allJs, [ 'build-jsdoc' ] );
+            plugins.tools.spy( allJs, [ 'build-jsdoc' ] );
         }
     );
 

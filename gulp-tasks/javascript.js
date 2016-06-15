@@ -18,7 +18,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
     gulp.task( 'watch-javascript', 'Watch simple javascript modules files', [ 'build-javascript' ], function () {
-            plugins.spy( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js', [ 'build-javascript' ] );
+            plugins.tools.spy( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js', [ 'build-javascript' ] );
         }
     );
 };

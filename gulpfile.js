@@ -29,14 +29,15 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
                 'argv': 'yargs',
                 'gulp-jsdoc3': 'jsdoc',
                 'gulp-jshint': 'gulpJSHint',
-                'vinyl-ftp': 'ftp',
-                'merge-stream': 'merge'
+                'vinyl-ftp': 'ftp'
             },
             lazy: true
         }
     );
 
-plugins.tools = require( './custom_modules/tools' );
+// TODO : create an independant npm module
+plugins.tools = require( './custom_modules/tools/index' );
+plugins.tools.init( gulp, config, pkg, bwr );
 
 // Require all tasks
 plugins.loadSubtasks( './gulp-tasks/**/*.js', plugins, config, pkg, bwr );
@@ -130,23 +131,20 @@ plugins.stringSrc = stringSrc;
  * @param {Array} files
  * @param {Array} tasks
  */
-function spy( files, tasks, callback ) {
-    plugins.chokidar.watch( files, {
-            ignoreInitial: true,
-            // awaitWriteFinish: true,
-            ignorePermissionErrors: true
-        }
-    ).on( 'all', function ( event, path ) {
-            // console.log( event, path );
-            gulp.start( tasks );
-        }
-    ).on( 'error', function ( error ) {
-            plugins.throwError( 'plugins.spy', error.message, true );
-        }
-    );
-}
-plugins.spy = spy;
+// function spy( files, tasks, callback ) {
+//     plugins.chokidar.watch( files, {
+//             ignoreInitial: true,
+//             // awaitWriteFinish: true,
+//             ignorePermissionErrors: true
+//         }
+//     ).on( 'all', function ( event, path ) {
+//             // console.log( event, path );
+//             gulp.start( tasks );
+//         }
+//     ).on( 'error', function ( error ) {
+//             plugins.throwError( 'plugins.spy', error.message, true );
+//         }
+//     );
+// }
+// plugins.spy = spy;
 
-
-
-plugins.tools.init( config, pkg, bwr );

@@ -1,0 +1,15 @@
+{
+  "name": "bowboosh-tools",
+  "version": "1.0.0",
+  "description": "Utilities for bowboosh boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jennifer Proust",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "chokidar": "^1.5.2"
+  }
+}

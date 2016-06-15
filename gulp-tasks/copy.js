@@ -16,7 +16,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             for ( var i = 0, l = config.basesiteList.length; i < l; i++ ) {
                 baseFiles.push( config.srcPath + '/' + config.basesiteList[ i ] );
             }
-            plugins.spy( baseFiles, [ 'clean-base', 'copy-base' ] );
+            plugins.tools.spy( baseFiles, [ 'clean-base', 'copy-base' ] );
         }
     );
 };

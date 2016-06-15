@@ -17,7 +17,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
     gulp.task( 'watch-fonts', 'Watch scss files sources', [ 'build-fonts' ], function () {
-            plugins.spy( [
+            plugins.tools.spy( [
                     config.srcPath + '/' + config.fontsDir + '/*.*',                // custom icons or fonts
                     config.bowerDir + '/font-awesome/fonts/**.*',                   // font-awesome icons font
                     config.bowerDir + '/bootstrap-sass/' + 'assets/fonts/**/*'      // bootstrap glyphicons

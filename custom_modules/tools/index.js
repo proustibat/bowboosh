@@ -1,6 +1,7 @@
 'use strict';
 
-// var chokidar = require( '' );
+var chokidar = require( 'chokidar' );
+
 // var gutil = require('../node_modules/gulp-util');
 
 module.exports = {
@@ -8,6 +9,7 @@ module.exports = {
     config: null,
     pkg: null,
     bwr: null,
+    gulp: null,
 
     /**
      * Banner package
@@ -21,11 +23,30 @@ module.exports = {
         ' */',
         '' ].join( '\n' ),
 
-    init: function ( config, pkg, bwr ) {
-        console.log("Tools.init");
+    init: function ( gulp, config, pkg, bwr ) {
+        console.log( "Tools.init" );
+        this.gulp = gulp;
         this.config = config || {};
         this.pkg = config || {};
         this.bwr = config || {};
+    },
+
+    spy: function ( files, tasks, callback ) {
+        console.log( "Tools.spy" );
+        chokidar.watch( files, {
+                ignoreInitial: true,
+                // awaitWriteFinish: true,
+                ignorePermissionErrors: true
+            }
+        ).on( 'all', function ( event, path ) {
+                // console.log( event, path );
+                this.gulp.start( tasks );
+            }.bind(this)
+        ).on( 'error', function ( error ) {
+                // plugins.throwError( 'plugins.spy', error.message, true );
+                console.log( "error" );
+            }.bind(this)
+        );
     }
 
     //
