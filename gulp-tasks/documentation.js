@@ -81,7 +81,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     console.log( 'build-doc-smp' );
                     plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.smp;
                     return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js' ], { read: true } )
-                        .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                        .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                         .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
                 }
             );
@@ -90,7 +90,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     console.log( 'build-doc-umd' );
                     plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.umd;
                     return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js' ], { read: true } )
-                        .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                        .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                         .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
                 }
             );

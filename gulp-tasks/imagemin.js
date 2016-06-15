@@ -3,7 +3,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
     gulp.task( 'build-imagemin', "Optimize images", [ 'clean-imagemin' ], function () {
             return gulp.src( config.srcPath + '/' + config.imgDir + '/**/*' )
-                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                 .pipe( plugins.imagemin() )
                 .pipe( gulp.dest( config.publicPath + '/' + config.imgDir ) );
         }

@@ -60,12 +60,46 @@ module.exports = {
      * @returns {*}
      */
     stringSrc: function ( filename, string ) {
+        console.log( "Tools.stringSrc" );
         var src = require( 'stream' ).Readable( { objectMode: true } );
         src._read = function () {
             this.push( new gutil.File( { cwd: "", base: "", path: filename, contents: new Buffer( string ) } ) )
             this.push( null )
         };
         return src;
+    },
+
+    /**
+     * Handle errors in underlying streams and output them to console.
+     * @param err
+     */
+    errorHandler: function ( err ) {
+        console.log( "Tools.errorHandler" );
+        gutil.log( gutil.colors.bgRed.inverse.bold( '| ERROR-HANDLER |' + err.message ) );
+        this.emit( 'end' );
+    },
+
+    /**
+     * Error Throwing
+     * @param taskName
+     * @param msg
+     */
+    throwError: function ( taskName, msg, forceOnError ) {
+
+        console.log( "Tools.throwError" );
+        gutil.beep();
+
+        if ( !forceOnError ) {
+            throw new gutil.PluginError( {
+                    plugin: taskName.toString(),
+                    message: msg.toString()
+                }
+            );
+        }
+        else {
+            gutil.log( gutil.colors.bgRed.inverse.bold( taskName.toString() + ' | ' + msg ) );
+        }
+        this.gulp.emit( 'end' );
     }
 
 };

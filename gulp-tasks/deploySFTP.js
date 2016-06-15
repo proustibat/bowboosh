@@ -66,7 +66,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
             // Required parameters are missing
             if ( missingParameters.length > 0 ) {
-                plugins.throwError( 'deploySFTP', 'Missing required parameters: ' + missingParameters.toString() );
+                plugins.tools.throwError( 'deploySFTP', 'Missing required parameters: ' + missingParameters.toString() );
             }
 
             // All parameters are ok, continue to push on server
@@ -83,7 +83,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     '!./.htaccess' // exluded files
                 ]
             )
-                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                 .pipe( plugins.sftp( options ) );
 
             // online documentation

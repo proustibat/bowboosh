@@ -29,7 +29,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     '' ].join( '\n' );
 
                 return gulp.src( config.bowerDir + '/bootswatch/' + config.bootstrapTheme + '/*.scss' )
-                    .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                    .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                     .pipe( plugins.header( banner ) )
                     .pipe( gulp.dest( destination ) );
             }

@@ -11,7 +11,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                         config.bowerDir + '/bootstrap-sass/' + 'assets/fonts/**/*'      // bootstrap glyphicons
                     ]
                 )
-                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                 .pipe( gulp.dest( config.publicPath + '/' + config.fontsDir ) );
         }
     );
