@@ -17,6 +17,8 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                 baseFiles.push( config.srcPath + '/' + config.basesiteList[ i ] );
             }
             gulp.watch( baseFiles, [ 'clean-base', 'copy-base' ] );
+
+        // TODO: user plugins.spy (chokidar)
         }
     );
 };

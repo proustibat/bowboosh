@@ -1,0 +1,13 @@
+// Proustibat 1.0.0
+// Variables
+// --------------------------------------------------
+
+//== Typography
+$web-font-path: "https://fonts.googleapis.com/css?family=Lato|Oswald:400,700" !default;
+@import url($web-font-path);
+
+$font-family-base: 'Lato', sans-serif !default;
+$headings-font-family: 'Oswald', sans-serif !default;
+
+$headings-color: red;
+$jumbotron-heading-color: red;
