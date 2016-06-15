@@ -42,7 +42,7 @@ plugins.loadSubtasks( './gulp-tasks/**/*.js', plugins, config, pkg, bwr );
 /**
  * Default task when running 'gulp' command line
  */
-gulp.task( 'default', [ 'watch' ] );
+gulp.task( 'default', 'Default task: run watchers', [ 'watch' ] );
 
 
 /**

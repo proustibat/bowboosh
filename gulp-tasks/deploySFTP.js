@@ -80,19 +80,19 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             plugins.util.log( 'Push web site on server in : ', options.remotePath );
             gulp.src( [
                     './dist/**/*',
-                    '!./.htaccess', // exluded files
+                    '!./.htaccess' // exluded files
                 ]
             )
                 .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
                 .pipe( plugins.sftp( options ) );
 
             // online documentation
-            options.remotePath = options.remoteBase + '/bowboosh/docs';
-            plugins.util.log( 'Push documentation on server in : ', options.remotePath );
-            gulp.src( [
-                    './docs/**/*'
-                ]
-            ).pipe( plugins.sftp( options ) );
+            // options.remotePath = options.remoteBase + '/bowboosh/docs';
+            // plugins.util.log( 'Push documentation on server in : ', options.remotePath );
+            // gulp.src( [
+            //         './docs/**/*'
+            //     ]
+            // ).pipe( plugins.sftp( options ) );
         }
     );
 };

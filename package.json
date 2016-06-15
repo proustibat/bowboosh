@@ -5,9 +5,11 @@
   "description": "Simple boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes",
   "scripts": {
     "postinstall": "bower install --allow-root && gulp help",
-    "start": "gulp watch",
+    "start": "gulp",
     "deploy": "gulp deploySFTP",
-    "doc": "gulp doc",
+    "doc": "gulp build-jsdoc",
+    "report": "gulp plato-report",
+    "analyses": "gulp jscpd && gulp jshint",
     "help": "gulp help",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
