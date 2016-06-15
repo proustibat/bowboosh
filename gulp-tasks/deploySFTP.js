@@ -82,7 +82,9 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     './dist/**/*',
                     '!./.htaccess', // exluded files
                 ]
-            ).pipe( plugins.sftp( options ) );
+            )
+                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                .pipe( plugins.sftp( options ) );
 
             // online documentation
             options.remotePath = options.remoteBase + '/bowboosh/docs';

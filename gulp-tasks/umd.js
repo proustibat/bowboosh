@@ -3,6 +3,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
     gulp.task( 'build-umd', 'Build javascript file from UMD javascript modules sources', function () {
             return gulp.src( config.srcPath + '/js/' + config.javascript.subdir.umd + '/**/*.js' )
+                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
                 .pipe( plugins.sourcemaps.init() )
                 .pipe( plugins.umd( {
                         dependencies: function ( file ) {

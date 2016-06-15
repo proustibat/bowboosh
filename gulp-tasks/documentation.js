@@ -77,6 +77,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             };
 
             gulp.src( [ './src/js/**/*.js' ], { read: true } )
+                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
                 .pipe( plugins.jsdoc( configJSDOC, cb ) );
 
         }

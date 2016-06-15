@@ -9,8 +9,9 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
      *  css files, add path in includePaths, then import in main.scss
      */
     gulp.task( 'build-sass', 'Compile all scss files of the project into the public directory', [ 'build-bootswatch-theme', 'build-fonts' ], function () {
-            return gulp.src( config.srcPath + '/css/main.scss' )
-            // TODO: use gulp-changed
+        return gulp.src( config.srcPath + '/css/main.scss' )
+                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                // TODO: use gulp-changed
                 .pipe( plugins.sourcemaps.init() )
                 .pipe( plugins.sass( {
                         outputStyle: 'nested',

@@ -6,6 +6,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
      */
     gulp.task( 'build-vendors', 'Compile libraries used in the project into libs.js in public directory', function () {
             return gulp.src( plugins.mainBowerFiles( '**/*.js' ), { base: config.bowerDir } )
+                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
                 .pipe( plugins.concat( config.vendorName ) )
                 .pipe( plugins.uglify() )
                 .pipe( gulp.dest( config.publicPath + '/' + config.javascript.dir + '/' + config.vendorDir ) );
@@ -14,8 +15,6 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
 
     // TODO: build and watch other vendors libs than bower
-
-    // TODO: check if watcher works when adding or removing libraries with bower
 
     gulp.task( 'watch-vendors', 'Watch vendor libraries', [ 'build-vendors' ], function () {
             plugins.spy( config.bowerDir + '/**/*.js', [ 'build-vendors' ] );

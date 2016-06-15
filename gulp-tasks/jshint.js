@@ -7,9 +7,10 @@ module.exports = function ( gulp, plugins, config, errorHandler ) {
                     // '!' + config.srcPath + '/' + config.javascript.dir + '/path/to/file.js'
                 ]
             )
-                .pipe( plugins.gulpJSHint(  ) )
+                .pipe( plugins.plumber( { errorHandler: plugins.errorHandler } ) )
+                .pipe( plugins.gulpJSHint() )
                 .pipe( plugins.gulpJSHint.reporter( 'jshint-stylish' ) )
-                .pipe(plugins.gulpJSHint.reporter('fail')); // stop the gulp build on fail
+                .pipe( plugins.gulpJSHint.reporter( 'fail' ) ); // stop the gulp build on fail
         }
     );
 };

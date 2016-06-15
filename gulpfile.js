@@ -89,14 +89,23 @@ function throwError( taskName, msg, forceOnError ) {
                 message: msg.toString()
             }
         );
-
-        gulp.emit( 'end' );
     }
     else {
         plugins.util.log( plugins.util.colors.bgRed.inverse.bold( taskName.toString() + ' | ' + msg ) );
     }
+    gulp.emit( 'end' );
 }
 plugins.throwError = throwError;
+
+/**
+ * Handle errors in underlying streams and output them to console.
+ * @param err
+ */
+function errorHandler( err ) {
+    plugins.util.log( plugins.util.colors.bgRed.inverse.bold( '| ERROR-HANDLER |' + err.message ) );
+    this.emit( 'end' );
+}
+plugins.errorHandler = errorHandler;
 
 
 /**
@@ -122,7 +131,12 @@ plugins.stringSrc = stringSrc;
  * @param {Array} tasks
  */
 function spy( files, tasks, callback ) {
-    plugins.chokidar.watch( files ).on( 'all', function ( event, path ) {
+    plugins.chokidar.watch( files, {
+            ignoreInitial: true,
+            // awaitWriteFinish: true,
+            ignorePermissionErrors: true
+        }
+    ).on( 'all', function ( event, path ) {
             // console.log( event, path );
             gulp.start( tasks );
         }
