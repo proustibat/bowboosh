@@ -35,7 +35,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
 
     gulp.task( 'watch-umd', 'Watch UMD modules javascript files', [ 'build-umd' ], function () {
-            gulp.watch( config.srcPath + '/js/' + config.javascript.subdir.umd + '/**/*.js', [ 'build-umd' ] );
+            plugins.spy( config.srcPath + '/js/' + config.javascript.subdir.umd + '/**/*.js', [ 'build-umd' ] );
         }
     );
 };

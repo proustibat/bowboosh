@@ -18,7 +18,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     // TODO: check if watcher works when adding or removing libraries with bower
 
     gulp.task( 'watch-vendors', 'Watch vendor libraries', [ 'build-vendors' ], function () {
-            gulp.watch( config.bowerDir + '/**/*.js', [ 'build-vendors' ] );
+            plugins.spy( config.bowerDir + '/**/*.js', [ 'build-vendors' ] );
         }
     );
 };

@@ -79,18 +79,22 @@ gulp.task( 'watch', function () {
  * @param taskName
  * @param msg
  */
-function throwError( taskName, msg ) {
+function throwError( taskName, msg, forceOnError ) {
 
     plugins.util.beep();
-    //plugins.util.log( plugins.util.colors.bgRed.inverse.bold( taskName.toString() + ' : ' + msg.toString() ) );
 
-    throw new plugins.util.PluginError( {
-            plugin: taskName.toString(),
-            message: msg.toString()
-        }
-    );
+    if ( !forceOnError ) {
+        throw new plugins.util.PluginError( {
+                plugin: taskName.toString(),
+                message: msg.toString()
+            }
+        );
 
-    gulp.emit( 'end' );
+        gulp.emit( 'end' );
+    }
+    else {
+        plugins.util.log( plugins.util.colors.bgRed.inverse.bold( taskName.toString() + ' | ' + msg ) );
+    }
 }
 plugins.throwError = throwError;
 
@@ -121,6 +125,9 @@ function spy( files, tasks, callback ) {
     plugins.chokidar.watch( files ).on( 'all', function ( event, path ) {
             // console.log( event, path );
             gulp.start( tasks );
+        }
+    ).on( 'error', function ( error ) {
+            plugins.throwError( 'plugins.spy', error.message, true );
         }
     );
 }
