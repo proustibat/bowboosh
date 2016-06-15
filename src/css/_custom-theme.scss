@@ -6,7 +6,30 @@
   border: none;
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    background-color: $btn-primary-color;
-    color: $brand-primary;
+
+    &.btn-default {
+      background-color: $btn-default-color;
+      color: $btn-default-bg;
+    }
+    &.btn-primary {
+      background-color: $btn-primary-color;
+      color: $btn-primary-bg;
+    }
+    &.btn-success {
+      background-color: $btn-success-color;
+      color: $btn-success-bg;
+    }
+    &.btn-info {
+      background-color: $btn-info-color;
+      color: $btn-info-bg;
+    }
+    &.btn-warning {
+      background-color: $btn-warning-color;
+      color: $btn-warning-bg;
+    }
+    &.btn-danger {
+      background-color: $btn-danger-color;
+      color: $btn-danger-bg;
+    }
   }
 }
