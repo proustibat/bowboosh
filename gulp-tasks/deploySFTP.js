@@ -23,7 +23,8 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
      *
      *
      ******************************************************************************/
-    var gulp = require( 'gulp' );
+
+    // TODO : errors occur when remote directory exists
 
     gulp.task( 'deploySFTP', 'Push changes to remote servers (eg: staging/production)', function () {
 

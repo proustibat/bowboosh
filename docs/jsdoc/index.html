@@ -91,7 +91,10 @@
 
 
     <section class="readme-section">
-        <article><h1>bowboosh</h1><p>Simple HTML5 boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes, deployment tool, documentation tools and code analysis.</p>
+        <article><h1>bowboosh</h1><p>HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatch themes, deployment tasks, documentation and code analysis tasks.</p>
+<h2>Demo</h2><ul>
+<li>Master: <a href="http://demo.proustib.at/bowboosh/">http://demo.proustib.at/bowboosh/</a></li>
+</ul>
 <hr>
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -133,7 +136,7 @@
 <!-- Informations: https://github.com/thlorenz/doctoc -->
 <hr>
 <h2>:beginner: Quick usage</h2><pre class="prettyprint source lang-sh"><code>npm install     // install required npm packages then required bower packages
-npm start       // start watchers</code></pre><h2>:open_file_folder: Tree files</h2><pre class="prettyprint source"><code>./
+npm start       // start watchers</code></pre><h2>:open_file_folder: File tree</h2><pre class="prettyprint source"><code>./
 |   .gitignore
 |   .jshintrc
 |   bower.json
@@ -196,202 +199,30 @@ npm start       // start watchers</code></pre><h2>:open_file_folder: Tree files<
      &quot;tile.png&quot;,
      &quot;tile-wide.png&quot;
    ]
- }</code></pre><h3>./modernizr-config.json: Modernizr default configuration file</h3><p>See <a href="https://modernizr.com/docs">Modernizr documentation</a> for more details.</p>
+ }</code></pre><h3>./modernizr-config.json: Modernizr default configuration file</h3><p>See <a href="https://modernizr.com/docs">Modernizr documentation</a> for more details.
+Complete file <a href="./modernizr-config.json">here</a></p>
 <pre class="prettyprint source"><code>{
   &quot;classPrefix&quot;: &quot;has-&quot;,
   &quot;options&quot;: [
     &quot;addTest&quot;,
-    &quot;atRule&quot;,
-    &quot;domPrefixes&quot;,
-    &quot;hasEvent&quot;,
-    &quot;html5shiv&quot;,
-    &quot;html5printshiv&quot;,
-    &quot;load&quot;,
-    &quot;mq&quot;,
-    &quot;prefixed&quot;,
-    &quot;prefixes&quot;,
-    &quot;prefixedCSS&quot;,
-    &quot;setClasses&quot;,
-    &quot;testAllProps&quot;,
-    &quot;testProp&quot;,
+    ...
     &quot;testStyles&quot;
   ],
   &quot;feature-detects&quot;: [
     &quot;canvas&quot;,
-    &quot;css/all&quot;,
-    &quot;ie8compat&quot;,
-    &quot;postmessage&quot;,
-    &quot;svg&quot;,
-    &quot;touchevents&quot;,
-    &quot;video&quot;,
-    &quot;audio&quot;,
-    &quot;webanimations&quot;,
-    &quot;webgl&quot;,
-    &quot;storage/localstorage&quot;,
-    &quot;storage/sessionstorage&quot;,
-    &quot;pointerevents&quot;,
-    &quot;notification&quot;,
+    ...
     &quot;eventlistener&quot;
   ]
-}</code></pre><h3>.jshintrc: JSHint default configuration file</h3><p>See <a href="http://jshint.com/docs">JSHint documentation</a> for more details</p>
+}</code></pre><h3>.jshintrc: JSHint default configuration file</h3><p>See <a href="http://jshint.com/docs">JSHint documentation</a> for more details
+File with comments for each properties <a href="./.jshintrc">here</a></p>
 <pre class="prettyprint source"><code>{
-  // JSHint Default Configuration File (as on JSHint website)
-  // See http://jshint.com/docs/ for more details
-
   &quot;maxerr&quot;: 50,
-  // {int} Maximum error before stopping
-
-  // Enforcing
   &quot;bitwise&quot;: true,
-  // true: Prohibit bitwise operators (&, |, ^, etc.)
   &quot;camelcase&quot;: false,
-  // true: Identifiers must be in camelCase
   &quot;curly&quot;: true,
-  // true: Require {} for every new block or scope
-  &quot;eqeqeq&quot;: true,
-  // true: Require triple equals (===) for comparison
-  &quot;forin&quot;: true,
-  // true: Require filtering for..in loops with obj.hasOwnProperty()
-  &quot;freeze&quot;: true,
-  // true: prohibits overwriting prototypes of native objects such as Array, Date etc.
-  &quot;immed&quot;: false,
-  // true: Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
-  &quot;latedef&quot;: false,
-  // true: Require variables/functions to be defined before being used
-  &quot;newcap&quot;: false,
-  // true: Require capitalization of all constructor functions e.g. `new F()`
-  &quot;noarg&quot;: true,
-  // true: Prohibit use of `arguments.caller` and `arguments.callee`
-  &quot;noempty&quot;: true,
-  // true: Prohibit use of empty blocks
-  &quot;nonbsp&quot;: true,
-  // true: Prohibit &quot;non-breaking whitespace&quot; characters.
-  &quot;nonew&quot;: false,
-  // true: Prohibit use of constructors for side-effects (without assignment)
-  &quot;plusplus&quot;: false,
-  // true: Prohibit use of `++` and `--`
-  &quot;quotmark&quot;: false,
-  // Quotation mark consistency:
-  //   false    : do nothing (default)
-  //   true     : ensure whatever is used is consistent
-  //   &quot;single&quot; : require single quotes
-  //   &quot;double&quot; : require double quotes
-  &quot;undef&quot;: true,
-  // true: Require all non-global variables to be declared (prevents global leaks)
-  &quot;unused&quot;: &quot;vars&quot;,
-  // Unused variables:
-  //   true     : all variables, last function parameter
-  //   &quot;vars&quot;   : all variables only
-  //   &quot;strict&quot; : all variables, all function parameters
-  &quot;strict&quot;: true,
-  // true: Requires all functions run in ES5 Strict Mode
-  &quot;maxparams&quot;: false,
-  // {int} Max number of formal params allowed per function
-  &quot;maxdepth&quot;: false,
-  // {int} Max depth of nested blocks (within functions)
-  &quot;maxstatements&quot;: false,
-  // {int} Max number statements per function
-  &quot;maxcomplexity&quot;: false,
-  // {int} Max cyclomatic complexity per function
-  &quot;maxlen&quot;: false,
-  // {int} Max number of characters per line
-  &quot;varstmt&quot;: false,
-  // true: Disallow any var statements. Only `let` and `const` are allowed.
-
-  // Relaxing
-  &quot;asi&quot;: false,
-  // true: Tolerate Automatic Semicolon Insertion (no semicolons)
-  &quot;boss&quot;: false,
-  // true: Tolerate assignments where comparisons would be expected
-  &quot;debug&quot;: false,
-  // true: Allow debugger statements e.g. browser breakpoints.
-  &quot;eqnull&quot;: false,
-  // true: Tolerate use of `== null`
-  &quot;esversion&quot;: 5,
-  // {int} Specify the ECMAScript version to which the code must adhere.
-  &quot;moz&quot;: false,
-  // true: Allow Mozilla specific syntax (extends and overrides esnext features)
-  // (ex: `for each`, multiple try/catch, function expression…)
-  &quot;evil&quot;: false,
-  // true: Tolerate use of `eval` and `new Function()`
-  &quot;expr&quot;: false,
-  // true: Tolerate `ExpressionStatement` as Programs
-  &quot;funcscope&quot;: false,
-  // true: Tolerate defining variables inside control statements
-  &quot;globalstrict&quot;: true,
-  // true: Allow global &quot;use strict&quot; (also enables 'strict')
-  &quot;iterator&quot;: false,
-  // true: Tolerate using the `__iterator__` property
-  &quot;lastsemic&quot;: false,
-  // true: Tolerate omitting a semicolon for the last statement of a 1-line block
-  &quot;laxbreak&quot;: false,
-  // true: Tolerate possibly unsafe line breakings
-  &quot;laxcomma&quot;: false,
-  // true: Tolerate comma-first style coding
-  &quot;loopfunc&quot;: false,
-  // true: Tolerate functions being defined in loops
-  &quot;multistr&quot;: false,
-  // true: Tolerate multi-line strings
-  &quot;noyield&quot;: false,
-  // true: Tolerate generator functions with no yield statement in them.
-  &quot;notypeof&quot;: false,
-  // true: Tolerate invalid typeof operator values
-  &quot;proto&quot;: false,
-  // true: Tolerate using the `__proto__` property
-  &quot;scripturl&quot;: false,
-  // true: Tolerate script-targeted URLs
-  &quot;shadow&quot;: false,
-  // true: Allows re-define variables later in code e.g. `var x=1; x=2;`
-  &quot;sub&quot;: false,
-  // true: Tolerate using `[]` notation when it can still be expressed in dot notation
-  &quot;supernew&quot;: false,
-  // true: Tolerate `new function () { ... };` and `new Object;`
-  &quot;validthis&quot;: false,
-  // true: Tolerate using this in a non-constructor function
-
-  // Environments
-  &quot;browser&quot;: true,
-  // Web Browser (window, document, etc)
-  &quot;browserify&quot;: false,
-  // Browserify (node.js code in the browser)
-  &quot;couch&quot;: false,
-  // CouchDB
-  &quot;devel&quot;: true,
-  // Development/debugging (alert, confirm, etc)
-  &quot;dojo&quot;: false,
-  // Dojo Toolkit
-  &quot;jasmine&quot;: false,
-  // Jasmine
-  &quot;jquery&quot;: false,
-  // jQuery
-  &quot;mocha&quot;: true,
-  // Mocha
-  &quot;mootools&quot;: false,
-  // MooTools
-  &quot;node&quot;: false,
-  // Node.js
-  &quot;nonstandard&quot;: false,
-  // Widely adopted globals (escape, unescape, etc)
-  &quot;phantom&quot;: false,
-  // PhantomJS
-  &quot;prototypejs&quot;: false,
-  // Prototype and Scriptaculous
-  &quot;qunit&quot;: false,
-  // QUnit
-  &quot;rhino&quot;: false,
-  // Rhino
-  &quot;shelljs&quot;: false,
-  // ShellJS
-  &quot;typed&quot;: false,
-  // Globals for typed array constructions
-  &quot;worker&quot;: false,
-  // Web Workers
-  &quot;wsh&quot;: false,
-  // Windows Scripting Host
-  &quot;yui&quot;: false,
-  // Yahoo User Interface
-
-  // Custom Globals: additional predefined global variables
+    ...
+    ...
+    ...
   &quot;globals&quot;: {
     &quot;window&quot;: false
   }
@@ -494,7 +325,8 @@ Example result is available here: <a href="http://demo.proustib.at/bowboosh/docs
 </ul>
 <h2>License</h2><p><a href="./LICENSE">MIT</a></p>
 <hr>
-<p><em>Generated by <a href="https://github.com/zeke/package-json-to-readme">package-json-to-readme</a></em></p></article>
+<p>Generated vith the help of <a href="https://github.com/zeke/package-json-to-readme">package-json-to-readme</a>
+and <a href="https://github.com/thlorenz/doctoc">DocToc</a>.</p></article>
     </section>
 
 
