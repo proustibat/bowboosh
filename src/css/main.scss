@@ -1,21 +1,17 @@
 /* main.scss */
-
 // Icons
 @import 'font-awesome';
 
-
 // Import bootstrap and theme ( available themes: bower_components/bootswatch )
 @import "theme/variables";
-@import 'custom-variables';
+@import 'custom-theme/variables-overrided';
 @import "bootstrap/variables";
 @import "bootstrap";
 @import "theme/bootswatch";
-@import "custom-theme";
-
+@import "custom-theme/theme-overrided";
 
 
 // Import project files
-
 @import 'general';
 
 

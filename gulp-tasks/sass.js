@@ -24,12 +24,13 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     )
                 )
                 .pipe( plugins.sourcemaps.write() )
+                .pipe( plugins.header( plugins.banner, { pkg: pkg } ) )
                 .pipe( gulp.dest( config.publicPath + '/css/' ) );
         }
     );
 
 
-    gulp.task( 'watch-sass', 'Watch scss files sources', ['build-sass',  /* todo : 'watch-bootswatch-theme', */'watch-fonts' ], function () {
+    gulp.task( 'watch-sass', 'Watch scss files sources', [ 'build-sass', /* todo : 'watch-bootswatch-theme', */'watch-fonts' ], function () {
             gulp.watch( config.srcPath + '/' + config.cssDir + '/**/*.scss', [ 'build-sass' ] );
         }
     );

@@ -30,6 +30,7 @@
     "gulp-concat": "2.6.0",
     "gulp-file": "^0.3.0",
     "gulp-filter": "^4.0.0",
+    "gulp-header": "^1.8.2",
     "gulp-help": "^1.6.1",
     "gulp-imagemin": "^3.0.1",
     "gulp-jscpd": "0.0.7",

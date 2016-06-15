@@ -18,7 +18,18 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     .pipe( gulp.dest( destination ) );
             }
             else {
+                var banner = [
+                    '/*********************************************************************************************',
+                    ' * /!\\    WARNING    /!\\                                                                     *',
+                    ' * Don\'t write anything here ! This file is a copy of a selected bootwatch theme.            *',
+                    ' * It will be removed and re-written to each building or watching.                           *',
+                    ' * Iy you wanna customize this selected theme, please override it in custom-theme directory. *',
+                    ' *********************************************************************************************/',
+                    '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n',
+                    '' ].join( '\n' );
+
                 return gulp.src( config.bowerDir + '/bootswatch/' + config.bootstrapTheme + '/*.scss' )
+                    .pipe( plugins.header( banner ) )
                     .pipe( gulp.dest( destination ) );
             }
         }, {

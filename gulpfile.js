@@ -117,7 +117,7 @@ plugins.stringSrc = stringSrc;
  * @param {Array} files
  * @param {Array} tasks
  */
-function spy( files, tasks, callback) {
+function spy( files, tasks, callback ) {
     plugins.chokidar.watch( files ).on( 'all', function ( event, path ) {
             // console.log( event, path );
             gulp.start( tasks );
@@ -125,6 +125,18 @@ function spy( files, tasks, callback) {
     );
 }
 plugins.spy = spy;
+
+/**
+ * Banner package
+ * @type {Array}
+ */
+plugins.banner = [ '/**',
+    ' * <%= pkg.name %> - <%= pkg.description %>',
+    ' * @version v<%= pkg.version %>',
+    ' * @link <%= pkg.homepage %>',
+    ' * @license <%= pkg.license %>',
+    ' */',
+    '' ].join( '\n' );
 
 
 
