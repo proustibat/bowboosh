@@ -29,7 +29,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                 .pipe( plugins.uglify() )
                 .pipe( plugins.concat( config.javascript.outputFile + '.min.js' ) )
                 .pipe( plugins.sourcemaps.write() )
-                .pipe( plugins.header( plugins.banner, { pkg: pkg } ) )
+                .pipe( plugins.header( plugins.tools.banner, { pkg: pkg } ) )
                 .pipe( gulp.dest( config.publicPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd ) );
         }
     );

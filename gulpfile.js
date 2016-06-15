@@ -36,6 +36,8 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
         }
     );
 
+plugins.tools = require( './custom_modules/tools' );
+
 // Require all tasks
 plugins.loadSubtasks( './gulp-tasks/**/*.js', plugins, config, pkg, bwr );
 
@@ -145,17 +147,6 @@ function spy( files, tasks, callback ) {
 }
 plugins.spy = spy;
 
-/**
- * Banner package
- * @type {Array}
- */
-plugins.banner = [ '/**',
-    ' * <%= pkg.name %> - <%= pkg.description %>',
-    ' * @version v<%= pkg.version %>',
-    ' * @link <%= pkg.homepage %>',
-    ' * @license <%= pkg.license %>',
-    ' */',
-    '' ].join( '\n' );
 
 
-
+plugins.tools.init( config, pkg, bwr );
