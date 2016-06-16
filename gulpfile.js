@@ -29,15 +29,16 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
                 'argv': 'yargs',
                 'gulp-jsdoc3': 'jsdoc',
                 'gulp-jshint': 'gulpJSHint',
-                'vinyl-ftp': 'ftp'
+                'vinyl-ftp': 'ftp',
+                'bowboosh-tools': 'tools'
             },
             lazy: true
         }
     );
 
 // TODO : create an independant npm module
-plugins.tools = require( './custom_modules/tools/index' );
-plugins.tools.init( gulp, config, pkg, bwr );
+// plugins.tools = require( './custom_modules/tools/index' );
+// plugins.tools.init( gulp, config, pkg, bwr );
 
 // Require all tasks
 plugins.loadSubtasks( './gulp-tasks/**/*.js', plugins, config, pkg, bwr );
