@@ -6,6 +6,7 @@
 var config = require( './config.json' ),
     pkg = require( './package.json' ),
     bwr = require( './bower.json' );
+config.env = {};
 
 var modernizrOptions = require( './modernizr-config.json' );
 config.modernizrOptions = modernizrOptions;
@@ -30,15 +31,12 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
                 'gulp-jsdoc3': 'jsdoc',
                 'gulp-jshint': 'gulpJSHint',
                 'vinyl-ftp': 'ftp',
-                'bowboosh-tools': 'tools'
+                'bowboosh-tools': 'tools',
+                'gulp-if': 'gulpif'
             },
             lazy: true
         }
     );
-
-// TODO : create an independant npm module
-// plugins.tools = require( './custom_modules/tools/index' );
-// plugins.tools.init( gulp, config, pkg, bwr );
 
 // Require all tasks
 plugins.loadSubtasks( './gulp-tasks/**/*.js', plugins, config, pkg, bwr );
@@ -50,10 +48,11 @@ gulp.task( 'default', 'Default task: run watchers', [ 'watch' ] );
 
 
 /**
- * Run watchers on scss, vendors and config files
+ * Run watchers on all web app or site sources
  */
 gulp.task( 'watch', function () {
-
+        config.env.dev = true;
+        config.env.prod = false;
         plugins.runSequence(
             [
                 'clean-app'
@@ -68,10 +67,31 @@ gulp.task( 'watch', function () {
                 'watch-umd'
             ]
         );
-
         gulp.watch( './config.json', [ 'reload-config' ] );
-
     }, {
         aliases: [ 'dev' ]
+    }
+);
+
+/**
+ * Build web app or site for distribution
+ */
+gulp.task( 'build', function () {
+        config.env.dev = false;
+        config.env.prod = true;
+        plugins.runSequence(
+            [
+                'clean-app'
+            ],
+            [
+                //'build-base',
+                //'build-sass',
+                //'build-vendors',
+                //'build-modernizr',
+                //'build-imagemin',
+                'build-javascript'
+                ////'build-umd'
+            ]
+        );
     }
 );
