@@ -84,13 +84,13 @@ gulp.task( 'build', function () {
                 'clean-app'
             ],
             [
-                //'build-base',
-                //'build-sass',
-                //'build-vendors',
-                //'build-modernizr',
-                //'build-imagemin',
-                'build-javascript'
-                ////'build-umd'
+                'copy-base',
+                'build-sass',
+                'build-vendors',
+                'build-modernizr',
+                'build-imagemin',
+                'build-javascript',
+                'build-umd'
             ]
         );
     }

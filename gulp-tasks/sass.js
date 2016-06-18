@@ -9,22 +9,38 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
      *  css files, add path in includePaths, then import in main.scss
      */
     gulp.task( 'build-sass', 'Compile all scss files of the project into the public directory', [ 'build-bootswatch-theme', 'build-fonts' ], function () {
-        return gulp.src( config.srcPath + '/css/main.scss' )
+            config.env = plugins.tools.getEnv( config );
+            var options = {
+                dev: {
+                    outputStyle: 'expansed',
+                    precison: 3,
+                    errLogToConsole: true,
+                    includePaths: [
+                        config.bowerDir + '/bootstrap-sass/' + 'assets/stylesheets',
+                        config.bowerDir + '/font-awesome/scss'
+                    ]
+                },
+                prod: {
+                    outputStyle: 'compressed',
+                    precison: 3,
+                    errLogToConsole: false,
+                    includePaths: [
+                        config.bowerDir + '/bootstrap-sass/' + 'assets/stylesheets',
+                        config.bowerDir + '/font-awesome/scss'
+                    ]
+                }
+            };
+            //TODO : common options and merge
+            return gulp.src( config.srcPath + '/css/main.scss' )
                 .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                 // TODO: use gulp-changed
-                .pipe( plugins.sourcemaps.init() )
-                .pipe( plugins.sass( {
-                        outputStyle: 'nested',
-                        precison: 3,
-                        errLogToConsole: true,
-                        includePaths: [
-                            config.bowerDir + '/bootstrap-sass/' + 'assets/stylesheets',
-                            config.bowerDir + '/font-awesome/scss'
-                        ]
-                    }
-                    )
-                )
-                .pipe( plugins.sourcemaps.write() )
+                //.pipe( plugins.sourcemaps.init() )
+                .pipe( plugins.gulpif( config.env.dev, plugins.sourcemaps.init() ) )
+                .pipe( plugins.sass( plugins.gulpif( config.env.dev, options.dev, options.prod ) ) )
+                //.pipe( plugins.sass( sassOptions ) )
+                .on( 'error', plugins.tools.errorHandler )
+                //.pipe( plugins.sourcemaps.write() )
+                .pipe( plugins.gulpif( config.env.dev, plugins.sourcemaps.write() ) )
                 .pipe( plugins.header( plugins.tools.banner, { pkg: pkg } ) )
                 .pipe( gulp.dest( config.publicPath + '/css/' ) );
         }
