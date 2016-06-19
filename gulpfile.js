@@ -50,7 +50,7 @@ gulp.task( 'default', 'Default task: run watchers', [ 'watch' ] );
 /**
  * Run watchers on all web app or site sources
  */
-gulp.task( 'watch', function () {
+gulp.task( 'watch', 'Run watchers on all web app or site sources',  function () {
         config.env.dev = true;
         config.env.prod = false;
         plugins.runSequence(
@@ -76,7 +76,7 @@ gulp.task( 'watch', function () {
 /**
  * Build web app or site for distribution
  */
-gulp.task( 'build', function () {
+gulp.task( 'build', 'Build web app or site for distribution',  function () {
         config.env.dev = false;
         config.env.prod = true;
         plugins.runSequence(
@@ -93,5 +93,7 @@ gulp.task( 'build', function () {
                 'build-umd'
             ]
         );
+    }, {
+        aliases: [ 'prod' ]
     }
 );

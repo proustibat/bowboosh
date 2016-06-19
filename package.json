@@ -9,8 +9,9 @@
     "deploy": "gulp deploySFTP",
     "doc": "gulp build-jsdoc",
     "report": "gulp plato-report",
-    "analyses": "gulp jscpd && gulp jshint",
+    "analyses": "gulp jscpd && gulp complexity && gulp jshint",
     "help": "gulp help",
+    "build": "gulp build --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

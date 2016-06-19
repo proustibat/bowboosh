@@ -67,5 +67,4 @@ function App() {
     
     App.init();
     return App;
-};
-
+}

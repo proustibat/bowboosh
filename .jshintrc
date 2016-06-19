@@ -42,7 +42,7 @@
   //   "double" : require double quotes
   "undef": true,
   // true: Require all non-global variables to be declared (prevents global leaks)
-  "unused": "vars",
+  //"unused": "vars",
   // Unused variables:
   //   true     : all variables, last function parameter
   //   "vars"   : all variables only

@@ -136,7 +136,9 @@
 <!-- Informations: https://github.com/thlorenz/doctoc -->
 <hr>
 <h2>:beginner: Quick usage</h2><pre class="prettyprint source lang-sh"><code>npm install     // install required npm packages then required bower packages
-npm start       // start watchers</code></pre><h2>:open_file_folder: File tree</h2><pre class="prettyprint source"><code>./
+npm start       // start watchers</code></pre><p>If you just wanna build the project:</p>
+<pre class="prettyprint source lang-sh"><code>npm install     // install required npm packages then required bower packages
+npm run build       // start watchers</code></pre><h2>:open_file_folder: File tree</h2><pre class="prettyprint source"><code>./
 |   .gitignore
 |   .jshintrc
 |   bower.json
@@ -181,10 +183,25 @@ npm start       // start watchers</code></pre><h2>:open_file_folder: File tree</
    &quot;bowerDir&quot;: &quot;./bower_components&quot;,        // Directory name for bower
    &quot;fontsDir&quot;: &quot;fonts&quot;,                     // Directory name for font files, uses the same name for src or public path
    &quot;cssDir&quot;: &quot;css&quot;,                         // Directory name for style files, uses the same name for src (scss files) or public path (css files)
-   &quot;jsDir&quot;: &quot;js&quot;,                           // Direcory name for javascript files, uses the same name for src or public path
-   &quot;jsName&quot;: &quot;main&quot;,                        // Name of javascript public file (will be changed into 'name.min.js'
+   &quot;javascript&quot;: {
+     &quot;dir&quot;: &quot;js&quot;,                           // Direcory name for javascript files, uses the same name for src or public path
+     &quot;outputFile&quot;: &quot;main&quot;,                  // Name of javascript public file (will be changed into 'name.min.js'
+     &quot;subdir&quot;: {                            // Subdirectories of jaavscript files
+       &quot;smp&quot;: &quot;simple-module-pattern&quot;,
+       &quot;umd&quot;: &quot;universal-module-definition&quot;,
+       &quot;common&quot;: &quot;common-js&quot;,
+       &quot;amd&quot;: &quot;amd-js&quot;,
+       &quot;requirejs&quot;: &quot;require-js&quot;
+     }
+   },
    &quot;imgDir&quot;: &quot;img&quot;,                         // Directory name for image files, uses the same name for src or public path
-   &quot;docDir&quot;: &quot;docs&quot;,                        // Path: for generated documentations
+   &quot;documentation&quot;: {
+     &quot;rootPath&quot;: &quot;./dist&quot;,                   // Public root path where are generated documentations
+     &quot;dir&quot;: &quot;docs&quot;,                          // Main directory
+     &quot;jsdir&quot;: &quot;javascript&quot;,                  // Specific subdirectory for javascript documentation
+     &quot;style&quot;: &quot;sass&quot;,                        // Specific subdirectory fir style documentation
+     &quot;plato&quot;: &quot;plato-report&quot;                 // Specific subdirectory for plato reports
+   },
    &quot;vendorDir&quot;: &quot;vendor&quot;,                   // Directory name for libraries in public directory
    &quot;vendorName&quot; : &quot;libs.js&quot;,                // Name of bower components compiled into one javascript file
    &quot;modernizrName&quot;: &quot;custom-modernizr.js&quot;,  // Name of the custom modernizr file
@@ -236,49 +253,115 @@ It looks like:</p>
     &quot;remoteBase&quot;: &quot;/var/www/html&quot;
 }</code></pre><h2>:grey_question: Help</h2><p>All available gulp tasks are visible, run <code>gulp h</code> or <code>npm run help</code></p>
 <p>Result:</p>
-<pre class="prettyprint source"><code>  bootswatch-theme          Copy sass files from theme choosen in config Aliases: bw-theme
-  bower                     Get all setup and ready Aliases: install, setup
+<pre class="prettyprint source"><code>  bower                     Get all setup and ready Aliases: install, setup
+  build                     Build web app or site for distribution Aliases: prod
+  build-bootswatch-theme    Copy sass files from theme choosen in config Aliases: bw-theme
+  build-fonts               Copy all fonts source into public directory
+  build-imagemin            Optimize images
+  build-javascript          Build javascript file from simple javascript modules sources
+  build-jsdoc               Generate javascript documentation
   build-modernizr           Create a custom modernizr file depending on ./modernizr.config.json
-  clean-all                 Run all clean tasks
+  build-sass                Compile all scss files of the project into the public directory
+  build-umd                 Build javascript file from UMD javascript modules sources
+  build-vendors             Compile libraries used in the project into libs.js in public directory
+  clean-all-js              Delete fonts directory in public directory
+  clean-app                 Delete public directory
   clean-base                Delete exported basic boilerplate files
   clean-css                 Delete compiled css files
+  clean-fonts               Delete fonts directory in public directory
   clean-imagemin            Delete optimized image in public directory
+  clean-jsdoc               Delete javascript documentation
   clean-modernizr           Delete compiled custom modernizr file
   clean-theme-css           Delete scss bootswatch theme file
   clean-vendor              Delete compiled vendor file
   complexity                Run software complexity analysis
-  copy-base                 Copy basic files in public directory Aliases: cp-base
-  default
-  del-jsdoc                 Delete javascript documentation
+  copy-base                 Copy basic files in public directory
+  default                   Default task: run watchers
   deploySFTP                Push changes to remote servers (eg: staging/production)
-  dev-doc                   Watch javascript files to regenerate documentation
-  doc                       Generate javascript documentation
-  fonts                     Copy all fonts (bootstrap and custom sources) into public directory
   help                      Display this help text. Aliases: h, ?
-  icons                     Copy font-awesome icons into the public directory
-  imagemin                  Optimize images
-  javascript                Aliases: js
   jscpd                     Run copy paste detector tool
   jshint                    Run JSHINT: tool that helps to detect errors and potential problems in code
   plato-report              Run Plato: javaScript source analysis and visualizer
   reload-config             Require new config after changes on config.json
   reload-modernizr-options  Require new modernizr options after changes on modernizr.config.json
-  sass                      Compile all scss files of the project into the public directory
-  vendorjs                  Compile libraries used in the project into libs.js in public directory
-  watch                     Aliases: dev</code></pre><h2>Main features</h2><h3>Watchers for development and build for production</h3><ul>
+  watch                     Run watchers on all web app or site sources Aliases: dev
+  watch-base                Watch basic files sources
+  watch-fonts               Watch scss files sources
+  watch-imagemin            Watch images sources to reload imagemin task
+  watch-javascript          Watch simple javascript modules files
+  watch-jsdoc               Watch javascript files to regenerate documentation
+  watch-modernizr           Watch modernizr options to rebuild custom modernizr file
+  watch-sass                Watch scss files sources
+  watch-umd                 Watch UMD modules javascript files
+  watch-vendors             Watch vendor libraries</code></pre><h2>Main features</h2><h3>Watchers for development and build for production</h3><ul>
 <li>Scss files compilation: bootstrap, bootswatch theme, core application</li>
 <li>Font icons (font-awesome)</li>
 <li>Javascript files compilation: core applicaiton and vendors</li>
 <li>Image Optimization (<code>gulp-imagemin</code>)</li>
 <li>Build modernizr library</li>
 </ul>
-<h3>Deploy on server</h3><p>Via SFTP protocole (<code>using gulp-sftp</code>)</p>
+<h3>Deployment</h3><p>Via SFTP (<code>using gulp-sftp</code>)</p>
 <p>Run:</p>
 <pre class="prettyprint source"><code>npm run deploy</code></pre><p>or</p>
-<pre class="prettyprint source"><code>gulp deploySFTP --host=&quot;164.129.01.86&quot; --user=&quot;username&quot; --password=&quot;password-of-the-user&quot; --remoteBase=&quot;var/www/html&quot;</code></pre><h3>Analyses and documentation</h3><h4>Complexity</h4><p>See <a href="http://jscomplexity.org/complexity">http://jscomplexity.org/complexity</a> and <a href="https://github.com/escomplex/complexity-report">https://github.com/escomplex/complexity-report</a> for more details.</p>
-<h4>Copy paste detector</h4><p>See <a href="https://www.npmjs.com/package/gulp-jscpd">https://www.npmjs.com/package/gulp-jscpd</a> for more details.</p>
-<h4>JShint</h4><p>See <a href="http://jshint.com/docs/">http://jshint.com/docs/</a> for more details.</p>
-<h4>JSDoc</h4><p>See <a href="http://usejsdoc.org/">http://usejsdoc.org/</a> for more details.
+<pre class="prettyprint source"><code>gulp deploySFTP --host=&quot;164.129.01.86&quot; --user=&quot;username&quot; --password=&quot;password-of-the-user&quot; --remoteBase=&quot;var/www/html&quot;</code></pre><h3>Code quality</h3><ul>
+<li><code>npm run analyses</code> will run <code>gulp jscpd</code>, <code>gulp complexity</code> and <code>gulp jshint</code>.</li>
+<li><code>npm run doc</code> will run <code>gulp jsdoc</code></li>
+</ul>
+<h4>Complexity</h4><p>Result example of <code>gulp complexity</code>:</p>
+<pre class="prettyprint source"><code>$ gulp complexity
+[18:31:40] Starting 'complexity'...
+[18:31:40] V src\js\simple-module-pattern\main.js             ██████ 122.02
+[18:31:40] V src\js\simple-module-pattern\module.js           ███████ 145.19
+[18:31:40] V src\js\universal-module-definition\App.js        ██████ 124.95
+[18:31:40] V src\js\universal-module-definition\myModule.js   ██████ 133.49
+[18:31:40] Finished 'complexity' after 375 ms</code></pre><p>See <a href="http://jscomplexity.org/complexity">http://jscomplexity.org/complexity</a> and <a href="https://github.com/escomplex/complexity-report">https://github.com/escomplex/complexity-report</a> for more details.</p>
+<h4>Copy paste detector</h4><p>Result example of <code>gulp jscpd</code>:</p>
+<p>When all is alright, there's nothing to say:</p>
+<pre class="prettyprint source"><code>$ gulp jscpd
+[18:32:24] Using gulpfile C:\wamp\www\bowboosh\gulpfile.js
+[18:32:24] Starting 'jscpd'...
+[18:32:25] Finished 'jscpd' after 743 ms</code></pre><p>When there's a problem (for the example, add a copy of _cache function in main.js, changing its name by _duplicate):</p>
+<pre class="prettyprint source"><code>$ gulp jscpd
+[18:39:57] Using gulpfile C:\wamp\www\bowboosh\gulpfile.js
+[18:39:57] Starting 'jscpd'...
+[18:39:58] | ERROR-HANDLER |Found 1 exact clones with 8 duplicated lines in 1 files
+
+Lines 146-154 are duplicates of lines 154-162 in src\js\simple-module-pattern\main.js
+
+            _cache: function () {
+                console.log( 'application._cache' );
+                this.body = document.body;
+                this.title = this.body.getElementsByTagName( 'h1' )[ 0 ];
+                this.buttonAuthor = this.body.getElementsByClassName( 'js-btn-author' )[ 0 ];
+                this.buttonVersion = this.body.getElementsByClassName( 'js-btn-version' )[ 0 ];
+                this.buttonReset = this.body.getElementsByClassName( 'js-btn-reset' )[ 0 ];
+            },
+            _duplicate: function () {
+
+
+2.29% (8 lines) duplicated lines out of 350 total lines of code</code></pre><p><em>You can change the maximum lines allowed to be duplicated ini /gulp-tasks/jscpd.js. By default: 5.</em></p>
+<p>See <a href="https://www.npmjs.com/package/gulp-jscpd">https://www.npmjs.com/package/gulp-jscpd</a> for more details.</p>
+<h4>JShint</h4><p>Result of <code>gulp jshint</code> when there's a problem:</p>
+<pre class="prettyprint source"><code>$ gulp jshint
+[18:43:40] Using gulpfile C:\wamp\www\bowboosh\gulpfile.js
+[18:43:40] Starting 'jshint'...
+
+src\js\universal-module-definition\App.js
+  line 70  col 2  Unnecessary semicolon.
+
+  ‼  1 warning
+
+[18:43:40] | ERROR-HANDLER |JSHint failed for: src\js\universal-module-definition\App.js
+[18:43:40] Finished 'jshint' after 555 ms</code></pre><p>Result when it's ok:</p>
+<pre class="prettyprint source"><code>$ gulp jshint
+[18:44:53] Using gulpfile C:\wamp\www\bowboosh\gulpfile.js
+[18:44:53] Starting 'jshint'...
+[18:44:54] Finished 'jshint' after 566 ms</code></pre><p>See <a href="http://jshint.com/docs/">http://jshint.com/docs/</a> for more details.</p>
+<h4>JSDoc</h4><p>Use <code>gulp build-jsdoc</code> to generate javascript documentation.
+If you wanna watch your javascript files and build documentation on each changes:
+run <code>gulp watch-jsdoc</code></p>
+<p>Each javascript apps are documented in different directories, for example :</p>
+<p>See <a href="http://usejsdoc.org/">http://usejsdoc.org/</a> for more details.
 Example result is available here: <a href="http://demo.proustib.at/bowboosh/docs/jsdoc">JSDoc Bowboosh</a></p>
 <h4>Sass Doc</h4><p>//</p>
 <h4>Plato reporting</h4><p>See <a href="https://github.com/es-analysis/plato">https://github.com/es-analysis/plato</a> for more details.
