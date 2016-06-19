@@ -13,7 +13,7 @@ _____
 
 
 - [:beginner: Quick usage](#beginner-quick-usage)
-- [:open_file_folder: Tree files](#open_file_folder-tree-files)
+- [:open_file_folder: File tree](#open_file_folder-file-tree)
 - [:customs: Customization](#customs-customization)
   - [./config.json: Application default configuration file](#configjson-application-default-configuration-file)
   - [./modernizr-config.json: Modernizr default configuration file](#modernizr-configjson-modernizr-default-configuration-file)
@@ -22,14 +22,15 @@ _____
 - [:grey_question: Help](#grey_question-help)
 - [Main features](#main-features)
   - [Watchers for development and build for production](#watchers-for-development-and-build-for-production)
-  - [Deploy on server](#deploy-on-server)
-  - [Analyses and documentation](#analyses-and-documentation)
+  - [Deployment](#deployment)
+  - [Code quality](#code-quality)
     - [Complexity](#complexity)
     - [Copy paste detector](#copy-paste-detector)
     - [JShint](#jshint)
-    - [JSDoc](#jsdoc)
+  - [Documentations](#documentations)
+    - [Javascript (JSDoc)](#javascript-jsdoc)
     - [Sass Doc](#sass-doc)
-    - [Plato reporting](#plato-reporting)
+  - [Reporting (Plato)](#reporting-plato)
 - [Npm Packages](#npm-packages)
   - [Dependencies](#dependencies)
   - [Dev Dependencies](#dev-dependencies)
@@ -371,7 +372,9 @@ $ gulp jshint
 
 See [http://jshint.com/docs/](http://jshint.com/docs/) for more details.
 
-#### JSDoc
+### Documentations
+
+#### Javascript (JSDoc)
 
 Use `gulp build-jsdoc` to generate javascript documentation.
 
@@ -412,7 +415,7 @@ Example result is available here: [JSDoc Bowboosh](http://demo.proustib.at/bowbo
 Not available right now
 
 
-#### Plato reporting
+### Reporting (Plato)
 Run `gulp plato-report` will generate report in ./dist/docs/plato-report
 Example result is available here: [JSDoc Bowboosh](http://demo.proustib.at/bowboosh/docs/plato)
 See [https://github.com/es-analysis/plato](https://github.com/es-analysis/plato) for more details.
