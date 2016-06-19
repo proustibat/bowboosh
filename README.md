@@ -3,8 +3,7 @@
 HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatch themes, deployment tasks, documentation and code analysis tasks.
 
 
-## Demo
-- Master: [http://demo.proustib.at/bowboosh/](http://demo.proustib.at/bowboosh/)
+## Demo: [http://demo.proustib.at/bowboosh/](http://demo.proustib.at/bowboosh/)
 
 _____
 
@@ -57,6 +56,7 @@ npm install     // install required npm packages then required bower packages
 npm run build       // start watchers
 ```
 
+_____
 
 
 ## :grey_question: Help
@@ -109,52 +109,7 @@ Result:
 
 ```
 
-
-## :open_file_folder: File tree
-
-```
-./
-|   .gitignore
-|   .jshintrc
-|   bower.json
-|   config.json                 // Main app configuration file
-|   credentials.json            // Private configuration file
-|   gulpfile.js                 // Main Gulp file configuration
-|   LICENSE
-|   modernizr-config.json       // Modernizr configuration to build custom library
-|   package.json                // Main NPM file configuration
-|   README.md
-|
-+---dist                        // Public directory
-|
-+---docs                        // Generated documentations
-|   +---jsdoc                   // Documentation for javascript sources
-|   |
-|   \---plato                   // Complexity report with plato
-|
-+---gulp-tasks                  // Gulp developer tasks loaded in Gulpfile.js
-|
-\---src                         // Sources files
-    |   .htaccess
-    |   apple-touch-icon.png
-    |   crossdomain.xml
-    |   favicon.ico
-    |   index.html
-    |   robots.txt
-    |   tile-wide.png
-    |   tile.png
-    |
-    +---css                     // Sass sources
-    |   |   general.scss
-    |   |   main.scss           // Main scss file that imports others
-    |   |
-    |   \---theme               // Bootswatch theme scss files (copied with a gulp task)
-    |
-    +---img                     // Images assets
-    |
-    \---js                      // Javascript source files
-
-```
+_____
 
 ## Main features
 
@@ -339,8 +294,7 @@ Run `gulp plato-report` will generate report in ./dist/docs/plato-report
 Example result is available here: [JSDoc Bowboosh](http://demo.proustib.at/bowboosh/docs/plato)
 See [https://github.com/es-analysis/plato](https://github.com/es-analysis/plato) for more details.
 
-
-
+_____
 
 ## :customs: Customization
 ### ./config.json: Application default configuration file
@@ -446,7 +400,53 @@ It looks like:
 ```
 
 
+## :open_file_folder: File tree
 
+```
+./
+|   .gitignore
+|   .jshintrc
+|   bower.json
+|   config.json                 // Main app configuration file
+|   credentials.json            // Private configuration file
+|   gulpfile.js                 // Main Gulp file configuration
+|   LICENSE
+|   modernizr-config.json       // Modernizr configuration to build custom library
+|   package.json                // Main NPM file configuration
+|   README.md
+|
++---dist                        // Public directory
+|
++---docs                        // Generated documentations
+|   +---jsdoc                   // Documentation for javascript sources
+|   |
+|   \---plato                   // Complexity report with plato
+|
++---gulp-tasks                  // Gulp developer tasks loaded in Gulpfile.js
+|
+\---src                         // Sources files
+    |   .htaccess
+    |   apple-touch-icon.png
+    |   crossdomain.xml
+    |   favicon.ico
+    |   index.html
+    |   robots.txt
+    |   tile-wide.png
+    |   tile.png
+    |
+    +---css                     // Sass sources
+    |   |   general.scss
+    |   |   main.scss           // Main scss file that imports others
+    |   |
+    |   \---theme               // Bootswatch theme scss files (copied with a gulp task)
+    |
+    +---img                     // Images assets
+    |
+    \---js                      // Javascript source files
+
+```
+
+_____
 
 ## Npm Packages
 
@@ -489,6 +489,7 @@ It looks like:
 - [run-sequence](https://github.com/OverZealous/run-sequence): Run a series of dependent gulp tasks in order
 - [yargs](https://github.com/yargs/yargs): yargs the modern, pirate-themed, successor to optimist.
 
+_____
 
 ## Bower packages
 - [bootstrap](http://getbootstrap.com) The most popular front-end framework for developing responsive, mobile first projects on the web
@@ -497,6 +498,7 @@ It looks like:
 - [jquery](https://github.com/jquery)
 - [bootswatch](http://bootswatch.com) Bootswatch is a collection of themes for Bootstrap
 
+_____
 
 ## License
 [MIT](./LICENSE)
