@@ -39,8 +39,16 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
 
-    gulp.task( 'watch-umd', 'Watch UMD modules javascript files', [ 'build-umd' ], function () {
-            plugins.tools.spy( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js', [ 'build-umd' ] );
+    gulp.task( 'watch-umd', 'Watch UMD modules javascript files', function () {
+            config.env.dev = true;
+            config.env.prod = false;
+            plugins.runSequence(
+                [ 'jscpd', 'jshint', 'build-umd' ],
+                function () {
+                    plugins.tools.watch( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js', [ 'jscpd', 'jshint', 'build-umd' ] );
+
+                }
+            );
         }
     );
 };

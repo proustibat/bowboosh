@@ -5,7 +5,6 @@
  * @constructor
  */
 function App() {
-
     /**
      *
      * @type {{uid: null, container: null, init: App.init, sayHello: App.sayHello, createModules: App.createModules, guid: App.guid, s4: App.s4}}

@@ -41,6 +41,9 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
 // Require all tasks
 plugins.loadSubtasks( './gulp-tasks/**/*.js', plugins, config, pkg, bwr );
 
+// Bowboosh-tolls init
+plugins.tools.init( gulp, config, pkg, bwr );
+
 /**
  * Default task when running 'gulp' command line
  */
@@ -50,7 +53,7 @@ gulp.task( 'default', 'Default task: run watchers', [ 'watch' ] );
 /**
  * Run watchers on all web app or site sources
  */
-gulp.task( 'watch', 'Run watchers on all web app or site sources',  function () {
+gulp.task( 'watch', 'Run watchers on all web app or site sources', function () {
         config.env.dev = true;
         config.env.prod = false;
         plugins.runSequence(
@@ -65,6 +68,9 @@ gulp.task( 'watch', 'Run watchers on all web app or site sources',  function () 
                 'watch-imagemin',
                 'watch-javascript',
                 'watch-umd'
+            ],
+            [
+                'jshint'
             ]
         );
         gulp.watch( './config.json', [ 'reload-config' ] );
@@ -76,7 +82,7 @@ gulp.task( 'watch', 'Run watchers on all web app or site sources',  function () 
 /**
  * Build web app or site for distribution
  */
-gulp.task( 'build', 'Build web app or site for distribution',  function () {
+gulp.task( 'build', 'Build web app or site for distribution', function () {
         config.env.dev = false;
         config.env.prod = true;
         plugins.runSequence(

@@ -17,7 +17,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     // TODO: build and watch other vendors libs than bower
 
     gulp.task( 'watch-vendors', 'Watch vendor libraries', [ 'build-vendors' ], function () {
-            plugins.tools.spy( config.bowerDir + '/**/*.js', [ 'build-vendors' ] );
+            plugins.tools.watch( config.bowerDir + '/**/*.js', [ 'build-vendors' ] );
         }
     );
 };

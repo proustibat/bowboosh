@@ -22,8 +22,16 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
         }
     );
 
-    gulp.task( 'watch-javascript', 'Watch simple javascript modules files', [ 'build-javascript' ], function () {
-            plugins.tools.spy( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js', [ 'build-javascript' ] );
+    gulp.task( 'watch-javascript', 'Watch simple javascript modules files', function () {
+            config.env.dev = true;
+            config.env.prod = false;
+            plugins.runSequence(
+                [ 'jscpd', 'jshint', 'build-javascript' ],
+                function () {
+                    plugins.tools.watch( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js', [ 'jscpd', 'jshint', 'build-javascript' ] );
+
+                }
+            );
         }
     );
 };

@@ -10,7 +10,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
     gulp.task( 'watch-imagemin', 'Watch images sources to reload imagemin task', [ 'build-imagemin' ], function () {
-            plugins.tools.spy( [ config.srcPath + '/' + config.imgDir + '/**/*' ], [ 'build-imagemin' ] );
+            plugins.tools.watch( [ config.srcPath + '/' + config.imgDir + '/**/*' ], [ 'build-imagemin' ] );
         }
     );
 
