@@ -282,6 +282,8 @@ Each javascript apps are documented in different directories, for example :
 *If you wanna watch your javascript files and build documentation on each changes, run `gulp watch-jsdoc`*
 
 See [http://usejsdoc.org/](http://usejsdoc.org/) for more details.
+
+##### Demo
 Example result is available here: [JSDoc Bowboosh](http://demo.proustib.at/bowboosh/docs/jsdoc)
 
 
@@ -291,8 +293,10 @@ Not available right now
 
 ### Reporting (Plato)
 Run `gulp plato-report` will generate report in ./dist/docs/plato-report
-Example result is available here: [JSDoc Bowboosh](http://demo.proustib.at/bowboosh/docs/plato)
 See [https://github.com/es-analysis/plato](https://github.com/es-analysis/plato) for more details.
+
+##### Demo
+Example result is available here: [JSDoc Bowboosh](http://demo.proustib.at/bowboosh/docs/plato-report)
 
 _____
 

@@ -85,10 +85,7 @@
 
     <section class="readme-section">
         <article><h1>bowboosh</h1><p>HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatch themes, deployment tasks, documentation and code analysis tasks.</p>
-<h2>Demo</h2><ul>
-<li>Master: <a href="http://demo.proustib.at/bowboosh/">http://demo.proustib.at/bowboosh/</a></li>
-</ul>
-<hr>
+<h2>Demo: <a href="http://demo.proustib.at/bowboosh/">http://demo.proustib.at/bowboosh/</a></h2><hr>
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <ul>
@@ -135,7 +132,8 @@
 <h2>:beginner: Quick usage</h2><pre class="prettyprint source lang-sh"><code>npm install     // install required npm packages then required bower packages
 npm start       // start watchers</code></pre><p>If you just wanna build the project:</p>
 <pre class="prettyprint source lang-sh"><code>npm install     // install required npm packages then required bower packages
-npm run build       // start watchers</code></pre><h2>:grey_question: Help</h2><p>All available gulp tasks are visible, run <code>gulp h</code> or <code>npm run help</code></p>
+npm run build       // start watchers</code></pre><hr>
+<h2>:grey_question: Help</h2><p>All available gulp tasks are visible, run <code>gulp h</code> or <code>npm run help</code></p>
 <p>Result:</p>
 <pre class="prettyprint source"><code>  bower                     Get all setup and ready Aliases: install, setup
   build                     Build web app or site for distribution Aliases: prod
@@ -177,46 +175,8 @@ npm run build       // start watchers</code></pre><h2>:grey_question: Help</h2><
   watch-modernizr           Watch modernizr options to rebuild custom modernizr file
   watch-sass                Watch scss files sources
   watch-umd                 Watch UMD modules javascript files
-  watch-vendors             Watch vendor libraries</code></pre><h2>:open_file_folder: File tree</h2><pre class="prettyprint source"><code>./
-|   .gitignore
-|   .jshintrc
-|   bower.json
-|   config.json                 // Main app configuration file
-|   credentials.json            // Private configuration file
-|   gulpfile.js                 // Main Gulp file configuration
-|   LICENSE
-|   modernizr-config.json       // Modernizr configuration to build custom library
-|   package.json                // Main NPM file configuration
-|   README.md
-|
-+---dist                        // Public directory
-|
-+---docs                        // Generated documentations
-|   +---jsdoc                   // Documentation for javascript sources
-|   |
-|   \---plato                   // Complexity report with plato
-|
-+---gulp-tasks                  // Gulp developer tasks loaded in Gulpfile.js
-|
-\---src                         // Sources files
-    |   .htaccess
-    |   apple-touch-icon.png
-    |   crossdomain.xml
-    |   favicon.ico
-    |   index.html
-    |   robots.txt
-    |   tile-wide.png
-    |   tile.png
-    |
-    +---css                     // Sass sources
-    |   |   general.scss
-    |   |   main.scss           // Main scss file that imports others
-    |   |
-    |   \---theme               // Bootswatch theme scss files (copied with a gulp task)
-    |
-    +---img                     // Images assets
-    |
-    \---js                      // Javascript source files</code></pre><h2>Main features</h2><ul>
+  watch-vendors             Watch vendor libraries</code></pre><hr>
+<h2>Main features</h2><ul>
 <li>HTML5 Boilerplate</li>
 <li>Modernizr library customization</li>
 <li>Scss files compilation:<ul>
@@ -321,6 +281,7 @@ Example result is available here: <a href="http://demo.proustib.at/bowboosh/docs
 <h3>Reporting (Plato)</h3><p>Run <code>gulp plato-report</code> will generate report in ./dist/docs/plato-report
 Example result is available here: <a href="http://demo.proustib.at/bowboosh/docs/plato">JSDoc Bowboosh</a>
 See <a href="https://github.com/es-analysis/plato">https://github.com/es-analysis/plato</a> for more details.</p>
+<hr>
 <h2>:customs: Customization</h2><h3>./config.json: Application default configuration file</h3><pre class="prettyprint source"><code> {
    &quot;publicPath&quot;: &quot;./dist&quot;,                  // Path: public output web site or app to publish
    &quot;srcPath&quot;: &quot;./src&quot;,                      // Path: development source files
@@ -395,7 +356,47 @@ It looks like:</p>
     &quot;user&quot;: &quot;username&quot;,
     &quot;password&quot;: &quot;password-of-the-user&quot;,
     &quot;remoteBase&quot;: &quot;/var/www/html&quot;
-}</code></pre><h2>Npm Packages</h2><h3>Dependencies</h3><ul>
+}</code></pre><h2>:open_file_folder: File tree</h2><pre class="prettyprint source"><code>./
+|   .gitignore
+|   .jshintrc
+|   bower.json
+|   config.json                 // Main app configuration file
+|   credentials.json            // Private configuration file
+|   gulpfile.js                 // Main Gulp file configuration
+|   LICENSE
+|   modernizr-config.json       // Modernizr configuration to build custom library
+|   package.json                // Main NPM file configuration
+|   README.md
+|
++---dist                        // Public directory
+|
++---docs                        // Generated documentations
+|   +---jsdoc                   // Documentation for javascript sources
+|   |
+|   \---plato                   // Complexity report with plato
+|
++---gulp-tasks                  // Gulp developer tasks loaded in Gulpfile.js
+|
+\---src                         // Sources files
+    |   .htaccess
+    |   apple-touch-icon.png
+    |   crossdomain.xml
+    |   favicon.ico
+    |   index.html
+    |   robots.txt
+    |   tile-wide.png
+    |   tile.png
+    |
+    +---css                     // Sass sources
+    |   |   general.scss
+    |   |   main.scss           // Main scss file that imports others
+    |   |
+    |   \---theme               // Bootswatch theme scss files (copied with a gulp task)
+    |
+    +---img                     // Images assets
+    |
+    \---js                      // Javascript source files</code></pre><hr>
+<h2>Npm Packages</h2><h3>Dependencies</h3><ul>
 <li><a href="https://github.com/bower/bower">bower</a>: The browser package manager</li>
 <li><a href="https://github.com/gulpjs/gulp">gulp</a>: The streaming build system</li>
 </ul>
@@ -434,6 +435,7 @@ It looks like:</p>
 <li><a href="https://github.com/OverZealous/run-sequence">run-sequence</a>: Run a series of dependent gulp tasks in order</li>
 <li><a href="https://github.com/yargs/yargs">yargs</a>: yargs the modern, pirate-themed, successor to optimist.</li>
 </ul>
+<hr>
 <h2>Bower packages</h2><ul>
 <li><a href="http://getbootstrap.com">bootstrap</a> The most popular front-end framework for developing responsive, mobile first projects on the web</li>
 <li><a href="https://github.com/twbs/bootstrap-sass">bootstrap-sass</a> bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications</li>
@@ -441,6 +443,7 @@ It looks like:</p>
 <li><a href="https://github.com/jquery">jquery</a></li>
 <li><a href="http://bootswatch.com">bootswatch</a> Bootswatch is a collection of themes for Bootstrap</li>
 </ul>
+<hr>
 <h2>License</h2><p><a href="./LICENSE">MIT</a></p>
 <hr>
 <p>Generated vith the help of <a href="https://github.com/zeke/package-json-to-readme">package-json-to-readme</a>
