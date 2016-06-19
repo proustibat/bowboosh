@@ -37,5 +37,18 @@
     "robots.txt",
     "tile.png",
     "tile-wide.png"
-  ]
+  ],
+  "uglifyOptions": {
+    "output": {
+      "beautify": false,
+      "comments": false
+    },
+    "compress": {
+      "drop_console": true,
+      "warnings": false
+    },
+    "preserveComments": false,
+    "mangle": true,
+    "outSourceMap": false
+  }
 }

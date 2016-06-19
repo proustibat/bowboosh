@@ -10,12 +10,9 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             config.env = plugins.tools.getEnv( config );
             return gulp.src( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js' )
                 .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
-                //.pipe( plugins.sourcemaps.init() )
                 .pipe( plugins.gulpif( config.env.dev, plugins.sourcemaps.init() ) )
-                //.pipe( plugins.uglify() )
-                .pipe( plugins.gulpif( config.env.prod, plugins.uglify() ) )
+                .pipe( plugins.gulpif( config.env.prod, plugins.uglify( plugins.uglifyOptions ) ) )
                 .pipe( plugins.concat( config.javascript.outputFile + '.min.js' ) )
-                //.pipe( plugins.sourcemaps.write() )
                 .pipe( plugins.gulpif( config.env.dev, plugins.sourcemaps.write() ) )
                 .pipe( plugins.header( plugins.tools.banner, { pkg: pkg } ) )
                 .pipe( gulp.dest( config.publicPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp ) );

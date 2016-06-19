@@ -38,11 +38,32 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
         }
     );
 
+
 // Require all tasks
 plugins.loadSubtasks( './gulp-tasks/**/*.js', plugins, config, pkg, bwr );
 
-// Bowboosh-tolls init
+// Uglify options
+var uglifyOptions = {
+    output: {
+        beautify: false,
+        comments: false
+    },
+    compress: {
+        drop_console: true,
+        warnings: false
+    },
+    drop_console: true,
+    preserveComments: false,
+    mangle: true,
+    outSourceMap: false
+};
+
+plugins.uglifyOptions = uglifyOptions;
+
+
+// Bowboosh-tools init
 plugins.tools.init( gulp, config, pkg, bwr );
+
 
 /**
  * Default task when running 'gulp' command line

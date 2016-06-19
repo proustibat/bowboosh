@@ -70,7 +70,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             }
 
             // All parameters are ok, continue to push on server
-            plugins.util.log( 'All required parameters found : ', options );
+            plugins.util.log( 'All required parameters found : \\n', options );
 
 
             // DEPLOYMENTS
@@ -78,7 +78,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             // site or webapps
             options.remotePath = options.remoteBase + '/bowboosh';
             plugins.util.log( 'Push web site on server in : ', options.remotePath );
-            gulp.src( [
+            return gulp.src( [
                     './dist/**/*',
                     '!./.htaccess' // exluded files
                 ]
@@ -86,13 +86,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                 .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                 .pipe( plugins.sftp( options ) );
 
-            // online documentation
-            // options.remotePath = options.remoteBase + '/bowboosh/docs';
-            // plugins.util.log( 'Push documentation on server in : ', options.remotePath );
-            // gulp.src( [
-            //         './docs/**/*'
-            //     ]
-            // ).pipe( plugins.sftp( options ) );
+
         }
     );
 };
