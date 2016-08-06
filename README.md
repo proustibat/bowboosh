@@ -50,7 +50,7 @@ _____
   - [config.json](#configjson)
   - [Modernizr](#modernizr)
   - [JSHint](#jshint-1)
-    - [Priavte fata file with credentials](#priavte-fata-file-with-credentials)
+  - [Private data file with credentials](#private-data-file-with-credentials)
 - [Npm Packages](#npm-packages)
   - [Dependencies](#dependencies)
   - [Dev Dependencies](#dev-dependencies)
@@ -414,7 +414,7 @@ See [JSHint documentation](http://jshint.com/docs) for more details
 }
 ```
 
-### Priavte fata file with credentials
+## Private data file with credentials
 **./credentials.json**
 :warning: Don't commit it!
 It contains secret keys, api keys, hosts name and passwords, etc.
