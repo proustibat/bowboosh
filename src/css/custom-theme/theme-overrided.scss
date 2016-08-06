@@ -1,4 +1,7 @@
-
+@charset "UTF-8";
+/// Buttons
+/// @group custom-theme
+///
 .btn {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: background-color .3s, color .15s, box-shadow .3s, opacity 0.3s;

@@ -47,6 +47,7 @@ var uglifyOptions = {
     output: {
         beautify: false,
         comments: false
+
     },
     compress: {
         drop_console: true,
@@ -88,7 +89,9 @@ gulp.task( 'watch', 'Run watchers on all web app or site sources', function () {
                 'watch-modernizr',
                 'watch-imagemin',
                 'watch-javascript',
-                'watch-umd'
+                'watch-umd',
+                'watch-classical-js',
+                'watch-classical-js-bis'
             ],
             [
                 'jshint'
@@ -117,7 +120,9 @@ gulp.task( 'build', 'Build web app or site for distribution', function () {
                 'build-modernizr',
                 'build-imagemin',
                 'build-javascript',
-                'build-umd'
+                'build-umd',
+                'build-classical-js',
+                'build-classical-js-bis'
             ]
         );
     }, {

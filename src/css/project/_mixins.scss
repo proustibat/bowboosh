@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/// Create a keyframe-based animation
+/// @group project
+/// @param {String} $name Identifier chosen by the developer
+/// @content Rule sets go here
+/// @example scss
+///   @include keyframes(slide-down) {
+///     0% { opacity: 1; }
+///     90% { opacity: 0; }
+///   }
+///   .element {
+///     width: 100px;
+///     height: 100px;
+///     background: black;
+///     @include animation('slide-down 5s 3');
+///   }
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/// Prefixes name of the animation in parameter
+/// @group project
+/// @param {String} $str Name of the animation
+/// @example scss
+///   .element {
+///     width: 100px;
+///     height: 100px;
+///     background: black;
+///     @include animation('slide-down 5s 3');
+///   }
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+/// Cross browser opacity
+/// @group project
+/// @example css
+///   .faded-text {
+///     @include opacity(0.8);
+///   }
+/// @param {num} $opacity - Value between 0 and 1
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}

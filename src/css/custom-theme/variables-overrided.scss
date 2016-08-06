@@ -1,13 +1,28 @@
-// Proustibat 1.0.0
-// Variables
-// --------------------------------------------------
+@charset "UTF-8";
 
-//== Typography
+
+/// Baseline for all margins and gaps on the site
+/// @group custom-theme
+/// @type String
 $web-font-path: "https://fonts.googleapis.com/css?family=Lato|Oswald:400,700" ;
 @import url($web-font-path);
 
+/// General theme font
+/// @group custom-theme
+/// @type String
 $font-family-base: 'Lato', sans-serif;
+
+/// Title font
+/// @group custom-theme
+/// @type String
 $headings-font-family: 'Oswald', sans-serif;
 
-$headings-color: red;
-$jumbotron-heading-color: red;
+/// Title color
+/// @group custom-theme
+/// @type Color
+$headings-color: #dd5a6f;;
+
+/// Jumbotron title color
+/// @group custom-theme
+/// @type Color
+$jumbotron-heading-color: #ffc93c;;

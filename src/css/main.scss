@@ -1,8 +1,23 @@
-/* main.scss */
-// Icons
+@charset "UTF-8";
+
+// ----
+// Import all our partials here.
+// Don't add styles to this file.
+//
+// ----
+
+
+//--
+// 1. Import Font awesome (third party code).
+// 	  We do this first because we may override some of these and they are not dependent on our code
+//--
 @import 'font-awesome';
 
-// Import bootstrap and theme ( available themes: bower_components/bootswatch )
+
+//--
+// 2. Import bootstrap and bootswatch theme
+//--
+
 @import "theme/variables";
 @import 'custom-theme/variables-overrided';
 @import "bootstrap/variables";
@@ -11,7 +26,7 @@
 @import "custom-theme/theme-overrided";
 
 
-// Import project files
+//--
+// 3. Import project styles
+//--
 @import 'general';
-
-

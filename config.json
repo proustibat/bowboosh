@@ -10,6 +10,8 @@
     "subdir": {
       "smp": "simple-module-pattern",
       "umd": "universal-module-definition",
+      "classical": "classical",
+      "classicalbis": "classical-bis",
       "common": "common-js",
       "amd": "amd-js",
       "requirejs": "require-js"

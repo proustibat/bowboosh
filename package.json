@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/proustibat/bowboosh",
   "devDependencies": {
-    "bowboosh-tools": "^1.0.2",
+    "bowboosh-tools": "^1.0.8",
     "chokidar": "^1.5.2",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
@@ -58,6 +58,7 @@
     "modernizr": "^3.3.1",
     "plato": "^1.5.0",
     "run-sequence": "^1.2.1",
+    "sassdoc": "^2.1.20",
     "yargs": "^4.7.1"
   },
   "dependencies": {

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>bowboosh Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">bowboosh</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-app-bis.html">app-bis</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+		<div class="col-sm-3 col-md-3">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section class="readme-section">
+        <article><h1>bowboosh</h1><p>HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatch themes, deployment tasks, documentation and code analysis tasks.</p>
+<h2>Demo: <a href="http://demo.proustib.at/bowboosh/">http://demo.proustib.at/bowboosh/</a></h2><hr>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<ul>
+<li><a href="#beginner-quick-usage">:beginner: Quick usage</a></li>
+<li><a href="#grey_question-help">:grey_question: Help</a></li>
+<li><a href="#open_file_folder-file-tree">:open_file_folder: File tree</a></li>
+<li><a href="#main-features">Main features</a><ul>
+<li><a href="#watch-for-development-workspace">Watch for development workspace</a></li>
+<li><a href="#build-for-production">Build for production</a></li>
+<li><a href="#deployment">Deployment</a></li>
+<li><a href="#code-quality">Code quality</a><ul>
+<li><a href="#code-complexity">Code Complexity</a></li>
+<li><a href="#copy-paste-detector">Copy paste detector</a></li>
+<li><a href="#jshint">JShint</a></li>
+</ul>
+</li>
+<li><a href="#documentation">Documentation</a><ul>
+<li><a href="#javascript-jsdoc">Javascript (JSDoc)</a></li>
+<li><a href="#sass-doc">Sass Doc</a></li>
+</ul>
+</li>
+<li><a href="#reporting-plato">Reporting (Plato)</a></li>
+</ul>
+</li>
+<li><a href="#customs-customization">:customs: Customization</a><ul>
+<li><a href="#configjson-application-default-configuration-file">./config.json: Application default configuration file</a></li>
+<li><a href="#modernizr-configjson-modernizr-default-configuration-file">./modernizr-config.json: Modernizr default configuration file</a></li>
+<li><a href="#jshintrc-jshint-default-configuration-file">.jshintrc: JSHint default configuration file</a></li>
+<li><a href="#credentialsjson-private-data-file">./credentials.json: Private data file</a></li>
+</ul>
+</li>
+<li><a href="#npm-packages">Npm Packages</a><ul>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#dev-dependencies">Dev Dependencies</a></li>
+</ul>
+</li>
+<li><a href="#bower-packages">Bower packages</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- Run doctoc README.md --github  -->
+<!-- Informations: https://github.com/thlorenz/doctoc -->
+<hr>
+<h2>:beginner: Quick usage</h2><pre class="prettyprint source lang-sh"><code>npm install     // install required npm packages then required bower packages
+npm start       // start watchers</code></pre><p>If you just wanna build the project:</p>
+<pre class="prettyprint source lang-sh"><code>npm install     // install required npm packages then required bower packages
+npm run build       // start watchers</code></pre><hr>
+<h2>:grey_question: Help</h2><p>All available gulp tasks are visible, run <code>gulp h</code> or <code>npm run help</code></p>
+<p>Result:</p>
+<pre class="prettyprint source"><code>  bower                     Get all setup and ready Aliases: install, setup
+  build                     Build web app or site for distribution Aliases: prod
+  build-bootswatch-theme    Copy sass files from theme choosen in config Aliases: bw-theme
+  build-fonts               Copy all fonts source into public directory
+  build-imagemin            Optimize images
+  build-javascript          Build javascript file from simple javascript modules sources
+  build-jsdoc               Generate javascript documentation
+  build-modernizr           Create a custom modernizr file depending on ./modernizr.config.json
+  build-sass                Compile all scss files of the project into the public directory
+  build-umd                 Build javascript file from UMD javascript modules sources
+  build-vendors             Compile libraries used in the project into libs.js in public directory
+  clean-all-js              Delete fonts directory in public directory
+  clean-app                 Delete public directory
+  clean-base                Delete exported basic boilerplate files
+  clean-css                 Delete compiled css files
+  clean-fonts               Delete fonts directory in public directory
+  clean-imagemin            Delete optimized image in public directory
+  clean-jsdoc               Delete javascript documentation
+  clean-modernizr           Delete compiled custom modernizr file
+  clean-theme-css           Delete scss bootswatch theme file
+  clean-vendor              Delete compiled vendor file
+  complexity                Run software complexity analysis
+  copy-base                 Copy basic files in public directory
+  default                   Default task: run watchers
+  deploySFTP                Push changes to remote servers (eg: staging/production)
+  help                      Display this help text. Aliases: h, ?
+  jscpd                     Run copy paste detector tool
+  jshint                    Run JSHINT: tool that helps to detect errors and potential problems in code
+  plato-report              Run Plato: javaScript source analysis and visualizer
+  reload-config             Require new config after changes on config.json
+  reload-modernizr-options  Require new modernizr options after changes on modernizr.config.json
+  watch                     Run watchers on all web app or site sources Aliases: dev
+  watch-base                Watch basic files sources
+  watch-fonts               Watch scss files sources
+  watch-imagemin            Watch images sources to reload imagemin task
+  watch-javascript          Watch simple javascript modules files
+  watch-jsdoc               Watch javascript files to regenerate documentation
+  watch-modernizr           Watch modernizr options to rebuild custom modernizr file
+  watch-sass                Watch scss files sources
+  watch-umd                 Watch UMD modules javascript files
+  watch-vendors             Watch vendor libraries</code></pre><hr>
+<h2>Main features</h2><ul>
+<li>HTML5 Boilerplate</li>
+<li>Modernizr library customization</li>
+<li>Scss files compilation:<ul>
+<li>from bootstrap,</li>
+<li>bootswatch theme,</li>
+<li>custom scss files.</li>
+</ul>
+</li>
+<li>Font icon with <code>font-awesome</code></li>
+<li>Javascript files compilation:<ul>
+<li>vendors,</li>
+<li>core applications</li>
+</ul>
+</li>
+<li>Images optimization with <code>gulp-imagemin</code></li>
+<li>Analysis and documentations</li>
+</ul>
+<h3>Watch for development workspace</h3><p>Run <code>npm start</code> or <code>gulp</code> or <code>gulp watch</code>.
+Several watchers are running for each tasks (see <code>gulp help</code> to list available tasks).</p>
+<h3>Build for production</h3><p>Run <code>npm run build</code> or <code>gulp build</code> or <code>gulp build --prod</code>
+<em>If you wanna build with sourcemaps and console without watching you can run <code>gulp build --dev</code></em></p>
+<h3>Deployment</h3><p>Via SFTP (<code>using gulp-sftp</code>)</p>
+<p>Run:</p>
+<pre class="prettyprint source"><code>npm run deploy</code></pre><p>or</p>
+<pre class="prettyprint source"><code>gulp deploySFTP --host=&quot;164.129.01.86&quot; --user=&quot;username&quot; --password=&quot;password-of-the-user&quot; --remoteBase=&quot;var/www/html&quot;</code></pre><h3>Code quality</h3><ul>
+<li><code>npm run analysis</code> will run <code>gulp jscpd</code>, <code>gulp complexity</code> and <code>gulp jshint</code>.</li>
+<li><code>npm run doc</code> will run <code>gulp jsdoc</code></li>
+</ul>
+<h4>Code Complexity</h4><p>Result example of <code>gulp complexity</code>:</p>
+<pre class="prettyprint source"><code>$ gulp complexity
+[18:31:40] Starting 'complexity'...
+[18:31:40] V src\js\simple-module-pattern\main.js             ██████ 122.02
+[18:31:40] V src\js\simple-module-pattern\module.js           ███████ 145.19
+[18:31:40] V src\js\universal-module-definition\App.js        ██████ 124.95
+[18:31:40] V src\js\universal-module-definition\myModule.js   ██████ 133.49
+[18:31:40] Finished 'complexity' after 375 ms</code></pre><p>See <a href="http://jscomplexity.org/complexity">http://jscomplexity.org/complexity</a> and <a href="https://github.com/escomplex/complexity-report">https://github.com/escomplex/complexity-report</a> for more details.</p>
+<h4>Copy paste detector</h4><p>Result example of <code>gulp jscpd</code>:</p>
+<p>When all is alright, there's nothing to say:</p>
+<pre class="prettyprint source"><code>$ gulp jscpd
+[18:32:24] Using gulpfile C:\wamp\www\bowboosh\gulpfile.js
+[18:32:24] Starting 'jscpd'...
+[18:32:25] Finished 'jscpd' after 743 ms</code></pre><p>When there's a problem (for the example, add a copy of _cache function in main.js, changing its name by _duplicate):</p>
+<pre class="prettyprint source"><code>$ gulp jscpd
+[18:39:57] Using gulpfile C:\wamp\www\bowboosh\gulpfile.js
+[18:39:57] Starting 'jscpd'...
+[18:39:58] | ERROR-HANDLER |Found 1 exact clones with 8 duplicated lines in 1 files
+
+Lines 146-154 are duplicates of lines 154-162 in src\js\simple-module-pattern\main.js
+
+            _cache: function () {
+                console.log( 'application._cache' );
+                this.body = document.body;
+                this.title = this.body.getElementsByTagName( 'h1' )[ 0 ];
+                this.buttonAuthor = this.body.getElementsByClassName( 'js-btn-author' )[ 0 ];
+                this.buttonVersion = this.body.getElementsByClassName( 'js-btn-version' )[ 0 ];
+                this.buttonReset = this.body.getElementsByClassName( 'js-btn-reset' )[ 0 ];
+            },
+            _duplicate: function () {
+
+
+2.29% (8 lines) duplicated lines out of 350 total lines of code</code></pre><p><em>You can change the maximum lines allowed to be duplicated ini /gulp-tasks/jscpd.js. By default: 5.</em></p>
+<p>See <a href="https://www.npmjs.com/package/gulp-jscpd">https://www.npmjs.com/package/gulp-jscpd</a> for more details.</p>
+<h4>JShint</h4><p>Result of <code>gulp jshint</code> when there's a problem:</p>
+<pre class="prettyprint source"><code>$ gulp jshint
+[18:43:40] Using gulpfile C:\wamp\www\bowboosh\gulpfile.js
+[18:43:40] Starting 'jshint'...
+
+src\js\universal-module-definition\App.js
+  line 70  col 2  Unnecessary semicolon.
+
+  ‼  1 warning
+
+[18:43:40] | ERROR-HANDLER |JSHint failed for: src\js\universal-module-definition\App.js
+[18:43:40] Finished 'jshint' after 555 ms</code></pre><p>Result when it's ok:</p>
+<pre class="prettyprint source"><code>$ gulp jshint
+[18:44:53] Using gulpfile C:\wamp\www\bowboosh\gulpfile.js
+[18:44:53] Starting 'jshint'...
+[18:44:54] Finished 'jshint' after 566 ms</code></pre><p>See <a href="http://jshint.com/docs/">http://jshint.com/docs/</a> for more details.</p>
+<h3>Documentation</h3><h4>Javascript (JSDoc)</h4><p>Use <code>gulp build-jsdoc</code> to generate javascript documentation.</p>
+<pre class="prettyprint source"><code>$ gulp build-jsdoc
+[18:47:55] Using gulpfile C:\wamp\www\bowboosh\gulpfile.js
+[18:47:55] Starting 'clean-jsdoc'...
+[18:47:55] Finished 'clean-jsdoc' after 122 ms
+[18:47:55] Starting 'build-jsdoc'...
+[18:47:55] Starting 'build-doc-umd'...
+build-doc-umd
+[18:47:56] Finished 'build-doc-umd' after 878 ms
+[18:47:56] Starting 'build-doc-smp'...
+build-doc-smp
+[18:47:56] Finished 'build-doc-smp' after 34 ms
+[18:47:56] Finished 'build-jsdoc' after 1.12 s
+[18:47:57] Documented 2 files!
+[18:47:57] Documented 2 files!</code></pre><p>Each javascript apps are documented in different directories, for example :</p>
+<pre class="prettyprint source"><code>./dist
+├───docs
+    ├───javascript
+        ├───simple-module-pattern
+        └───universal-module-definition</code></pre><p><em>If you wanna watch your javascript files and build documentation on each changes, run <code>gulp watch-jsdoc</code></em></p>
+<p>See <a href="http://usejsdoc.org/">http://usejsdoc.org/</a> for more details.</p>
+<h5>Demo</h5><p>Example result is available here: <a href="http://demo.proustib.at/bowboosh/docs/jsdoc">JSDoc Bowboosh</a></p>
+<h4>Sass Doc</h4><p>Not available right now</p>
+<h3>Reporting (Plato)</h3><p>Run <code>gulp plato-report</code> will generate report in ./dist/docs/plato-report
+See <a href="https://github.com/es-analysis/plato">https://github.com/es-analysis/plato</a> for more details.</p>
+<h5>Demo</h5><p>Example result is available here: <a href="http://demo.proustib.at/bowboosh/docs/plato-report">JSDoc Bowboosh</a></p>
+<hr>
+<h2>:customs: Customization</h2><h3>./config.json: Application default configuration file</h3><pre class="prettyprint source"><code> {
+   &quot;publicPath&quot;: &quot;./dist&quot;,                  // Path: public output web site or app to publish
+   &quot;srcPath&quot;: &quot;./src&quot;,                      // Path: development source files
+   &quot;bowerDir&quot;: &quot;./bower_components&quot;,        // Directory name for bower
+   &quot;fontsDir&quot;: &quot;fonts&quot;,                     // Directory name for font files, uses the same name for src or public path
+   &quot;cssDir&quot;: &quot;css&quot;,                         // Directory name for style files, uses the same name for src (scss files) or public path (css files)
+   &quot;javascript&quot;: {
+     &quot;dir&quot;: &quot;js&quot;,                           // Direcory name for javascript files, uses the same name for src or public path
+     &quot;outputFile&quot;: &quot;main&quot;,                  // Name of javascript public file (will be changed into 'name.min.js'
+     &quot;subdir&quot;: {                            // Subdirectories of jaavscript files
+       &quot;smp&quot;: &quot;simple-module-pattern&quot;,
+       &quot;umd&quot;: &quot;universal-module-definition&quot;,
+       &quot;common&quot;: &quot;common-js&quot;,
+       &quot;amd&quot;: &quot;amd-js&quot;,
+       &quot;requirejs&quot;: &quot;require-js&quot;
+     }
+   },
+   &quot;imgDir&quot;: &quot;img&quot;,                         // Directory name for image files, uses the same name for src or public path
+   &quot;documentation&quot;: {
+     &quot;rootPath&quot;: &quot;./dist&quot;,                   // Public root path where are generated documentations
+     &quot;dir&quot;: &quot;docs&quot;,                          // Main directory
+     &quot;jsdir&quot;: &quot;javascript&quot;,                  // Specific subdirectory for javascript documentation
+     &quot;style&quot;: &quot;sass&quot;,                        // Specific subdirectory fir style documentation
+     &quot;plato&quot;: &quot;plato-report&quot;                 // Specific subdirectory for plato reports
+   },
+   &quot;vendorDir&quot;: &quot;vendor&quot;,                   // Directory name for libraries in public directory
+   &quot;vendorName&quot; : &quot;libs.js&quot;,                // Name of bower components compiled into one javascript file
+   &quot;modernizrName&quot;: &quot;custom-modernizr.js&quot;,  // Name of the custom modernizr file
+   &quot;bootstrapTheme&quot;: &quot;lumen&quot;,               // Bootswatch theme: &quot;cerulean&quot;, &quot;cosmo&quot;, &quot;cyborg&quot;, &quot;darkly&quot;, &quot;flatly&quot;, &quot;journal&quot;, &quot;lumen&quot;, &quot;paper&quot;, &quot;readable&quot;, &quot;sandstone&quot;, &quot;simplex&quot;, &quot;superhero&quot;, &quot;united&quot;, &quot;yeti&quot;
+   &quot;basesiteList&quot;: [                        // List of static files to copy from sources to public
+     &quot;.htaccess&quot;,
+     &quot;apple-touch-icon.png&quot;,
+     &quot;crossdomain.xml&quot;,
+     &quot;favicon.ico&quot;,
+     &quot;index.html&quot;,
+     &quot;robots.txt&quot;,
+     &quot;tile.png&quot;,
+     &quot;tile-wide.png&quot;
+   ]
+ }</code></pre><h3>./modernizr-config.json: Modernizr default configuration file</h3><p>See <a href="https://modernizr.com/docs">Modernizr documentation</a> for more details.
+Complete file <a href="./modernizr-config.json">here</a></p>
+<pre class="prettyprint source"><code>{
+  &quot;classPrefix&quot;: &quot;has-&quot;,
+  &quot;options&quot;: [
+    &quot;addTest&quot;,
+    ...
+    &quot;testStyles&quot;
+  ],
+  &quot;feature-detects&quot;: [
+    &quot;canvas&quot;,
+    ...
+    &quot;eventlistener&quot;
+  ]
+}</code></pre><h3>.jshintrc: JSHint default configuration file</h3><p>See <a href="http://jshint.com/docs">JSHint documentation</a> for more details
+File with comments for each properties <a href="./.jshintrc">here</a></p>
+<pre class="prettyprint source"><code>{
+  &quot;maxerr&quot;: 50,
+  &quot;bitwise&quot;: true,
+  &quot;camelcase&quot;: false,
+  &quot;curly&quot;: true,
+    ...
+    ...
+    ...
+  &quot;globals&quot;: {
+    &quot;window&quot;: false
+  }
+}</code></pre><h3>./credentials.json: Private data file</h3><p>:warning: Don't commit it!</p>
+<p>It contains secret keys, api keys, hosts name and passwords, etc.
+It looks like:</p>
+<pre class="prettyprint source"><code>{
+    &quot;host&quot;: &quot;164.129.01.86&quot;,
+    &quot;user&quot;: &quot;username&quot;,
+    &quot;password&quot;: &quot;password-of-the-user&quot;,
+    &quot;remoteBase&quot;: &quot;/var/www/html&quot;
+}</code></pre><h2>:open_file_folder: File tree</h2><pre class="prettyprint source"><code>./
+|   .gitignore
+|   .jshintrc
+|   bower.json
+|   config.json                 // Main app configuration file
+|   credentials.json            // Private configuration file
+|   gulpfile.js                 // Main Gulp file configuration
+|   LICENSE
+|   modernizr-config.json       // Modernizr configuration to build custom library
+|   package.json                // Main NPM file configuration
+|   README.md
+|
++---dist                        // Public directory
+|
++---docs                        // Generated documentations
+|   +---jsdoc                   // Documentation for javascript sources
+|   |
+|   \---plato                   // Complexity report with plato
+|
++---gulp-tasks                  // Gulp developer tasks loaded in Gulpfile.js
+|
+\---src                         // Sources files
+    |   .htaccess
+    |   apple-touch-icon.png
+    |   crossdomain.xml
+    |   favicon.ico
+    |   index.html
+    |   robots.txt
+    |   tile-wide.png
+    |   tile.png
+    |
+    +---css                     // Sass sources
+    |   |   general.scss
+    |   |   main.scss           // Main scss file that imports others
+    |   |
+    |   \---theme               // Bootswatch theme scss files (copied with a gulp task)
+    |
+    +---img                     // Images assets
+    |
+    \---js                      // Javascript source files</code></pre><hr>
+<h2>Npm Packages</h2><h3>Dependencies</h3><ul>
+<li><a href="https://github.com/bower/bower">bower</a>: The browser package manager</li>
+<li><a href="https://github.com/gulpjs/gulp">gulp</a>: The streaming build system</li>
+</ul>
+<h3>Dev Dependencies</h3><ul>
+<li><a href="https://github.com/proustibat/bowboosh.git">bowboosh-tools</a>: Utilities for bowboosh boilerplate</li>
+<li><a href="https://github.com/paulmillr/chokidar">chokidar</a>: A neat wrapper around node.js fs.watch / fs.watchFile / fsevents.</li>
+<li><a href="https://github.com/sindresorhus/del">del</a>: Delete files/folders using globs</li>
+<li><a href="https://github.com/gulpjs/gulp">gulp</a>: The streaming build system</li>
+<li><a href="https://github.com/zont/gulp-bower">gulp-bower</a>: Install Bower packages.</li>
+<li><a href="https://github.com/alexeyraspopov/gulp-complexity">gulp-complexity</a>: A JavaScript complexity analysis gulp task</li>
+<li><a href="https://github.com/wearefractal/gulp-concat">gulp-concat</a>: Concatenates files</li>
+<li><a href="https://github.com/alexmingoia/gulp-file">gulp-file</a>: Create vinyl files from a string or buffer and insert into the Gulp pipeline.</li>
+<li><a href="https://github.com/sindresorhus/gulp-filter">gulp-filter</a>: Filter files in a vinyl stream</li>
+<li><a href="https://github.com/tracker1/gulp-header">gulp-header</a>: Gulp extension to add header to file(s) in the pipeline.</li>
+<li><a href="https://github.com/chmontgomery/gulp-help">gulp-help</a>: Adds a default help task to gulp and provides the ability to add custom help messages to your gulp tasks</li>
+<li><a href="https://github.com/robrich/gulp-if">gulp-if</a>: Conditionally run a task</li>
+<li><a href="https://github.com/sindresorhus/gulp-imagemin">gulp-imagemin</a>: Minify PNG, JPEG, GIF and SVG images</li>
+<li><a href="https://github.com/yannickcr/gulp-jscpd">gulp-jscpd</a>: Gulp plugin for the copy/paste detector jscpd</li>
+<li><a href="https://github.com/mlucool/gulp-jsdoc3">gulp-jsdoc3</a>: gulp integration for jsdoc3 cli</li>
+<li><a href="https://github.com/spalger/gulp-jshint">gulp-jshint</a>: JSHint plugin for gulp</li>
+<li><a href="https://github.com/jackfranklin/gulp-load-plugins">gulp-load-plugins</a>: Automatically load any gulp plugins in your package.json</li>
+<li><a href="https://github.com/skorlir/gulp-load-subtasks">gulp-load-subtasks</a>: A globular loader for gulp subtasks</li>
+<li><a href="https://github.com/mikaelbr/gulp-notify">gulp-notify</a>: gulp plugin to send messages based on Vinyl Files or Errors to Mac OS X, Linux or Windows using the node-notifier module. Fallbacks to Growl or simply logging</li>
+<li><a href="https://github.com/floatdrop/gulp-plumber">gulp-plumber</a>: Prevent pipe breaking caused by errors from gulp plugins</li>
+<li><a href="https://github.com/dlmanning/gulp-sass">gulp-sass</a>: Gulp plugin for sass</li>
+<li><a href="https://github.com/gtg092x/gulp-sftp">gulp-sftp</a>: Upload files via SSH</li>
+<li><a href="https://github.com/floridoo/gulp-sourcemaps">gulp-sourcemaps</a>: Source map support for Gulp.js</li>
+<li><a href="https://github.com/terinjokes/gulp-uglify">gulp-uglify</a>: Minify files with UglifyJS.</li>
+<li><a href="https://github.com/eduardolundgren/gulp-umd">gulp-umd</a>: Gulp plugin for build JavaScript files as Universal Module Definition, aka UMD.</li>
+<li><a href="https://github.com/gulpjs/gulp-util">gulp-util</a>: Utility functions for gulp plugins</li>
+<li><a href="https://github.com/jshint/jshint">jshint</a>: Static analysis tool for JavaScript</li>
+<li><a href="https://github.com/sindresorhus/jshint-stylish">jshint-stylish</a>: Stylish reporter for JSHint</li>
+<li><a href="https://github.com/ck86/main-bower-files">main-bower-files</a>: Get main files from your installed bower packages.</li>
+<li><a href="https://github.com/Modernizr/Modernizr">modernizr</a>: Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.</li>
+<li><a href="https://github.com/es-analysis/plato">plato</a>: JavaScript source analysis and visualizer</li>
+<li><a href="https://github.com/OverZealous/run-sequence">run-sequence</a>: Run a series of dependent gulp tasks in order</li>
+<li><a href="https://github.com/yargs/yargs">yargs</a>: yargs the modern, pirate-themed, successor to optimist.</li>
+</ul>
+<hr>
+<h2>Bower packages</h2><ul>
+<li><a href="http://getbootstrap.com">bootstrap</a> The most popular front-end framework for developing responsive, mobile first projects on the web</li>
+<li><a href="https://github.com/twbs/bootstrap-sass">bootstrap-sass</a> bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications</li>
+<li><a href="https://github.com/FortAwesome">font-awesome</a></li>
+<li><a href="https://github.com/jquery">jquery</a></li>
+<li><a href="http://bootswatch.com">bootswatch</a> Bootswatch is a collection of themes for Bootstrap</li>
+</ul>
+<hr>
+<h2>License</h2><p><a href="./LICENSE">MIT</a></p>
+<hr>
+<p>Generated vith the help of <a href="https://github.com/zeke/package-json-to-readme">package-json-to-readme</a>
+and <a href="https://github.com/thlorenz/doctoc">DocToc</a>.</p></article>
+    </section>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+<div class="modal fade" id="searchResults">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Search results</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<footer>
+
+
+	<span class="copyright">
+	&copy; Jennifer Proust - 2016
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			var id = $( heading ).attr( "id" );
+			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+<script>
+	$( function () {
+		$( '#main' ).localScroll( {
+			offset : { top : 60 } //offset by the height of your header (give or take a few px, see what works for you)
+		} );
+		$( "dt.name" ).each( function () {
+			var $this = $( this ).find("h4");
+			var icon = $( "<i/>" ).addClass( "icon-plus-sign" ).addClass( "pull-right" ).addClass( "icon-white" );
+			var dt = $(this);
+			var children = dt.next( "dd" );
+
+			dt.prepend( icon ).css( {cursor : "pointer"} );
+			dt.addClass( "member-collapsed" ).addClass( "member" );
+
+
+			children.hide();
+
+			dt.children().on( "click", function () {
+				children = dt.next( "dd" );
+				children.slideToggle( "fast", function () {
+
+					if ( children.is( ":visible" ) ) {
+						icon.addClass( "icon-minus-sign" ).removeClass( "icon-plus-sign" ).removeClass( "icon-white" );
+						dt.addClass( "member-open" ).animate( "member-collapsed" );
+					} else {
+						icon.addClass( "icon-plus-sign" ).removeClass( "icon-minus-sign" ).addClass( "icon-white" );
+						dt.addClass( "member-collapsed" ).removeClass( "member-open" );
+					}
+				} );
+			} );
+
+		} );
+	} );
+</script>
+
+
+<!--Google Analytics-->
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		SearcherDisplay.init();
+	});
+</script>
+
+</body>
+</html>

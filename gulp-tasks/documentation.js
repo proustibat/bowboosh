@@ -95,7 +95,25 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                 }
             );
 
-            plugins.runSequence( [ 'build-doc-umd' ], [ 'build-doc-smp' ], cb );
+            gulp.task( 'build-doc-classical', 'Generate documentation for classical javascript', [], function ( cb ) {
+                    console.log( 'build-doc-classical' );
+                    plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.classical;
+                    return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.classical + '/**/*.js' ], { read: true } )
+                        .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
+                        .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
+                }
+            );
+
+            gulp.task( 'build-doc-classical-bis', 'Generate documentation for classical javascript bis', [], function ( cb ) {
+                    console.log( 'build-doc-classical-bis' );
+                    plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.classicalbis;
+                    return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.classicalbis + '/**/*.js' ], { read: true } )
+                        .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
+                        .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
+                }
+            );
+
+            plugins.runSequence( [ 'build-doc-umd' ], [ 'build-doc-smp' ], [ 'build-doc-classical' ], [ 'build-doc-classical-bis' ], cb );
         }
     );
 
@@ -103,9 +121,45 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     gulp.task( 'watch-jsdoc', 'Watch javascript files to regenerate documentation', [ 'build-jsdoc' ], function ( cb ) {
             var allJs = [
                 config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js',
-                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js'
+                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js',
+                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.classical + '/**/*.js',
+                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.classicalbis + '/**/*.js'
             ];
             plugins.tools.watch( allJs, [ 'build-jsdoc' ] );
+        }
+    );
+
+
+    gulp.task( 'build-sassdoc', function () {
+
+            var options = {
+                dest: './dist/docs/sass',
+                verbose: true,
+                groups: {
+                    "undefined": "General",
+                    "custom-theme": "Custom bootswatch theme",
+                    "project": "Project"
+                }
+            };
+            return gulp
+                .src( [
+                        './src/css/**/*.scss',
+                        '!./src/css/theme/**/*.scss'
+                    ]
+                )
+                .pipe( plugins.sassdoc( options )
+                )
+                .resume();
+        }
+    );
+
+
+    gulp.task( 'watch-sassdoc', 'Watch sass files to regenerate sass documentation', [ 'build-sassdoc' ], function ( cb ) {
+            var allCSS = [
+                './src/css/**/*.scss',
+                '!./src/css/theme/**/*.scss'
+            ];
+            plugins.tools.watch( allCSS, [ 'build-sassdoc' ] );
         }
     );
 
