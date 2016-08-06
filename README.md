@@ -153,7 +153,7 @@ _____
 ## Classical workflow
 
 
-## Watching for development
+### Watching for development
 
 Run `npm start` or `gulp` or `gulp watch`.
 Several watchers are running for each tasks (see `gulp help` to list available tasks).
@@ -273,7 +273,7 @@ $ gulp jshint
 See [http://jshint.com/docs/](http://jshint.com/docs/) for more details.
 
 
-## Reporting (Plato)
+### Plato Reporting
 Run `gulp plato-report` will generate report in ./dist/docs/plato-report
 See [https://github.com/es-analysis/plato](https://github.com/es-analysis/plato) for more details.
 
@@ -306,7 +306,7 @@ Each javascript apps are documented in different directories, for example :
 
 See [http://usejsdoc.org/](http://usejsdoc.org/) for more details.
 
-##### Demo
+**Demo**
 Examples results are available here:
 - [JSDoc Bowboosh - classical](http://demo.proustib.at/bowboosh/docs/javascript/classical/)
 - [JSDoc Bowboosh - classical bis](http://demo.proustib.at/bowboosh/docs/javascript/classical-bis/)
