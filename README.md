@@ -69,15 +69,15 @@ Result:
   build-bootswatch-theme    Copy sass files from theme choosen in config Aliases: bw-theme
   build-fonts               Copy all fonts source into public directory
   build-imagemin            Optimize images
-  build-javascript          Build javascript file from simple javascript modules sources
+  build-js-smp              Build javascript file from simple javascript modules sources
   build-jsdoc               Generate javascript documentation
   build-modernizr           Create a custom modernizr file depending on ./modernizr.config.json
   build-sass                Compile all scss files of the project into the public directory
-  build-umd                 Build javascript file from UMD javascript modules sources
+  build-js-umd              Build javascript file from UMD javascript modules sources
   build-vendors             Compile libraries used in the project into libs.js in public directory
   clean-all-js              Delete fonts directory in public directory
   clean-app                 Delete public directory
-  clean-base                Delete exported basic boilerplate files
+  clean-base-src            Delete exported basic boilerplate files
   clean-css                 Delete compiled css files
   clean-fonts               Delete fonts directory in public directory
   clean-imagemin            Delete optimized image in public directory
@@ -86,7 +86,7 @@ Result:
   clean-theme-css           Delete scss bootswatch theme file
   clean-vendor              Delete compiled vendor file
   complexity                Run software complexity analysis
-  copy-base                 Copy basic files in public directory
+  copy-base-src             Copy basic files in public directory
   default                   Default task: run watchers
   deploySFTP                Push changes to remote servers (eg: staging/production)
   help                      Display this help text. Aliases: h, ?
@@ -96,14 +96,14 @@ Result:
   reload-config             Require new config after changes on config.json
   reload-modernizr-options  Require new modernizr options after changes on modernizr.config.json
   watch                     Run watchers on all web app or site sources Aliases: dev
-  watch-base                Watch basic files sources
+  watch-base-src            Watch basic files sources
   watch-fonts               Watch scss files sources
   watch-imagemin            Watch images sources to reload imagemin task
-  watch-javascript          Watch simple javascript modules files
+  watch-js-smp              Watch simple javascript modules files
   watch-jsdoc               Watch javascript files to regenerate documentation
   watch-modernizr           Watch modernizr options to rebuild custom modernizr file
   watch-sass                Watch scss files sources
-  watch-umd                 Watch UMD modules javascript files
+  watch-js-umd              Watch UMD modules javascript files
   watch-vendors             Watch vendor libraries
 
 ```

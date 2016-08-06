@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
-    gulp.task( 'copy-base', 'Copy basic files in public directory', function () {
+    gulp.task( 'copy-base-src', 'Copy basic files in public directory', function () {
             var baseFiles = [];
             for ( var i = 0, l = config.basesiteList.length; i < l; i++ ) {
                 baseFiles.push( config.srcPath + '/' + config.basesiteList[ i ] );
@@ -11,12 +11,12 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
         }
     );
 
-    gulp.task( 'watch-base', 'Watch basic files sources', [ 'clean-base', 'copy-base' ], function () {
+    gulp.task( 'watch-base-src', 'Watch basic files sources', [ 'clean-base-src', 'copy-base-src' ], function () {
             var baseFiles = [];
             for ( var i = 0, l = config.basesiteList.length; i < l; i++ ) {
                 baseFiles.push( config.srcPath + '/' + config.basesiteList[ i ] );
             }
-            plugins.tools.watch( baseFiles, [ 'clean-base', 'copy-base' ] );
+            plugins.tools.watch( baseFiles, [ 'clean-base-src', 'copy-base-src' ] );
         }
     );
 };

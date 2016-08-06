@@ -83,23 +83,21 @@ gulp.task( 'watch', 'Run watchers on all web app or site sources', function () {
                 'clean-app'
             ],
             [
-                'watch-base',
+                'watch-base-src',
                 'watch-sass',
                 'watch-vendors',
                 'watch-modernizr',
                 'watch-imagemin',
-                'watch-javascript',
-                'watch-umd',
-                'watch-classical-js',
-                'watch-classical-js-bis'
+                'watch-js-smp',
+                'watch-js-umd',
+                'watch-js-classical',
+                'watch-js-classical-bis'
             ],
             [
                 'jshint'
             ]
         );
         gulp.watch( './config.json', [ 'reload-config' ] );
-    }, {
-        aliases: [ 'dev' ]
     }
 );
 
@@ -114,18 +112,16 @@ gulp.task( 'build', 'Build web app or site for distribution', function () {
                 'clean-app'
             ],
             [
-                'copy-base',
+                'copy-base-src',
                 'build-sass',
                 'build-vendors',
                 'build-modernizr',
                 'build-imagemin',
-                'build-javascript',
-                'build-umd',
-                'build-classical-js',
-                'build-classical-js-bis'
+                'build-js-smp',
+                'build-js-umd',
+                'build-js-classical',
+                'build-js-classical-bis'
             ]
         );
-    }, {
-        aliases: [ 'prod' ]
     }
 );

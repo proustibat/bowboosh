@@ -33,8 +33,6 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                     .pipe( plugins.header( banner ) )
                     .pipe( gulp.dest( destination ) );
             }
-        }, {
-            aliases: [ 'bw-theme' ]
         }
     )
 };

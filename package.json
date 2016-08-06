@@ -1,17 +1,18 @@
 {
   "name": "bowboosh",
   "version": "1.0.0",
-  "main": "bowboosh.js",
+  "main": "main.min.js",
   "description": "Simple boilerplate with gulp, bower, bootstrap sass, font-awesome, bootswatch themes",
   "scripts": {
-    "postinstall": "bower install --allow-root && gulp help",
+    "postinstall": "gulp install-bower && npm run build",
     "help": "gulp help",
-    "start": "gulp --dev",
+    "start": "gulp watch --dev",
     "build": "gulp build --prod",
-    "deploy": "gulp deploySFTP",
-    "doc": "gulp build-jsdoc",
+    "doc-dev": "gulp watch-jsdoc && gulp watch-sassdoc",
+    "doc-build": "gulp build-jsdoc && gulp build-sassdoc",
     "analysis": "gulp jscpd && gulp complexity && gulp jshint",
     "report": "gulp plato-report",
+    "deploy": "gulp deploySFTP",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

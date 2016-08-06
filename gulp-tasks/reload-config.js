@@ -16,14 +16,14 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
             plugins.runSequence(
                 [
-                    'clean-base',
+                    'clean-base-src',
                     'clean-vendor',
                     'clean-theme-css',
                     'clean-css',
                     'clean-imagemin'
                 ],
                 [
-                    'copy-base',
+                    'copy-base-src',
                     'build-sass',
                     'build-vendors',
                     'build-imagemin'

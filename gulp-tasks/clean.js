@@ -3,7 +3,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     
     // TODO: use gulp-clean
 
-    gulp.task( 'clean-app', 'Delete public directory', [ 'clean-base' ], function () {
+    gulp.task( 'clean-app', 'Delete public directory', [ 'clean-base-src' ], function () {
             return plugins.del( [
                     config.publicPath + '/**/*',
                     '!' + config.documentation.rootPath,
@@ -20,7 +20,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
         }
     );
 
-    gulp.task( 'clean-base', 'Delete exported basic boilerplate files', function () {
+    gulp.task( 'clean-base-src', 'Delete exported basic boilerplate files', function () {
             var baseFiles = [];
             for ( var i = 0, l = config.basesiteList.length; i < l; i++ ) {
                 baseFiles.push( config.publicPath + '/' + config.basesiteList[ i ] );

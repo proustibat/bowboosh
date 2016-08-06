@@ -47,7 +47,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
 
-    gulp.task( 'watch-sass', 'Watch scss files sources', function () {
+    gulp.task( 'watch-sass', 'Watch scss files sources', [ 'build-sass' ], function () {
             config.env.dev = true;
             config.env.prod = false;
             plugins.runSequence(

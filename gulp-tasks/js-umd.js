@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function ( gulp, plugins, config, pkg, bwr ) {
 
-    gulp.task( 'build-umd', 'Build javascript file from UMD javascript modules sources', function () {
+    gulp.task( 'build-js-umd', 'Build javascript file from UMD javascript modules sources', function () {
             config.env = plugins.tools.getEnv( config );
             return gulp.src( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js' )
                 .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
@@ -36,13 +36,13 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
 
-    gulp.task( 'watch-umd', 'Watch UMD modules javascript files', function () {
+    gulp.task( 'watch-js-umd', 'Watch UMD modules javascript files', function () {
             config.env.dev = true;
             config.env.prod = false;
             plugins.runSequence(
-                [ 'jscpd', 'jshint', 'build-umd' ],
+                [ 'jscpd', 'jshint', 'build-js-umd' ],
                 function () {
-                    plugins.tools.watch( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js', [ 'jscpd', 'jshint', 'build-umd' ] );
+                    plugins.tools.watch( config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js', [ 'jscpd', 'jshint', 'build-js-umd' ] );
 
                 }
             );
