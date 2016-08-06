@@ -130,7 +130,7 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
     );
 
 
-    gulp.task( 'build-sassdoc', function () {
+    gulp.task( 'build-sassdoc', 'Generate documentation for scss source files', function () {
 
             var options = {
                 dest: './dist/docs/sass',
