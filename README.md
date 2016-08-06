@@ -1,12 +1,13 @@
-# bowboosh
-
 HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatch themes, deployment tasks, documentation and code analysis tasks.
 
 
 ## Demo: [http://demo.proustib.at/bowboosh/](http://demo.proustib.at/bowboosh/)
 
-## Main features
 
+_____
+
+
+# Main features
 - HTML5 Boilerplate
 - Modernizr library customization
 - Scss files compilation:
@@ -21,10 +22,10 @@ HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatc
 - Analysis and documentations
 
 
-
 _____
 
-## Table of content
+
+# Table of content
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -67,7 +68,7 @@ _____
 
 
 
-## Quick usage
+# Quick usage
 ```sh
 npm install         // install required npm packages and required bower packages
 npm start           // start watchers for development environment
@@ -81,7 +82,7 @@ _____
 
 
 
-## Main other tasks available:
+# Other key tasks available
 ```sh
 npm run doc-build       // build js and sass documentation in "./dist/docs"
 npm run doc-dev         // start watchers for documentations
@@ -150,22 +151,22 @@ Result:
 _____
 
 
-## Classical workflow
+# Classical workflow
 
 
-### Watching for development
+## Watching for development
 
 Run `npm start` or `gulp` or `gulp watch`.
 Several watchers are running for each tasks (see `gulp help` to list available tasks).
 
 
-### Building for production
+## Building for production
 
 Run `npm run build` or `gulp build` or `gulp build --prod`
 *If you wanna build with sourcemaps and console without watching you can run `gulp build --dev`*
 
 
-### Deployment
+## Deployment
 
 Via SFTP (`using gulp-sftp`)
 
@@ -180,12 +181,12 @@ _____
 
 
 
-## Code quality
+# Code quality
 
 - `npm run analysis` will run `gulp jscpd`, `gulp complexity` and `gulp jshint`.
 - `npm run doc` will run `gulp jsdoc`
 
-### Code Complexity
+## Code Complexity
 
 Result example of `gulp complexity`:
 
@@ -201,7 +202,7 @@ $ gulp complexity
 
 See [http://jscomplexity.org/complexity](http://jscomplexity.org/complexity) and [https://github.com/escomplex/complexity-report](https://github.com/escomplex/complexity-report) for more details.
 
-### Copy paste detector
+## Copy paste detector
 
 Result example of `gulp jscpd`:
 
@@ -242,7 +243,7 @@ Lines 146-154 are duplicates of lines 154-162 in src\js\simple-module-pattern\ma
 
 See [https://www.npmjs.com/package/gulp-jscpd](https://www.npmjs.com/package/gulp-jscpd) for more details.
 
-### JSHint
+## JSHint
 
 Result of `gulp jshint` when there's a problem:
 
@@ -273,7 +274,7 @@ $ gulp jshint
 See [http://jshint.com/docs/](http://jshint.com/docs/) for more details.
 
 
-### Plato Reporting
+## Plato Reporting
 Run `gulp plato-report` will generate report in ./dist/docs/plato-report
 See [https://github.com/es-analysis/plato](https://github.com/es-analysis/plato) for more details.
 
@@ -286,9 +287,9 @@ _____
 
 
 
-## Documentations
+# Documentations
 
-### Javascript (JSDoc)
+## Javascript (JSDoc)
 
 Use `gulp build-jsdoc` to generate javascript documentation.
 
@@ -314,7 +315,7 @@ Examples results are available here:
 - [JSDoc Bowboosh - umd](http://demo.proustib.at/bowboosh/docs/javascript/universal-module-pattern/)
 
 
-### Sass Doc
+## Sass Doc
 Use `gulp build-sassdoc` to generate sassdoc documentation.
 
 See [http://usejsdoc.org/](http://sassdoc.com/) for more details about how to write comments in your source files.
@@ -325,8 +326,9 @@ _____
 
 
 
-## Customization
-### ./config.json: Application default configuration file
+# Customization
+## config.json
+**Application default configuration file**
 
  ```
  {
@@ -371,9 +373,9 @@ _____
  }
  ```
 
-### ./modernizr-config.json: Modernizr default configuration file
+## Modernizr
+**./modernizr-config.json**
 See [Modernizr documentation](https://modernizr.com/docs) for more details.
-Complete file [here](./modernizr-config.json)
 
 ```
 {
@@ -390,13 +392,13 @@ Complete file [here](./modernizr-config.json)
   ]
 }
 ```
+See complete file [here](./modernizr-config.json)
 
 
-
-### .jshintrc: JSHint default configuration file
-
-See [JSHint documentation](http://jshint.com/docs) for more details
+## JSHint
+**.jshintrc**
 File with comments for each properties [here](./.jshintrc)
+See [JSHint documentation](http://jshint.com/docs) for more details
 
 ```
 {
@@ -413,9 +415,9 @@ File with comments for each properties [here](./.jshintrc)
 }
 ```
 
-### ./credentials.json: Private data file
+### Priavte fata file with credentials
+**./credentials.json**
 :warning: Don't commit it!
-
 It contains secret keys, api keys, hosts name and passwords, etc.
 It looks like:
 
@@ -433,14 +435,14 @@ _____
 
 
 
-## Npm Packages
+# Npm Packages
 
-### Dependencies
+## Dependencies
 
 - [bower](https://github.com/bower/bower): The browser package manager
 - [gulp](https://github.com/gulpjs/gulp): The streaming build system
 
-### Dev Dependencies
+## Dev Dependencies
 
 - [bowboosh-tools](https://github.com/proustibat/bowboosh-tools): Utilities for bowboosh boilerplate
 - [chokidar](https://github.com/paulmillr/chokidar): A neat wrapper around node.js fs.watch / fs.watchFile / fsevents.
@@ -483,7 +485,7 @@ _____
 
 
 
-## Bower packages
+# Bower packages
 - [bootstrap](http://getbootstrap.com) The most popular front-end framework for developing responsive, mobile first projects on the web
 - [bootstrap-sass](https://github.com/twbs/bootstrap-sass) bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications
 - [font-awesome](https://github.com/FortAwesome)
@@ -492,11 +494,11 @@ _____
 
 _____
 
-## License
+# License
 [MIT](./LICENSE)
 
 
 _____
 
-Generated vith the help of [package-json-to-readme](https://github.com/zeke/package-json-to-readme)
-and [DocToc](https://github.com/thlorenz/doctoc).
+*Generated vith the help of [package-json-to-readme](https://github.com/zeke/package-json-to-readme)
+and [DocToc](https://github.com/thlorenz/doctoc).*
