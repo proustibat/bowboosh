@@ -37,6 +37,7 @@
     "gulp-file": "^0.3.0",
     "gulp-filter": "^4.0.0",
     "gulp-header": "^1.8.2",
+    "gulp-header-license": "^1.0.6",
     "gulp-help": "^1.6.1",
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^3.0.1",

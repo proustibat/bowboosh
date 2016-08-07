@@ -32,7 +32,8 @@ var gulp = require( 'gulp-help' )( require( 'gulp' ), {
                 'gulp-jshint': 'gulpJSHint',
                 'vinyl-ftp': 'ftp',
                 'bowboosh-tools': 'tools',
-                'gulp-if': 'gulpif'
+                'gulp-if': 'gulpif',
+                'gulp-header-license': 'license'
             },
             lazy: true
         }

@@ -31,17 +31,16 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                 }
             };
             //TODO : common options and merge
+
             return gulp.src( config.srcPath + '/css/main.scss' )
                 .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                 // TODO: use gulp-changed
-                //.pipe( plugins.sourcemaps.init() )
                 .pipe( plugins.gulpif( config.env.dev, plugins.sourcemaps.init() ) )
                 .pipe( plugins.sass( plugins.gulpif( config.env.dev, options.dev, options.prod ) ) )
-                //.pipe( plugins.sass( sassOptions ) )
                 .on( 'error', plugins.tools.errorHandler )
-                //.pipe( plugins.sourcemaps.write() )
                 .pipe( plugins.gulpif( config.env.dev, plugins.sourcemaps.write() ) )
-                .pipe( plugins.header( plugins.tools.banner, { pkg: pkg } ) )
+                //.pipe( plugins.header( plugins.tools.banner, { pkg: pkg } ) )
+                //.pipe( plugins.license( plugins.tools.banner, { pkg: pkg } ) )
                 .pipe( gulp.dest( config.publicPath + '/css/' ) );
         }
     );
