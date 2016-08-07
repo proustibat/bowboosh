@@ -34,66 +34,81 @@
         <div id="navbar-main" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Javascript Examples <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="themes">
-                        <li><a href="#">Default</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Cerulean</a></li>
-                        <li><a href="#">Cosmo</a></li>
-                        <li><a href="#">Cyborg</a></li>
-                        <li><a href="#">Darkly</a></li>
-                        <li><a href="#">Flatly</a></li>
-                        <li><a href="#">Journal</a></li>
-                        <li><a href="#">Lumen</a></li>
-                        <li><a href="#">Paper</a></li>
-                        <li><a href="#">Readable</a></li>
-                        <li><a href="#">Sandstone</a></li>
-                        <li><a href="#">Simplex</a></li>
-                        <li><a href="#">Slate</a></li>
-                        <li><a href="#">Spacelab</a></li>
-                        <li><a href="#">Superhero</a></li>
-                        <li><a href="#">United</a></li>
-                        <li><a href="#">Yeti</a></li>
+                        <li><a href="#anchor-js-smp">Module Pattern</a></li>
+                        <li><a href="#anchor-js-umd">UMD</a></li>
+                        <li><a href="#anchor-js-classical">Classical</a></li>
+                        <li><a href="#anchor-js-classical-bis">Classical bis</a></li>
                     </ul>
-                <li>
-                    <a href="#">Help</a>
-                </li>
-                <li>
-                    <a href="#">Blog</a>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Theme <span class="caret"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="download">
-                        <li><a href="#">Bla bli blou</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">bootstrap.min.css</a></li>
-                        <li><a href="#">bootstrap.css</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">variables.less</a></li>
-                        <li><a href="#">bootswatch.less</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">_variables.scss</a></li>
-                        <li><a href="#">_bootswatch.scss</a></li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Bootswatch Examples <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="themes">
+                        <li><a href="#anchor-documentation">Columns</a></li>
+                        <li><a href="#anchor-listgroup">List Group</a></li>
+                        <li><a href="#anchor-images">Images</a></li>
+                        <li><a href="#anchor-buttons">Buttons</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Documentations <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="download">
+                        <li><a href="docs/javascript/simple-module-pattern" target="_blank">JSDoc - Module Pattern</a></li>
+                        <li><a href="docs/javascript/universal-module-definition"target="_blank">JSDoc - UMD</a></li>
+                        <li><a href="docs/javascript/classical"target="_blank">JSDoc - Classical</a></li>
+                        <li><a href="docs/javascript/classical-bis"target="_blank">JSDoc - Classical bis</a></li>
+                        <li class="divider"></li>
+                        <li><a href="docs/sass"target="_blank">SassDoc</a></li>
+                        <li class="divider"></li>
+                        <li><a href="docs/plato-report"target="_blank">Plato report</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://github.com/proustibat/bowboosh">Github</a>
+                </li>
             </ul>
-            <form class="navbar-form navbar-right" role="form">
-                <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
+
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
+
+
 <div class="jumbotron">
+    <div class="container js-jumbotron-container">
+        <h1>Bowboosh</h1>
+
+        <div class="tagcloud">
+            <p>
+            <ul>
+                <li><a><span>Bower</span></a></li>
+                <li><a><span>Bootstrap</span></a></li>
+                <li><a><span>Sass</span></a></li>
+                <li><a><span>Html5 Boilerplate</span></a></li>
+                <li><a><span>Modernizr</span></a></li>
+                <li><a><span>Gulp</span></a></li>
+                <li><a><span>Images optimization</span></a></li>
+                <li><a><span>Font-awesome</span></a></li>
+                <li><a><span>JSHint</span></a></li>
+                <li><a><span>JSDoc</span></a></li>
+                <li><a><span>SassDoc</span></a></li>
+                <li><a><span>Plato</span></a></li>
+                <li><a><span>Bootswatch</span></a></li>
+            </ul>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div class="jumbotron js-module-smp" id="anchor-js-smp">
     <div class="container">
-        <h1>Hello, world!</h1>
+        <h2>Hello, world!</h2>
         <p>Simple module pattern javascript app</p>
         <p>
             <a class="btn btn-primary btn-lg js-btn-author" href="#" role="button">Learn more about author &raquo;</a>
@@ -102,25 +117,27 @@
         </p>
     </div>
 </div>
-<div class="jumbotron">
+
+
+<div class="jumbotron js-module-umd" id="anchor-js-umd">
     <div class="container js-jumbotron-container">
-        <h1>Hello, world!</h1>
+        <h2>Hello, world!</h2>
         <p>Simple UMD javascript app</p>
     </div>
 </div>
 
-<div class="jumbotron">
+<div class="jumbotron js-module-classical" id="anchor-js-classical">
     <div class="container js-jumbotron-container">
-        <h1>Hello, world!</h1>
+        <h2>Hello, world!</h2>
         <p>Classical javascript object</p>
         <p>
             <a class="btn btn-primary btn-lg js-btn-click-me" href="#" role="button">Click me &raquo;</a>
         </p>
     </div>
 </div>
-<div class="jumbotron">
+<div class="jumbotron js-module-classical-bis" id="anchor-js-classical-bis">
     <div class="container js-jumbotron-container">
-        <h1>Hello, world!</h1>
+        <h2>Hello, world!</h2>
         <p>Classical javascript bis</p>
         <p>
             <a class="btn btn-primary btn-lg js-btn-click-me" href="#" role="button">Click me bis &raquo;</a>
@@ -129,61 +146,33 @@
 </div>
 
 <div class="container">
-    <h2>Documentation</h2>
+    <h2 id="anchor-documentation">Documentation</h2>
     <!-- Example row of columns -->
     <div class="row">
         <div class="col-md-4">
             <h3><i class="fa fa-terminal"></i> JSDoc</h3>
             <p>Bla bli blou</p>
-            <p><a class="btn btn-default btn-sm" href="docs/javascript/simple-module-pattern" role="button">Module Pattern &raquo;</a></p>
-            <p><a class="btn btn-default btn-sm" href="docs/javascript/universal-module-definition" role="button">UMD &raquo;</a></p>
-            <p><a class="btn btn-default btn-sm" href="docs/javascript/classical" role="button">Classical &raquo;</a></p>
-            <p><a class="btn btn-default btn-sm" href="docs/javascript/classical-bis" role="button">Classical bis&raquo;</a></p>
+            <p><a class="btn btn-default btn-sm" href="docs/javascript/simple-module-pattern" target="_blank" role="button">Module Pattern &raquo;</a></p>
+            <p><a class="btn btn-default btn-sm" href="docs/javascript/universal-module-definition" target="_blank" role="button">UMD &raquo;</a></p>
+            <p><a class="btn btn-default btn-sm" href="docs/javascript/classical" target="_blank" role="button">Classical &raquo;</a></p>
+            <p><a class="btn btn-default btn-sm" href="docs/javascript/classical-bis" target="_blank" role="button">Classical bis&raquo;</a></p>
         </div>
         <div class="col-md-4">
             <h3><i class="fa fa-flag-checkered"></i> Plato</h3>
             <p>Bla bli blou</p>
-            <p><a class="btn btn-default btn-sm" href="docs/plato-report" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default btn-sm" href="docs/plato-report" target="_blank" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
             <h3><i class="fa fa-css3"></i> SassDoc</h3>
             <p>Bla bli blou</p>
-            <p><a class="btn btn-default btn-sm" href="docs/sass" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default btn-sm" href="docs/sass" target="_blank" role="button">View details &raquo;</a></p>
         </div>
     </div>
 
     <hr>
 
     <div class="row">
-        <div class="col-md-4">
-            <h3>Heading</h3>
-            <p><i class="fa fa-github"></i>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac
-                cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-                malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h3>Heading</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h3>Heading</h3>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-    </div>
-
-
-    <hr/>
-
-
-
-    <div class="row">
+        <h2 id="anchor-listgroup">List group</h2>
         <div class="col-lg-3 col-md-3 col-sm-4">
             <div class="list-group table-of-contents">
                 <a class="list-group-item" href="#navbar">Navbar</a>
@@ -205,7 +194,7 @@
 
 
 
-    <div class="row">
+    <div class="row" id="anchor-images">
         <div class="col-md-4 col-sm-6">
             <h2>Image 1</h2>
             <img src="img/DSC_0276.JPG" class="img-responsive img-rounded img-thumbnail" alt="Beautiful cat">
@@ -216,7 +205,7 @@
         </div>
     </div>
 
-    <div class="bs-docs-section">
+    <div class="bs-docs-section" id="anchor-buttons">
         <div class="page-header">
             <div class="row">
                 <div class="col-lg-12">
@@ -386,12 +375,9 @@
 
 
     <footer>
-        <p>&copy; <a href="https://github.com/proustibat">Proustibat</a> 2016</p>
+        <p>&copy; <a href="https://github.com/proustibat" target="_blank">Proustibat</a> 2016</p>
     </footer>
 </div> <!-- /container -->
-
-
-
 
 
 <script src="js/vendor/libs.js"></script>
@@ -402,11 +388,8 @@
     app.sayHello();
     app.createModules();
 </script>
-
-
 <script src="js/classical/main.min.js"></script>
 <script src="js/classical-bis/main.min.js"></script>
-
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

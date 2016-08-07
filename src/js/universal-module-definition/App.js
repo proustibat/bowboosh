@@ -19,7 +19,8 @@ function App() {
         init: function () {
             this.uid = this.guid();
             console.log( 'Hello App [' + this.uid + ']' );
-            this.container = document.body.getElementsByClassName( 'js-jumbotron-container' )[ 0 ];
+            this.el = document.body.getElementsByClassName( 'js-module-umd' )[ 0 ];
+            this.container = this.el.getElementsByClassName( 'js-jumbotron-container' ) [ 0 ];
             this.container.innerHTML = '<p>' + this.container.innerHTML + 'Hello UMD APP [' + this.uid + '] </p>';
 
         },
@@ -63,7 +64,7 @@ function App() {
                 .substring( 1 );
         }
     };
-    
+
     App.init();
     return App;
 }

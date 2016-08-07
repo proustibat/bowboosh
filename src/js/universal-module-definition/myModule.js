@@ -14,7 +14,8 @@ function MyModule() {
     this.init = function () {
         this.uid = this.guid();
         console.log( 'Hello MyModule [' + this.uid + ']' );
-        this.container = document.body.getElementsByClassName( 'js-jumbotron-container' )[ 0 ];
+        this.el = document.body.getElementsByClassName( 'js-module-umd' )[ 0 ];
+        this.container = this.el.getElementsByClassName( 'js-jumbotron-container' ) [ 0 ];
         this.container.innerHTML = '<p>' + this.container.innerHTML + 'Hello Module [' + this.uid + '] </p>';
 
     };

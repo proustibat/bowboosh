@@ -28,8 +28,9 @@ var ClassicalApp = {
      */
     init: function () {
         console.log( "ClassicalApp.init" );
-        this.el = document.body.getElementsByClassName( 'js-jumbotron-container' )[ 1 ];
-        this.button = this.el.getElementsByClassName( 'js-btn-click-me' );
+        this.el = document.body.getElementsByClassName( 'js-module-classical' )[ 0 ];
+        this.container = this.el.getElementsByClassName( 'js-jumbotron-container' ) [ 0 ];
+        this.button = this.container.getElementsByClassName( 'js-btn-click-me' ) [ 0 ];
         this.setListeners();
     },
 
@@ -39,7 +40,7 @@ var ClassicalApp = {
      * @method setListeners
      */
     setListeners: function () {
-        this.el.addEventListener('click', this.onClickButton, false);
+        this.button.addEventListener( 'click', this.onClickButton, false );
     },
 
     /**

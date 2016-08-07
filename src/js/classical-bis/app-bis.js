@@ -1,5 +1,5 @@
 'use strict';
-(function(window, undefined) {
+(function ( window, undefined ) {
 
     var classical = window.classical = window.classical || {};
     /**
@@ -7,7 +7,7 @@
      * @version 1.0
      * @module
      */
-    classical.app = (function(/** @lends app.prototype */) {
+    classical.app = (function ( /** @lends app.prototype */ ) {
 
         var app = {};
         /**
@@ -23,8 +23,8 @@
          * Add events listeners
          * @method setListeners
          */
-        app.setListeners = function() {
-            this.el.addEventListener('click', this.onClickButton, true);
+        app.setListeners = function () {
+            this.button.addEventListener( 'click', this.onClickButton, true );
         };
         /**
          * The button on the main element has been clicked
@@ -39,9 +39,10 @@
          * Get main container and button elements
          * @method init
          */
-        app.init = function() {
-            this.el = document.body.getElementsByClassName( 'js-jumbotron-container' )[ 2 ];
-            this.button = this.el.getElementsByClassName( 'js-btn-click-me' );
+        app.init = function () {
+            this.el = document.body.getElementsByClassName( 'js-module-classical-bis' )[ 0 ];
+            this.container = this.el.getElementsByClassName( 'js-jumbotron-container' ) [ 0 ];
+            this.button = this.container.getElementsByClassName( 'js-btn-click-me' ) [ 0 ];
 
             this.setListeners();
         };
@@ -52,4 +53,4 @@
 
     classical.app.init();
 
-})(window);
+})( window );

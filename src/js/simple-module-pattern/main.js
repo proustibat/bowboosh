@@ -147,10 +147,11 @@ var MyApp = window.MyApp || (function ( document, window ) {
             _cache: function () {
                 console.log( 'application._cache' );
                 this.body = document.body;
-                this.title = this.body.getElementsByTagName( 'h1' )[ 0 ];
-                this.buttonAuthor = this.body.getElementsByClassName( 'js-btn-author' )[ 0 ];
-                this.buttonVersion = this.body.getElementsByClassName( 'js-btn-version' )[ 0 ];
-                this.buttonReset = this.body.getElementsByClassName( 'js-btn-reset' )[ 0 ];
+                this.mainContainer = this.body.getElementsByClassName( 'js-module-smp' )[ 0 ];
+                this.title = this.mainContainer.getElementsByTagName( 'h2' )[ 0 ];
+                this.buttonAuthor = this.mainContainer.getElementsByClassName( 'js-btn-author' )[ 0 ];
+                this.buttonVersion = this.mainContainer.getElementsByClassName( 'js-btn-version' )[ 0 ];
+                this.buttonReset = this.mainContainer.getElementsByClassName( 'js-btn-reset' )[ 0 ];
             },
 
             /**
