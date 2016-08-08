@@ -33,7 +33,18 @@ define( 'app/clickmemodule', [
 
                 onButtonClick: function ( e ) {
                     console.log( 'ClickMeModule.onButtonClick : ', this.uid );
-                    this.$el.toggleClass( 'active' );
+                    this.$button.button( 'loading' );
+                    setTimeout( function () {
+                            this.$el.toggleClass( 'active' );
+                            var state = (this.$button.attr( "aria-pressed" ) === 'true' ? 'unclick' : 'click');
+                            console.log( this.$button.attr( "aria-pressed" ) );
+                            console.log( state );
+                            // debugger;
+                            this.$button.button( state );
+                            // this.$button.button( 'reset' );
+
+                        }.bind( this ), Helpers.getRandomInt( 0, 1500 )
+                    );
                     e.preventDefault();
                 }
             };

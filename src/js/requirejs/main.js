@@ -43,7 +43,7 @@ require( [
                 for ( var i = 0, l = nbModules; i < l; i++ ) {
                     moduleList.push( new ClickMeModule( $( '.js-modules .js-module' ).eq( i ), colors[ usedColor ] ) );
                     usedColor++;
-                    if ( usedColor == colors.length ) {
+                    if ( usedColor === colors.length ) {
                         usedColor = 0;
                     }
                 }
