@@ -76,11 +76,11 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             // DEPLOYMENTS
 
             // site or webapps
-            options.remotePath = options.remoteBase + '/bowboosh';
+            options.remotePath = options.remoteBase + '/bowboosh/requirejs';
             plugins.util.log( 'Push web site on server in : ', options.remotePath );
             return gulp.src( [
                     './dist/**/*',
-                    '!./.htaccess' // exluded files
+                    '!./.htaccess' // excluded files
                 ]
             )
                 .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
