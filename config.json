@@ -9,10 +9,6 @@
     "dir": "js",
     "outputFile": "main",
     "subdir": {
-      "smp": "simple-module-pattern",
-      "umd": "universal-module-definition",
-      "classical": "classical",
-      "classicalbis": "classical-bis",
       "requirejs": "requirejs"
     }
   },
