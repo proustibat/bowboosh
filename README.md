@@ -1,7 +1,10 @@
 HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatch themes, deployment tasks, documentation and code analysis tasks.
 
 
-## Demo: [http://demo.proustib.at/bowboosh/](http://demo.proustib.at/bowboosh/)
+
+## Demo:
+###[Master Branch](http://demo.proustib.at/bowboosh/)
+###[RequireJS Branch](http://demo.proustib.at/bowboosh/requirejs/)
 
 
 _____
