@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 /// Tagcloud with labels list
 .tagcloud {
   ul {
@@ -59,6 +58,56 @@
         text-overflow: ellipsis;
         overflow: hidden;
       }
+    }
+  }
+}
+
+/// Component module with require js
+/// Contains a title and a button
+.module-requirejs {
+  .btn {
+    margin-bottom: 20px;
+  }
+  padding-right: 10px;
+  .mod-rjs-box {
+    width: 100%;
+    background: red;
+    padding: 5px 0 0px 10px;
+    background: none;
+  }
+
+  &.active .mod-rjs-box {
+    .js-module-title {
+      color: #fff;
+    }
+    &.color-fav-yellow {
+      background: $color-fav-yellow;
+    }
+    &.color-fav-red-orange {
+      background: $color-fav-red-orange;
+    }
+    &.color-fav-violet {
+      background: $color-fav-violet;
+
+    }
+    &.color-fav-pink {
+      background: $color-fav-pink;
+    }
+    &.color-fav-orange {
+      background: $color-fav-orange;
+    }
+    &.color-fav-green {
+      background: $color-fav-green;
+    }
+    &.color-fav-green-blue {
+      background: $color-fav-green-blue;
+    }
+    &.color-fav-turquoise {
+      background: $color-fav-turquoise;
+
+    }
+    &.color-fav-blue {
+      background: $color-fav-blue;
     }
   }
 }

@@ -33,37 +33,6 @@
         </div>
         <div id="navbar-main" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Javascript Examples <span class="caret"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="themes">
-                        <li><a href="#anchor-js-smp">Module Pattern</a></li>
-                        <li><a href="#anchor-js-umd">UMD</a></li>
-                        <li><a href="#anchor-js-classical">Classical</a></li>
-                        <li><a href="#anchor-js-classical-bis">Classical bis</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Bootswatch Examples <span class="caret"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="themes">
-                        <li><a href="#anchor-documentation">Columns</a></li>
-                        <li><a href="#anchor-listgroup">List Group</a></li>
-                        <li><a href="#anchor-images">Images</a></li>
-                        <li><a href="#anchor-buttons">Buttons</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Documentations <span class="caret"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="download">
-                        <li><a href="docs/javascript/simple-module-pattern" target="_blank">JSDoc - Module Pattern</a></li>
-                        <li><a href="docs/javascript/universal-module-definition"target="_blank">JSDoc - UMD</a></li>
-                        <li><a href="docs/javascript/classical"target="_blank">JSDoc - Classical</a></li>
-                        <li><a href="docs/javascript/classical-bis"target="_blank">JSDoc - Classical bis</a></li>
-                        <li class="divider"></li>
-                        <li><a href="docs/sass"target="_blank">SassDoc</a></li>
-                        <li class="divider"></li>
-                        <li><a href="docs/plato-report"target="_blank">Plato report</a></li>
-                    </ul>
-                </li>
                 <li>
                     <a href="https://github.com/proustibat/bowboosh">Github</a>
                 </li>
@@ -96,6 +65,7 @@
                 <li><a><span>SassDoc</span></a></li>
                 <li><a><span>Plato</span></a></li>
                 <li><a><span>Bootswatch</span></a></li>
+                <li><a><span>Require JS</span></a></li>
             </ul>
             </p>
         </div>
@@ -104,87 +74,62 @@
 </div>
 
 
-
-
-<div class="jumbotron js-module-smp" id="anchor-js-smp">
-    <div class="container">
-        <h2>Hello, world!</h2>
-        <p>Simple module pattern javascript app</p>
-        <p>
-            <a class="btn btn-primary btn-lg js-btn-author" href="#" role="button">Learn more about author &raquo;</a>
-            <a class="btn btn-primary btn-lg js-btn-version" href="#" role="button">Learn more about version &raquo;</a>
-            <a class="btn btn-primary btn-lg js-btn-reset" href="#" role="button">Reset &raquo;</a>
-        </p>
-    </div>
-</div>
-
-
-<div class="jumbotron js-module-umd" id="anchor-js-umd">
-    <div class="container js-jumbotron-container">
-        <h2>Hello, world!</h2>
-        <p>Simple UMD javascript app</p>
-    </div>
-</div>
-
-<div class="jumbotron js-module-classical" id="anchor-js-classical">
-    <div class="container js-jumbotron-container">
-        <h2>Hello, world!</h2>
-        <p>Classical javascript object</p>
-        <p>
-            <a class="btn btn-primary btn-lg js-btn-click-me" href="#" role="button">Click me &raquo;</a>
-        </p>
-    </div>
-</div>
-<div class="jumbotron js-module-classical-bis" id="anchor-js-classical-bis">
-    <div class="container js-jumbotron-container">
-        <h2>Hello, world!</h2>
-        <p>Classical javascript bis</p>
-        <p>
-            <a class="btn btn-primary btn-lg js-btn-click-me" href="#" role="button">Click me bis &raquo;</a>
-        </p>
-    </div>
-</div>
-
-<div class="container">
-    <h2 id="anchor-documentation">Documentation</h2>
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-4">
-            <h3><i class="fa fa-terminal"></i> JSDoc</h3>
-            <p>Bla bli blou</p>
-            <p><a class="btn btn-default btn-sm" href="docs/javascript/simple-module-pattern" target="_blank" role="button">Module Pattern &raquo;</a></p>
-            <p><a class="btn btn-default btn-sm" href="docs/javascript/universal-module-definition" target="_blank" role="button">UMD &raquo;</a></p>
-            <p><a class="btn btn-default btn-sm" href="docs/javascript/classical" target="_blank" role="button">Classical &raquo;</a></p>
-            <p><a class="btn btn-default btn-sm" href="docs/javascript/classical-bis" target="_blank" role="button">Classical bis&raquo;</a></p>
+<div class="container js-requirejs" id="anchor-requirejs">
+    <h2>Hello, world!</h2>
+    <p>Simple Require JS App</p>
+    <div class="row js-modules">
+        <div class="col-md-4 js-module module-requirejs">
+            <div class="mod-rjs-box">
+                <h3 class="js-module-title">Title</h3>
+                <button class="js-button btn btn-default btn-lg" data-toggle="button">Click Me</button>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h3><i class="fa fa-flag-checkered"></i> Plato</h3>
-            <p>Bla bli blou</p>
-            <p><a class="btn btn-default btn-sm" href="docs/plato-report" target="_blank" role="button">View details &raquo;</a></p>
+        <div class="col-md-4 js-module module-requirejs">
+            <div class="mod-rjs-box">
+                <h3 class="js-module-title">Title</h3>
+                <button class="js-button btn btn-default btn-lg" data-toggle="button">Click Me</button>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h3><i class="fa fa-css3"></i> SassDoc</h3>
-            <p>Bla bli blou</p>
-            <p><a class="btn btn-default btn-sm" href="docs/sass" target="_blank" role="button">View details &raquo;</a></p>
+        <div class="col-md-4 js-module module-requirejs">
+            <div class="mod-rjs-box">
+                <h3 class="js-module-title">Title</h3>
+                <button class="js-button btn btn-default btn-lg" data-toggle="button">Click Me</button>
+            </div>
         </div>
-    </div>
-
-    <hr>
-
-    <div class="row">
-        <h2 id="anchor-listgroup">List group</h2>
-        <div class="col-lg-3 col-md-3 col-sm-4">
-            <div class="list-group table-of-contents">
-                <a class="list-group-item" href="#navbar">Navbar</a>
-                <a class="list-group-item" href="#buttons">Buttons</a>
-                <a class="list-group-item" href="#typography">Typography</a>
-                <a class="list-group-item" href="#tables">Tables</a>
-                <a class="list-group-item" href="#forms">Forms</a>
-                <a class="list-group-item" href="#navs">Navs</a>
-                <a class="list-group-item" href="#indicators">Indicators</a>
-                <a class="list-group-item" href="#progress-bars">Progress bars</a>
-                <a class="list-group-item" href="#containers">Containers</a>
-                <a class="list-group-item" href="#dialogs">Dialogs</a>
+        <div class="col-md-4 js-module module-requirejs">
+            <div class="mod-rjs-box">
+                <h3 class="js-module-title">Title</h3>
+                <button class="js-button btn btn-default btn-lg" data-toggle="button">Click Me</button>
+            </div>
+        </div>
+        <div class="col-md-4 js-module module-requirejs">
+            <div class="mod-rjs-box">
+                <h3 class="js-module-title">Title</h3>
+                <button class="js-button btn btn-default btn-lg" data-toggle="button">Click Me</button>
+            </div>
+        </div>
+        <div class="col-md-4 js-module module-requirejs">
+            <div class="mod-rjs-box">
+                <h3 class="js-module-title">Title</h3>
+                <button class="js-button btn btn-default btn-lg" data-toggle="button">Click Me</button>
+            </div>
+        </div>
+        <div class="col-md-4 js-module module-requirejs">
+            <div class="mod-rjs-box">
+                <h3 class="js-module-title">Title</h3>
+                <button class="js-button btn btn-default btn-lg" data-toggle="button">Click Me</button>
+            </div>
+        </div>
+        <div class="col-md-4 js-module module-requirejs">
+            <div class="mod-rjs-box">
+                <h3 class="js-module-title">Title</h3>
+                <button class="js-button btn btn-default btn-lg" data-toggle="button">Click Me</button>
+            </div>
+        </div>
+        <div class="col-md-4 js-module module-requirejs">
+            <div class="mod-rjs-box">
+                <h3 class="js-module-title">Title</h3>
+                <button class="js-button btn btn-default btn-lg" data-toggle="button">Click Me</button>
             </div>
         </div>
     </div>
@@ -192,186 +137,63 @@
 
     <hr>
 
+    <div class="row">
+        <h2>Bootstrap Carousel</h2>
+        <div id="carousel-example-generic" class="carousel slide col-centered col-md-5" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
 
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <a href="https://www.instagram.com/p/BIxeFjtDbaj/?taken-by=kalel.cat" target="_blank"> <img
+                            class="center-block"
+                            src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/e35/13696792_625720020922731_1134095003_n.jpg"
+                            alt="...">
+                        <div class="carousel-caption">
+                            <h3>Title1</h3>
+                            <p>Coucou</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="https://www.instagram.com/p/BGnAR5WORQo/?taken-by=kalel.cat" target="_blank"> <img
+                            class="center-block"
+                            src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/e35/13391209_297716443897362_18795439_n.jpg"
+                            alt="...">
+                        <div class="carousel-caption">
+                            <h3>Title 2</h3>
+                            <p>Coucou</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="https://www.instagram.com/p/BIAHgcLjYFd/?taken-by=kalel.cat" target="_blank"> <img
+                            class="center-block"
+                            src="https://scontent-cdg2-1.cdninstagram.com/t51.2885-15/e35/13732150_1767092343509406_1286453022_n.jpg"
+                            alt="...">
+                        <div class="carousel-caption">
+                            <h3>Title 3</h3>
+                            <p>Coucou</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
 
-    <div class="row" id="anchor-images">
-        <div class="col-md-4 col-sm-6">
-            <h2>Image 1</h2>
-            <img src="img/DSC_0276.JPG" class="img-responsive img-rounded img-thumbnail" alt="Beautiful cat">
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <h2>Image 2</h2>
-            <img src="img/webcam-toy-photo13.jpg" class="img-responsive img-rounded img-thumbnail" alt="Vaping">
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span
+                    class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span
+                    class="sr-only">Previous</span> </a> <a class="right carousel-control"
+                                                            href="#carousel-example-generic" role="button"
+                                                            data-slide="next"> <span
+                class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span>
+        </a>
         </div>
     </div>
-
-    <div class="bs-docs-section" id="anchor-buttons">
-        <div class="page-header">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 id="buttons">Buttons</h1>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-7">
-
-                <p class="bs-component">
-                    <a href="#" class="btn btn-default">Default</a>
-                    <a href="#" class="btn btn-primary">Primary</a>
-                    <a href="#" class="btn btn-success">Success</a>
-                    <a href="#" class="btn btn-info">Info</a>
-                    <a href="#" class="btn btn-warning">Warning</a>
-                    <a href="#" class="btn btn-danger">Danger</a>
-                    <a href="#" class="btn btn-link">Link</a>
-                </p>
-
-                <p class="bs-component">
-                    <a href="#" class="btn btn-default disabled">Default</a>
-                    <a href="#" class="btn btn-primary disabled">Primary</a>
-                    <a href="#" class="btn btn-success disabled">Success</a>
-                    <a href="#" class="btn btn-info disabled">Info</a>
-                    <a href="#" class="btn btn-warning disabled">Warning</a>
-                    <a href="#" class="btn btn-danger disabled">Danger</a>
-                    <a href="#" class="btn btn-link disabled">Link</a>
-                </p>
-
-
-                <div style="margin-bottom: 15px;">
-                    <div class="btn-toolbar bs-component" style="margin: 0;">
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">Default</a>
-                            <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-primary">Primary</a>
-                            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-success">Success</a>
-                            <a href="#" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-info">Info</a>
-                            <a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-warning">Warning</a>
-                            <a href="#" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="bs-component">
-                    <a href="#" class="btn btn-primary btn-lg">Large button</a>
-                    <a href="#" class="btn btn-primary">Default button</a>
-                    <a href="#" class="btn btn-primary btn-sm">Small button</a>
-                    <a href="#" class="btn btn-primary btn-xs">Mini button</a>
-                </p>
-
-            </div>
-            <div class="col-lg-5">
-
-                <p class="bs-component">
-                    <a href="#" class="btn btn-default btn-lg btn-block">Block level button</a>
-                </p>
-
-
-                <div class="bs-component" style="margin-bottom: 15px;">
-                    <div class="btn-group btn-group-justified">
-                        <a href="#" class="btn btn-default">Left</a>
-                        <a href="#" class="btn btn-default">Middle</a>
-                        <a href="#" class="btn btn-default">Right</a>
-                    </div>
-                    <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
-
-                <div class="bs-component" style="margin-bottom: 15px;">
-                    <div class="btn-toolbar">
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">1</a>
-                            <a href="#" class="btn btn-default">2</a>
-                            <a href="#" class="btn btn-default">3</a>
-                            <a href="#" class="btn btn-default">4</a>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">5</a>
-                            <a href="#" class="btn btn-default">6</a>
-                            <a href="#" class="btn btn-default">7</a>
-                        </div>
-
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-default">8</a>
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    Dropdown
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Dropdown link</a></li>
-                                    <li><a href="#">Dropdown link</a></li>
-                                    <li><a href="#">Dropdown link</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bs-component">
-                    <div class="btn-group-vertical">
-                        <a href="#" class="btn btn-default">Button</a>
-                        <a href="#" class="btn btn-default">Button</a>
-                        <a href="#" class="btn btn-default">Button</a>
-                        <a href="#" class="btn btn-default">Button</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-
 
 
     <footer>
@@ -380,16 +202,7 @@
 </div> <!-- /container -->
 
 
-<script src="js/vendor/libs.js"></script>
-<script src="js/simple-module-pattern/main.min.js"></script>
-<script src="js/universal-module-definition/main.min.js"></script>
-<script>
-    var app = new App();
-    app.sayHello();
-    app.createModules();
-</script>
-<script src="js/classical/main.min.js"></script>
-<script src="js/classical-bis/main.min.js"></script>
+<script data-main="js/requirejs/main.min.js" src="js/vendor/requirejs/require.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

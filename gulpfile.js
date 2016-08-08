@@ -89,10 +89,7 @@ gulp.task( 'watch', 'Run watchers on all web app or site sources', function () {
                 'watch-vendors',
                 'watch-modernizr',
                 'watch-imagemin',
-                'watch-js-smp',
-                'watch-js-umd',
-                'watch-js-classical',
-                'watch-js-classical-bis'
+                'watch-js-requirejs'
             ],
             [
                 'jshint'
@@ -118,10 +115,7 @@ gulp.task( 'build', 'Build web app or site for distribution', function () {
                 'build-vendors',
                 'build-modernizr',
                 'build-imagemin',
-                'build-js-smp',
-                'build-js-umd',
-                'build-js-classical',
-                'build-js-classical-bis'
+                'build-js-requirejs'
             ]
         );
     }

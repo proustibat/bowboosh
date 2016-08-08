@@ -17,12 +17,18 @@
     "bootstrap-sass": "bootstrap-sass-official#3.3.6",
     "font-awesome": "fontawesome#4.6.2",
     "jquery": "1.12.3",
-    "bootswatch": "3.3.6+1"
+    "bootswatch": "3.3.6+1",
+    "requirejs": "^2.2.0"
   },
   "overrides": {
     "bootstrap-sass": {
       "main": [
-        "./assets/javascripts/bootstrap.js"
+        "./assets/javascripts/bootstrap.min.js"
+      ]
+    },
+    "jquery": {
+      "main": [
+        "./dist/jquery.min.js"
       ]
     },
     "bootstrap": {
