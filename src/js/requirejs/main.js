@@ -35,23 +35,19 @@ require( [
                     'color-fav-orange',
                     'color-fav-violet'
                 ];
-                var usedColor = 0;
-
-                var nbModules = $( '.js-modules .js-module' ).length;
-                var moduleList = [];
-                // Instanciation
-                for ( var i = 0, l = nbModules; i < l; i++ ) {
+            
+                // Instanciation & initialization each module
+                for ( var i = 0,
+                          usedColor = 0,
+                          nbModules = $( '.js-modules .js-module' ).length,
+                          moduleList = [];
+                      i < nbModules;
+                      i++ ) {
                     moduleList.push( new ClickMeModule( $( '.js-modules .js-module' ).eq( i ), colors[ usedColor ] ) );
-                    usedColor++;
-                    if ( usedColor === colors.length ) {
-                        usedColor = 0;
-                    }
-                }
-                // Initilization
-                for ( i = 0; i < l; i++ ) {
-                    moduleList[ i ].init();
-                }
+                    usedColor = usedColor === colors.length - 1 ? 0 : usedColor + 1;
+                    moduleList.pop().init();
 
+                }
             }
         );
     }
