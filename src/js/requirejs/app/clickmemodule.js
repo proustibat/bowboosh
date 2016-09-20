@@ -14,6 +14,9 @@ define( 'app/clickmemodule', [
                 $box: null,
                 $button: null,
 
+                /**
+                 * 
+                 */
                 init: function () {
                     console.log( 'ClickMeModule.init' );
                     this.uid = Helpers.guid();
@@ -26,11 +29,18 @@ define( 'app/clickmemodule', [
                     this.setListeners();
                 },
 
+                /**
+                 * 
+                 */
                 setListeners: function () {
                     console.log( 'ClickMeModule.setListeners' );
                     this.$button.on( 'click', this.onButtonClick.bind( this ) );
                 },
 
+                /**
+                 * 
+                 * @param e
+                 */
                 onButtonClick: function ( e ) {
                     console.log( 'ClickMeModule.onButtonClick : ', this.uid );
                     this.$button.button( 'loading' );
