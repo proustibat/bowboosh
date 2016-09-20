@@ -145,7 +145,6 @@
         </div>
     </div>
 
-
     <hr>
 
     <div class="row">
@@ -236,13 +235,26 @@
         </div>
     </div>
 
+    <hr>
+
+    <div class="row">
+        <h2>Asynchronous module</h2>
+        <p><button class="btn btn-default btn-lg js-create-button" data-toggle="button" data-done-text="Done!" data-undone-text="Undone!">Create</button></p>
+        <p><img src="img/load-dynamically-modules.gif" alt="" class="img-rounded img-responsive"/><p>
+    </div>
+
     <footer>
         <p>&copy; <a href="https://github.com/proustibat" target="_blank">Proustibat</a> 2016</p>
     </footer>
 </div> <!-- /container -->
 
 
-<script data-main="js/requirejs/main.min.js" src="js/vendor/requirejs/require.js"></script>
+<!-- Sync custom modules -->
+<!--<script data-main="js/requirejs/main.min.js" src="js/vendor/requirejs/require.js"></script>-->
+
+
+<!-- Async custom modules -->
+<script data-main="js/requirejs/config.js" src="js/vendor/requirejs/require.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

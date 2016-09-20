@@ -7,7 +7,8 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
                 .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                 .pipe( plugins.gulpif( config.env.dev, plugins.sourcemaps.init() ) )
                 .pipe( plugins.gulpif( config.env.prod, plugins.uglify( plugins.uglifyOptions ) ) )
-                .pipe( plugins.concat( config.javascript.outputFile + '.min.js' ) )
+                    //TODO Allow choice between aync and sync custom modules
+                // .pipe( plugins.concat( config.javascript.outputFile + '.min.js' ) )
                 .pipe( plugins.gulpif( config.env.dev, plugins.sourcemaps.write() ) )
                 .pipe( plugins.header( plugins.tools.banner, { pkg: pkg } ) )
                 .pipe( gulp.dest( config.publicPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.requirejs ) );
