@@ -5,16 +5,11 @@
   "fontsDir": "fonts",
   "cssDir": "css",
   "javascript": {
+    "requirejs": true,
     "dir": "js",
     "outputFile": "main",
     "subdir": {
-      "smp": "simple-module-pattern",
-      "umd": "universal-module-definition",
-      "classical": "classical",
-      "classicalbis": "classical-bis",
-      "common": "common-js",
-      "amd": "amd-js",
-      "requirejs": "require-js"
+      "requirejs": "requirejs"
     }
   },
   "imgDir": "img",

@@ -77,53 +77,25 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             };
 
 
-            gulp.task( 'build-doc-smp', 'Generate document fo simple javascript module pattern', [], function ( cb ) {
-                    console.log( 'build-doc-smp' );
-                    plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.smp;
-                    return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js' ], { read: true } )
+
+
+            gulp.task( 'build-doc-requirejs', 'Generate documentation for javascript sources with requirejs', [], function ( cb ) {
+                    console.log( 'build-doc-requirejs' );
+                    plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.requirejs;
+                    return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.requirejs + '/**/*.js' ], { read: true } )
                         .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                         .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
                 }
             );
 
-            gulp.task( 'build-doc-umd', 'Generate documentation for umd javascript', [], function ( cb ) {
-                    console.log( 'build-doc-umd' );
-                    plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.umd;
-                    return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js' ], { read: true } )
-                        .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
-                        .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
-                }
-            );
-
-            gulp.task( 'build-doc-classical', 'Generate documentation for classical javascript', [], function ( cb ) {
-                    console.log( 'build-doc-classical' );
-                    plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.classical;
-                    return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.classical + '/**/*.js' ], { read: true } )
-                        .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
-                        .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
-                }
-            );
-
-            gulp.task( 'build-doc-classical-bis', 'Generate documentation for classical javascript bis', [], function ( cb ) {
-                    console.log( 'build-doc-classical-bis' );
-                    plugins.configJSDoc.opts.destination = config.documentation.rootPath + '/' + config.documentation.dir + '/' + config.documentation.jsdir + '/' + config.javascript.subdir.classicalbis;
-                    return gulp.src( [ config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.classicalbis + '/**/*.js' ], { read: true } )
-                        .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
-                        .pipe( plugins.jsdoc( plugins.configJSDoc ), cb );
-                }
-            );
-
-            plugins.runSequence( [ 'build-doc-umd' ], [ 'build-doc-smp' ], [ 'build-doc-classical' ], [ 'build-doc-classical-bis' ], cb );
+            plugins.runSequence( [ 'build-doc-requirejs' ], cb );
         }
     );
 
 
     gulp.task( 'watch-jsdoc', 'Watch javascript files to regenerate documentation', [ 'build-jsdoc' ], function ( cb ) {
             var allJs = [
-                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.smp + '/**/*.js',
-                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.umd + '/**/*.js',
-                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.classical + '/**/*.js',
-                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.classicalbis + '/**/*.js'
+                config.srcPath + '/' + config.javascript.dir + '/' + config.javascript.subdir.requirejs + '/**/*.js'
             ];
             plugins.tools.watch( allJs, [ 'build-jsdoc' ] );
         }

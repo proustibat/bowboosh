@@ -157,6 +157,8 @@
 
   // Custom Globals: additional predefined global variables
   "globals": {
-    "window": false
+    "window": false,
+    "define":  false,
+    "require":  false
   }
 }
