@@ -18,7 +18,8 @@
     "font-awesome": "fontawesome#4.6.2",
     "jquery": "1.12.3",
     "bootswatch": "3.3.6+1",
-    "requirejs": "^2.2.0"
+    "requirejs": "^2.2.0",
+    "outdated-browser": "^1.1.3"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -32,6 +33,9 @@
       ]
     },
     "bootstrap": {
+      "ignore": true
+    },
+    "outdated-browser": {
       "ignore": true
     }
   },

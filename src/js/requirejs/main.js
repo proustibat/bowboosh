@@ -4,9 +4,31 @@ define( 'main', [
         'app/helpers',
         'bootstrap',
         'app/clickmemodule'
-        // 'app/specialmodule'
-    ], function ( $, Helpers, Bootstrap, ClickMeModule, SpecialModule ) {
+    ], function ( $, Helpers, Bootstrap, ClickMeModule ) {
         console.log( 'Hello Require JS Boowboosh App' );
+
+
+        /**
+         * Warning advising the user to update the browser.
+         */
+        require( [ 'outdatedbrowser' ], function ( outdatedBrowser ) {
+                outdatedBrowser( {
+                        bgColor: '#f25648',
+                        color: '#ffffff',
+                        lowerThan: 'borderImage',
+                        /*
+                         "IE11","borderImage"
+                         "IE10", "transform" (Default property)
+                         "IE9", "boxShadow"
+                         "IE8", "borderSpacing"
+                         */
+                        languagePath: 'outdatedbrowser/lang/en.html'
+                    }
+                );
+
+            }
+        );
+
 
         var _specialModule = null;
 

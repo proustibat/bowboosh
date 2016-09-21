@@ -19,4 +19,15 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             plugins.tools.watch( baseFiles, [ 'clean-base-src', 'copy-base-src' ] );
         }
     );
+
+
+    gulp.task( 'add-outdated-browser', 'Copy vendors from bower library "outdated browser" into public directory', function () {
+            return gulp
+                .src( [
+                        config.bowerDir + '/outdated-browser/outdatedbrowser/**/*'
+                    ]
+                )
+                .pipe( gulp.dest( config.publicPath + '/outdatedbrowser' ) );
+        }
+    );
 };
