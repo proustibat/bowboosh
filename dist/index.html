@@ -15,7 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+    <link rel="stylesheet" href="outdatedbrowser/outdatedbrowser.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <!--<script src="outdatedbrowser/outdatedbrowser.min.js"></script>-->
     <script src="js/vendor/custom-modernizr.js"></script>
 </head>
 <body>
@@ -248,13 +250,52 @@
     </footer>
 </div> <!-- /container -->
 
+<div id="outdated"></div>
+
+
+
+
+
+
+
 
 <!-- Sync custom modules -->
 <!--<script data-main="js/requirejs/main.min.js" src="js/vendor/requirejs/require.js"></script>-->
-
-
 <!-- Async custom modules -->
 <script data-main="js/requirejs/config.js" src="js/vendor/requirejs/require.js"></script>
+
+<script>
+//    //event listener: DOM ready
+//    function addLoadEvent(func) {
+//        var oldonload = window.onload;
+//        if (typeof window.onload != 'function') {
+//            window.onload = func;
+//        } else {
+//            window.onload = function() {
+//                if (oldonload) {
+//                    oldonload();
+//                }
+//                func();
+//            }
+//        }
+//    }
+//    //call plugin function after DOM ready
+//    addLoadEvent(function(){
+//        outdatedBrowser({
+//            bgColor: '#f25648',
+//            color: '#ffffff',
+//            lowerThan: 'borderImage',
+//            /*
+//             "IE11","borderImage"
+//             "IE10", "transform" (Default property)
+//             "IE9", "boxShadow"
+//             "IE8", "borderSpacing"
+//             */
+//            languagePath: 'outdatedbrowser/lang/en.html'
+//        })
+//    });
+</script>
+
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

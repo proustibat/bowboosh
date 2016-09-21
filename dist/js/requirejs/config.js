@@ -4,4 +4,4 @@
  * @link https://github.com/proustibat/bowboosh
  * @license MIT
  */
-"use strict";require.config({baseUrl:"js/requirejs",deps:["main"],paths:{jquery:"../vendor/jquery/dist/jquery.min",bootstrap:"../vendor/bootstrap-sass/assets/javascripts/bootstrap.min"},shim:{bootstrap:{deps:["jquery"]}}});
+"use strict";require.config({baseUrl:"js/requirejs",deps:["main"],paths:{jquery:"../vendor/jquery/dist/jquery.min",bootstrap:"../vendor/bootstrap-sass/assets/javascripts/bootstrap.min",outdatedbrowser:"../../outdatedbrowser/outdatedbrowser.min"},shim:{bootstrap:{deps:["jquery"]},outdatedbrowser:{exports:"outdatedBrowser"}}});

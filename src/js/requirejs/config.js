@@ -5,11 +5,15 @@ require.config( {
         deps: [ "main" ],
         paths: {
             jquery: '../vendor/jquery/dist/jquery.min',
-            bootstrap: "../vendor/bootstrap-sass/assets/javascripts/bootstrap.min"
+            bootstrap: "../vendor/bootstrap-sass/assets/javascripts/bootstrap.min",
+            outdatedbrowser: "../../outdatedbrowser/outdatedbrowser.min"
         },
         shim: {
             'bootstrap': {
                 deps: [ 'jquery' ]
+            },
+            'outdatedbrowser': {
+                exports: 'outdatedBrowser'
             }
         }
     }
