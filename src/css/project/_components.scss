@@ -66,10 +66,11 @@
 /// Component module with require js
 /// Contains a title and a button
 .module-require {
+  padding-right: 10px;
+  padding-bottom: 20px;
   .btn {
     margin-bottom: 20px;
   }
-  padding-right: 10px;
   .mod-rjs-box {
     width: 100%;
     background: red;
