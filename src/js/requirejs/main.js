@@ -61,28 +61,22 @@ define( 'main', [
         $( '.js-create-button' ).on( 'click', function () {
                 console.log( "create ", _specialModule );
                 $( this ).button( 'loading' );
-
-                setTimeout( function () {
-                        // Load this file and its dependencies when needed
-                        require( [ 'app/specialmodule' ], function ( SpecialModule ) {
-                                if ( _specialModule === null ) {
-                                    _specialModule = new SpecialModule( $( this ).parents( '.row' ) ).init();
-                                    _specialModule.sayHello();
-                                    $( this ).attr( {
-                                            'disabled': 'disabled',
-                                            'aria-pressed': true
-                                        }
-                                    ).addClass( 'disabled' ).removeClass( 'active' ).text( 'done' );
+                // Load this file and its dependencies when needed
+                require( [ 'app/specialmodule' ], function ( SpecialModule ) {
+                        if ( _specialModule === null ) {
+                            _specialModule = new SpecialModule( $( this ).parents( '.row' ) ).init();
+                            _specialModule.sayHello();
+                            $( this ).attr( {
+                                    'disabled': 'disabled',
+                                    'aria-pressed': true
                                 }
-                                else {
-                                    alert( "Special Module has already been created!" );
-                                }
-                            }.bind( this )
-                        );
-                    }.bind( this ), Helpers.getRandomInt( 0, 1500 )
+                            ).addClass( 'disabled' ).removeClass( 'active' ).text( 'done' );
+                        }
+                        else {
+                            alert( "Special Module has already been created!" );
+                        }
+                    }.bind( this )
                 );
-
-
             }
         );
     }
