@@ -20,7 +20,8 @@ define( 'app/helpers', [
             getRandomInt: function ( min, max ) {
                 min = Math.ceil( min );
                 max = Math.floor( max );
-                return Math.floor( Math.random() * (max - min) ) + min;
+                var random = Math.random() * (max - min);
+                return Math.floor( random ) + min;
             }
         };
     }
