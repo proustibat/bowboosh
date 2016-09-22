@@ -4,9 +4,9 @@ module.exports = function ( gulp, plugins, config, pkg, bwr ) {
             return gulp.src( config.srcPath + '/' + config.javascript.dir + '/**/*.js' )
                 .pipe( plugins.plumber( { errorHandler: plugins.tools.errorHandler } ) )
                 .pipe( plugins.complexity( {
-                        cyclomatic: [ 3, 7, 12 ],
-                        halstead: [ 8, 13, 20 ],
-                        maintainability: 100,
+                        cyclomatic: [ 7 ],  // [3, 7, 12]
+                        halstead: [ 13 ],   // [8, 13, 20]
+                        maintainability: 85,
                         breakOnErrors: false,
                         verbose: true
                     }

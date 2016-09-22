@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">72.99</p>
+      <p class="stat">71.75</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">44</p>
+      <p class="stat">65</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">10.18</p>
+      <p class="stat">14.49</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">0.31</p>
+      <p class="stat">0.45</p>
     </div>
   </div>
 </div>
@@ -105,6 +105,9 @@ define( &#039;app/clickmemodule&#039;, [
                 $box: null,
                 $button: null,
 
+                /**
+                 * 
+                 */
                 init: function () {
                     console.log( &#039;ClickMeModule.init&#039; );
                     this.uid = Helpers.guid();
@@ -117,14 +120,32 @@ define( &#039;app/clickmemodule&#039;, [
                     this.setListeners();
                 },
 
+                /**
+                 * 
+                 */
                 setListeners: function () {
                     console.log( &#039;ClickMeModule.setListeners&#039; );
                     this.$button.on( &#039;click&#039;, this.onButtonClick.bind( this ) );
                 },
 
+                /**
+                 * 
+                 * @param e
+                 */
                 onButtonClick: function ( e ) {
                     console.log( &#039;ClickMeModule.onButtonClick : &#039;, this.uid );
-                    this.$el.toggleClass( &#039;active&#039; );
+                    this.$button.button( &#039;loading&#039; );
+                    setTimeout( function () {
+                            this.$el.toggleClass( &#039;active&#039; );
+                            var state = (this.$button.attr( &quot;aria-pressed&quot; ) === &#039;true&#039; ? &#039;unclick&#039; : &#039;click&#039;);
+                            console.log( this.$button.attr( &quot;aria-pressed&quot; ) );
+                            console.log( state );
+                            // debugger;
+                            this.$button.button( state );
+                            // this.$button.button( &#039;reset&#039; );
+
+                        }.bind( this ), Helpers.getRandomInt( 0, 1500 )
+                    );
                     e.preventDefault();
                 }
             };

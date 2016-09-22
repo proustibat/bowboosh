@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">65.11</p>
+      <p class="stat">65.44</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">58</p>
+      <p class="stat">83</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">13.35</p>
+      <p class="stat">15.08</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">0.27</p>
+      <p class="stat">0.46</p>
     </div>
   </div>
 </div>
@@ -90,59 +90,84 @@
 <div class="container">
   <div class="row">
     <textarea id="file-source" class="col-md-12">&#039;use strict&#039;;
-// Require.js allows us to configure shortcut alias
-require.config( {
-        baseUrl: &#039;js/vendor&#039;,
-        paths: {
-            jquery: &#039;jquery/dist/jquery.min&#039;,
-            bootstrap: &quot;bootstrap-sass/assets/javascripts/bootstrap.min&quot;
-        },
-        shim: {
-            &#039;bootstrap&#039;: {
-                deps: [ &#039;jquery&#039; ]
-            }
-        }
-    }
-);
-
-require( [
+define( &#039;main&#039;, [
         &#039;jquery&#039;,
+        &#039;app/helpers&#039;,
         &#039;bootstrap&#039;,
         &#039;app/clickmemodule&#039;
-    ], function ( $, Bootstrap, ClickMeModule ) {
+    ], function ( $, Helpers, Bootstrap, ClickMeModule ) {
+        console.log( &#039;Hello Require JS Boowboosh App&#039; );
 
-        // DOM ready
-        $( function () {
-                console.log( &#039;Hello Require JS App&#039; );
 
-                var colors = [
-                    &#039;color-fav-green-blue&#039;,
-                    &#039;color-fav-yellow&#039;,
-                    &#039;color-fav-pink&#039;,
-                    &#039;color-fav-red-orange&#039;,
-                    &#039;color-fav-green&#039;,
-                    &#039;color-fav-turquoise&#039;,
-                    &#039;color-fav-blue&#039;,
-                    &#039;color-fav-orange&#039;,
-                    &#039;color-fav-violet&#039;
-                ];
-                var usedColor = 0;
-
-                var nbModules = $( &#039;.js-modules .js-module&#039; ).length;
-                var moduleList = [];
-                // Instanciation
-                for ( var i = 0, l = nbModules; i &lt; l; i++ ) {
-                    moduleList.push( new ClickMeModule( $( &#039;.js-modules .js-module&#039; ).eq( i ), colors[ usedColor ] ) );
-                    usedColor++;
-                    if ( usedColor == colors.length ) {
-                        usedColor = 0;
+        /**
+         * Warning advising the user to update the browser.
+         */
+        require( [ &#039;outdatedbrowser&#039; ], function ( outdatedBrowser ) {
+                outdatedBrowser( {
+                        bgColor: &#039;#f25648&#039;,
+                        color: &#039;#ffffff&#039;,
+                        lowerThan: &#039;borderImage&#039;,
+                        /*
+                         &quot;IE11&quot;,&quot;borderImage&quot;
+                         &quot;IE10&quot;, &quot;transform&quot; (Default property)
+                         &quot;IE9&quot;, &quot;boxShadow&quot;
+                         &quot;IE8&quot;, &quot;borderSpacing&quot;
+                         */
+                        languagePath: &#039;outdatedbrowser/lang/en.html&#039;
                     }
-                }
-                // Initilization
-                for ( i = 0; i &lt; l; i++ ) {
-                    moduleList[ i ].init();
-                }
+                );
 
+            }
+        );
+
+
+        var _specialModule = null;
+
+        var colors = [
+            &#039;color-fav-green-blue&#039;,
+            &#039;color-fav-yellow&#039;,
+            &#039;color-fav-pink&#039;,
+            &#039;color-fav-red-orange&#039;,
+            &#039;color-fav-green&#039;,
+            &#039;color-fav-turquoise&#039;,
+            &#039;color-fav-blue&#039;,
+            &#039;color-fav-orange&#039;,
+            &#039;color-fav-violet&#039;
+        ];
+
+        // Instanciation &amp; initialization of each module
+        for ( var i = 0,
+                  usedColor = 0,
+                  nbModules = $( &#039;.js-modules .js-module&#039; ).length,
+                  moduleList = [];
+              i &lt; nbModules;
+              i++ ) {
+            moduleList.push( new ClickMeModule( $( &#039;.js-modules .js-module&#039; ).eq( i ), colors[ usedColor ] ) );
+            usedColor = usedColor === colors.length - 1 ? 0 : usedColor + 1;
+            moduleList.pop().init();
+
+        }
+
+
+        $( &#039;.js-create-button&#039; ).on( &#039;click&#039;, function () {
+                console.log( &quot;create &quot;, _specialModule );
+                $( this ).button( &#039;loading&#039; );
+                // Load this file and its dependencies when needed
+                require( [ &#039;app/specialmodule&#039; ], function ( SpecialModule ) {
+                        if ( _specialModule === null ) {
+                            _specialModule = new SpecialModule( $( this ).parents( &#039;.row&#039; ) ).init();
+                            _specialModule.sayHello();
+                            $( this ).attr( {
+                                    &#039;disabled&#039;: &#039;disabled&#039;,
+                                    &#039;aria-pressed&#039;: true
+                                }
+                            ).addClass( &#039;disabled&#039; ).removeClass( &#039;active&#039; ).text( &#039;done&#039; );
+                        }
+                        else {
+                            alert( &quot;Special Module has already been created!&quot; );
+                        }
+                    }.bind( this )
+                );
             }
         );
     }
