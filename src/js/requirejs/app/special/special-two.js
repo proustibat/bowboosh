@@ -1,12 +1,16 @@
 'use strict';
+/**
+ * A special module.
+ * @module app/special/special-two
+ */
 define( 'app/special/special-two', [
         'jquery',
         'app/helpers'
     ], function ( $, Helpers ) {
 
         /**
-         *
          * @constructor
+         * @alias module:app/special/special-two
          */
         function SpecialOne() {
             console.log( 'Hello SpecialOne' );
@@ -14,11 +18,11 @@ define( 'app/special/special-two', [
             this.$el = null;
         }
 
-        /**
-         *
-         * @type {{init: SpecialModule.init, sayHello: SpecialModule.sayHello}}
-         */
         SpecialOne.prototype = {
+            /**
+             * Initialize the special module, give it a uid
+             * @returns {SpecialOne}
+             */
             init: function () {
                 console.log( 'SpecialOne.init' );
                 this.uid = Helpers.guid();
@@ -26,8 +30,9 @@ define( 'app/special/special-two', [
             }
         };
 
-        // Return the constructor.
+        /**
+         * Return the constructor.
+         */
         return ( SpecialOne );
-
     }
 );

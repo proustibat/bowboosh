@@ -3,8 +3,8 @@ HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatc
 
 
 ## Demo:
-###[Master Branch](http://demo.proustib.at/bowboosh/)
-###[RequireJS Branch](http://demo.proustib.at/bowboosh/requirejs/)
+### [RequireJS Branch](http://demo.proustib.at/bowboosh/requirejs/) (Using RequireJS with asynchronous loading)
+### [Simple Workflow Branch](http://demo.proustib.at/bowboosh/) (without RequireJS)
 
 
 _____
@@ -99,12 +99,14 @@ All available gulp tasks are visible when running `gulp h` or ` npm run help`
 Result:
 
 ```sh
+  add-outdated-browser      Copy vendors from bower library "outdated browser" into public directory
   build                     Build web app or site for distribution
   build-bootswatch-theme    Copy sass files from theme choosen in config
   build-fonts               Copy all fonts source into public directory
   build-imagemin            Optimize images
   build-js-classical        Build javascript file from classical javascript sources
   build-js-classical-bis    Build javascript file from classical bis javascript sources
+  build-js-requirejs        Build javascript files from requirejs directory
   build-js-smp              Build javascript file from simple javascript modules sources
   build-js-umd              Build javascript file from UMD javascript modules sources
   build-jsdoc               Generate javascript documentation
@@ -139,6 +141,7 @@ Result:
   watch-imagemin            Watch images sources to reload imagemin task
   watch-js-classical        Watch classical javascript files
   watch-js-classical-bis    Watch classical javascript files bis
+  watch-js-requirejs        Watch javascript files from requirejs directory
   watch-js-smp              Watch simple javascript modules files
   watch-js-umd              Watch UMD modules javascript files
   watch-jsdoc               Watch javascript files to regenerate documentation
@@ -146,8 +149,6 @@ Result:
   watch-sass                Watch scss files sources
   watch-sassdoc             Watch sass files to regenerate sass documentation
   watch-vendors             Watch vendor libraries
-
-
 ```
 
 _____
@@ -193,13 +194,16 @@ _____
 Result example of `gulp complexity`:
 
 ```
-$ gulp complexity
-[18:31:40] Starting 'complexity'...
-[18:31:40] V src\js\simple-module-pattern\main.js             ██████ 122.02
-[18:31:40] V src\js\simple-module-pattern\module.js           ███████ 145.19
-[18:31:40] V src\js\universal-module-definition\App.js        ██████ 124.95
-[18:31:40] V src\js\universal-module-definition\myModule.js   ██████ 133.49
-[18:31:40] Finished 'complexity' after 375 ms
+Using gulpfile c:\wamp\www\bowboosh\gulpfile.js
+Starting 'complexity'...
+✓ src\js\requirejs\config.js                    █████ 106.80
+✓ src\js\requirejs\main.js                      █████ 111.91
+✓ src\js\requirejs\app\clickmemodule.js         ██████ 122.69
+✓ src\js\requirejs\app\helpers.js               ██████ 132.81
+✓ src\js\requirejs\app\specialmodule.js         ██████ 131.10
+✓ src\js\requirejs\app\special\special-one.js   ██████ 136.58
+✓ src\js\requirejs\app\special\special-two.js   ██████ 134.11
+Finished 'complexity' after 378 ms
 ```
 
 See [http://jscomplexity.org/complexity](http://jscomplexity.org/complexity) and [https://github.com/escomplex/complexity-report](https://github.com/escomplex/complexity-report) for more details.
@@ -281,7 +285,9 @@ Run `gulp plato-report` will generate report in ./dist/docs/plato-report
 See [https://github.com/es-analysis/plato](https://github.com/es-analysis/plato) for more details.
 
 **Demo**
-Example result is available here: [JSDoc Bowboosh](http://demo.proustib.at/bowboosh/docs/plato-report)
+Example result is available here:
+- [Bowboosh Plato Report](http://demo.proustib.at/bowboosh/docs/plato-report) (for the simple workflow branch)
+- [Bowboosh Plato Report](http://demo.proustib.at/bowboosh/requirejs/docs/plato-report/) (for the require js branch)
 
 
 
@@ -315,6 +321,7 @@ Examples results are available here:
 - [JSDoc Bowboosh - classical bis](http://demo.proustib.at/bowboosh/docs/javascript/classical-bis/)
 - [JSDoc Bowboosh - smp](http://demo.proustib.at/bowboosh/docs/javascript/simple-module-pattern/)
 - [JSDoc Bowboosh - umd](http://demo.proustib.at/bowboosh/docs/javascript/universal-module-pattern/)
+- [JSDoc Bowboosh - requirejs](http://demo.proustib.at/bowboosh/requirejs/docs/javascript/requirejs/)
 
 
 ## Sass Doc

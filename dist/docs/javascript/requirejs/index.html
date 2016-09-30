@@ -31,9 +31,9 @@
 		<ul class="nav navbar-nav">
 			
 			<li class="dropdown">
-				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#init">init</a></li><li><a href="global.html#setListeners">setListeners</a></li><li><a href="global.html#onButtonClick">onButtonClick</a></li><li><a href="global.html#getRandomInt">getRandomInt</a></li>
+					<li><a href="module-app_clickmemodule.html">app/clickmemodule</a></li><li><a href="module-app_helpers.html">app/helpers</a></li><li><a href="module-app_special_special-one.html">app/special/special-one</a></li><li><a href="module-app_special_special-two.html">app/special/special-two</a></li>
 				</ul>
 			</li>
 			
@@ -85,9 +85,7 @@
 
     <section class="readme-section">
         <article><p>HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatch themes, deployment tasks, documentation and code analysis tasks.</p>
-<h2>Demo:</h2><p>###<a href="http://demo.proustib.at/bowboosh/">Master Branch</a></p>
-<p>###<a href="http://demo.proustib.at/bowboosh/requirejs/">RequireJS Branch</a></p>
-<hr>
+<h2>Demo:</h2><h3><a href="http://demo.proustib.at/bowboosh/requirejs/">RequireJS Branch</a> (Using RequireJS with asynchronous loading)</h3><h3><a href="http://demo.proustib.at/bowboosh/">Simple Workflow Branch</a> (without RequireJS)</h3><hr>
 <h1>Main features</h1><ul>
 <li>HTML5 Boilerplate</li>
 <li>Modernizr library customization</li>
@@ -162,12 +160,14 @@ npm run analysis        // run several gulp tasks to analize code quality
 npm run report          // run plato and publish results in &quot;./dist/docs/plato-report&quot;
 npm run deploy          // SFTP deployment on a remote server</code></pre><h2>Help</h2><p>All available gulp tasks are visible when running <code>gulp h</code> or <code>npm run help</code></p>
 <p>Result:</p>
-<pre class="prettyprint source lang-sh"><code>  build                     Build web app or site for distribution
+<pre class="prettyprint source lang-sh"><code>  add-outdated-browser      Copy vendors from bower library &quot;outdated browser&quot; into public directory
+  build                     Build web app or site for distribution
   build-bootswatch-theme    Copy sass files from theme choosen in config
   build-fonts               Copy all fonts source into public directory
   build-imagemin            Optimize images
   build-js-classical        Build javascript file from classical javascript sources
   build-js-classical-bis    Build javascript file from classical bis javascript sources
+  build-js-requirejs        Build javascript files from requirejs directory
   build-js-smp              Build javascript file from simple javascript modules sources
   build-js-umd              Build javascript file from UMD javascript modules sources
   build-jsdoc               Generate javascript documentation
@@ -202,6 +202,7 @@ npm run deploy          // SFTP deployment on a remote server</code></pre><h2>He
   watch-imagemin            Watch images sources to reload imagemin task
   watch-js-classical        Watch classical javascript files
   watch-js-classical-bis    Watch classical javascript files bis
+  watch-js-requirejs        Watch javascript files from requirejs directory
   watch-js-smp              Watch simple javascript modules files
   watch-js-umd              Watch UMD modules javascript files
   watch-jsdoc               Watch javascript files to regenerate documentation
@@ -222,13 +223,16 @@ Several watchers are running for each tasks (see <code>gulp help</code> to list 
 <li><code>npm run doc</code> will run <code>gulp jsdoc</code></li>
 </ul>
 <h2>Code Complexity</h2><p>Result example of <code>gulp complexity</code>:</p>
-<pre class="prettyprint source"><code>$ gulp complexity
-[18:31:40] Starting 'complexity'...
-[18:31:40] V src\js\simple-module-pattern\main.js             ██████ 122.02
-[18:31:40] V src\js\simple-module-pattern\module.js           ███████ 145.19
-[18:31:40] V src\js\universal-module-definition\App.js        ██████ 124.95
-[18:31:40] V src\js\universal-module-definition\myModule.js   ██████ 133.49
-[18:31:40] Finished 'complexity' after 375 ms</code></pre><p>See <a href="http://jscomplexity.org/complexity">http://jscomplexity.org/complexity</a> and <a href="https://github.com/escomplex/complexity-report">https://github.com/escomplex/complexity-report</a> for more details.</p>
+<pre class="prettyprint source"><code>Using gulpfile c:\wamp\www\bowboosh\gulpfile.js
+Starting 'complexity'...
+✓ src\js\requirejs\config.js                    █████ 106.80
+✓ src\js\requirejs\main.js                      █████ 111.91
+✓ src\js\requirejs\app\clickmemodule.js         ██████ 122.69
+✓ src\js\requirejs\app\helpers.js               ██████ 132.81
+✓ src\js\requirejs\app\specialmodule.js         ██████ 131.10
+✓ src\js\requirejs\app\special\special-one.js   ██████ 136.58
+✓ src\js\requirejs\app\special\special-two.js   ██████ 134.11
+Finished 'complexity' after 378 ms</code></pre><p>See <a href="http://jscomplexity.org/complexity">http://jscomplexity.org/complexity</a> and <a href="https://github.com/escomplex/complexity-report">https://github.com/escomplex/complexity-report</a> for more details.</p>
 <h2>Copy paste detector</h2><p>Result example of <code>gulp jscpd</code>:</p>
 <p>When all is alright, there's nothing to say:</p>
 <pre class="prettyprint source"><code>$ gulp jscpd
@@ -274,7 +278,11 @@ src\js\universal-module-definition\App.js
 <h2>Plato Reporting</h2><p>Run <code>gulp plato-report</code> will generate report in ./dist/docs/plato-report
 See <a href="https://github.com/es-analysis/plato">https://github.com/es-analysis/plato</a> for more details.</p>
 <p><strong>Demo</strong>
-Example result is available here: <a href="http://demo.proustib.at/bowboosh/docs/plato-report">JSDoc Bowboosh</a></p>
+Example result is available here:</p>
+<ul>
+<li><a href="http://demo.proustib.at/bowboosh/docs/plato-report">Bowboosh Plato Report</a> (for the simple workflow branch)</li>
+<li><a href="http://demo.proustib.at/bowboosh/requirejs/docs/plato-report/">Bowboosh Plato Report</a> (for the require js branch)</li>
+</ul>
 <hr>
 <h1>Documentations</h1><h2>Javascript (JSDoc)</h2><p>Use <code>gulp build-jsdoc</code> to generate javascript documentation.</p>
 <p>Each javascript apps are documented in different directories, for example :</p>
@@ -291,6 +299,7 @@ Examples results are available here:</p>
 <li><a href="http://demo.proustib.at/bowboosh/docs/javascript/classical-bis/">JSDoc Bowboosh - classical bis</a></li>
 <li><a href="http://demo.proustib.at/bowboosh/docs/javascript/simple-module-pattern/">JSDoc Bowboosh - smp</a></li>
 <li><a href="http://demo.proustib.at/bowboosh/docs/javascript/universal-module-pattern/">JSDoc Bowboosh - umd</a></li>
+<li><a href="http://demo.proustib.at/bowboosh/requirejs/docs/javascript/requirejs/">JSDoc Bowboosh - requirejs</a></li>
 </ul>
 <h2>Sass Doc</h2><p>Use <code>gulp build-sassdoc</code> to generate sassdoc documentation.</p>
 <p>See <a href="http://sassdoc.com/">http://usejsdoc.org/</a> for more details about how to write comments in your source files.

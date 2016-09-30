@@ -1,21 +1,28 @@
 'use strict';
+/**
+ * Another special module.
+ * @module app/special/special-one
+ */
 define( 'app/special/special-one', [
         'jquery',
         'app/helpers'
     ], function ( $, Helpers ) {
 
         /**
-         * SpecialOne constructor
+         * @constructor
+         * @alias module:app/special/special-one
          */
         return function () {
             console.log( 'Hello SpecialOne' );
-
-            /**
-             * SpecialOne prototype
-             */
             return {
 
+                /**
+                 *
+                 */
                 uid: null,
+                /**
+                 *
+                 */
                 $el: null,
 
                 /**
@@ -26,11 +33,7 @@ define( 'app/special/special-one', [
                     this.uid = Helpers.guid();
                     return (this);
                 }
-
-
             };
-
         };
-
     }
 );

@@ -1,10 +1,18 @@
 'use strict';
+/**
+ * Module for helpers functions.
+ * @module app/helpers
+ */
 define( 'app/helpers', [
         'jquery'
-    ], function ( $ ) {
+    ],
+    function ( $ ) {
+        return /** @alias module:app/helpers */{
 
-        return {
-
+            /**
+             * Return a random unique identifier number
+             * @returns {string}
+             */
             guid: function () {
                 return Math.floor( (1 + Math.random()) * 0x10000 )
                     .toString( 16 )

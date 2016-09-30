@@ -1,21 +1,52 @@
 'use strict';
+/**
+ * A module to be clicked
+ * @module app/clickmemodule
+ */
 define( 'app/clickmemodule', [
         'jquery',
         'app/helpers'
-    ], function ( $, Helpers ) {
+    ],
+    /**
+     * @constructor
+     * @alias module:app/clickmemodule
+     * @param $
+     * @param Helpers
+     * @returns {Function}
+     */
+    function ( $, Helpers ) {
 
+        /**
+         *
+         */
         return function ( $element, cssClass ) {
             console.log( 'Hello ClickMeModule' );
 
+            /**
+             *
+             */
             return {
 
+                /**
+                 *
+                 */
                 uid: null,
+
+                /**
+                 *
+                 */
                 $el: null,
+                /**
+                 *
+                 */
                 $box: null,
+                /**
+                 *
+                 */
                 $button: null,
 
                 /**
-                 * 
+                 *
                  */
                 init: function () {
                     console.log( 'ClickMeModule.init' );
@@ -30,7 +61,7 @@ define( 'app/clickmemodule', [
                 },
 
                 /**
-                 * 
+                 *
                  */
                 setListeners: function () {
                     console.log( 'ClickMeModule.setListeners' );
@@ -38,7 +69,7 @@ define( 'app/clickmemodule', [
                 },
 
                 /**
-                 * 
+                 *
                  * @param e
                  */
                 onButtonClick: function ( e ) {
@@ -58,8 +89,6 @@ define( 'app/clickmemodule', [
                     e.preventDefault();
                 }
             };
-
         };
-
     }
 );

@@ -7,7 +7,6 @@ define( 'main', [
     ], function ( $, Helpers, Bootstrap, ClickMeModule ) {
         console.log( 'Hello Require JS Boowboosh App' );
 
-
         /**
          * Warning advising the user to update the browser.
          */
@@ -28,8 +27,7 @@ define( 'main', [
 
             }
         );
-
-
+    
         var _specialModule = null;
 
         var colors = [
@@ -56,8 +54,7 @@ define( 'main', [
             moduleList.pop().init();
 
         }
-
-
+    
         $( '.js-create-button' ).on( 'click', function () {
                 console.log( "create ", _specialModule );
                 $( this ).button( 'loading' );

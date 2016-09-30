@@ -1,4 +1,7 @@
 'use strict';
+/**
+ * 
+ */
 define( 'app/specialmodule',
     [
         'jquery',
@@ -6,6 +9,13 @@ define( 'app/specialmodule',
         'app/special/special-one',
         'app/special/special-two'
     ],
+    /**
+     * 
+     * @param $
+     * @param Helpers
+     * @param SpecialOne
+     * @returns {SpecialModule}
+     */
     function ( $, Helpers, SpecialOne ) {
 
         /**
@@ -23,6 +33,10 @@ define( 'app/specialmodule',
          * @type {{init: SpecialModule.init, sayHello: SpecialModule.sayHello}}
          */
         SpecialModule.prototype = {
+            /**
+             * 
+             * @returns {SpecialModule}
+             */
             init: function () {
                 console.log( 'SpecialModule.init' );
                 this.$info = $( '<span class="text-context">' );
@@ -30,6 +44,10 @@ define( 'app/specialmodule',
                 return (this);
             },
 
+            /**
+             * 
+             * @returns {SpecialModule}
+             */
             sayHello: function () {
                 console.log( 'SpecialModule.sayHello' );
                 this.$info.addClass( 'bg-success' ).html( 'Hello Special Module' );
