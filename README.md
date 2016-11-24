@@ -1,6 +1,9 @@
 HTML5 boilerplate with NPM, Gulp, Bower, Bootstrap Sass, Font-awesome, Bootswatch themes, deployment tasks, documentation and code analysis tasks.
 
 
+![Dependencies Updates Status](https://david-dm.org/proustibat/bowboosh.svg)
+
+
 
 ## Demo:
 ###[Master Branch](http://demo.proustib.at/bowboosh/)
